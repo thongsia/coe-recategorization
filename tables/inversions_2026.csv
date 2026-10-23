@@ -1,0 +1,5 @@
+month,bidding_no,a_premium,b_premium,spread_a_minus_b,a_bids_received,b_bids_received,label,value_type,scenario,data_window,citation
+2026-02,2,106501.0,105001.0,1500.0,1975,1353,"OBSERVED | citation: data.gov.sg COE bidding results (d_69b3380ad7e51aff3a7dcc84eba52b8a), fetched per verification/provenance_log.csv",OBSERVED,,,data.gov.sg coe_bids
+2026-04,2,123010.0,121001.0,2009.0,2410,1194,"OBSERVED | citation: data.gov.sg COE bidding results (d_69b3380ad7e51aff3a7dcc84eba52b8a), fetched per verification/provenance_log.csv",OBSERVED,,,data.gov.sg coe_bids
+2026-06,2,123847.0,123502.0,345.0,1768,1202,"OBSERVED | citation: data.gov.sg COE bidding results (d_69b3380ad7e51aff3a7dcc84eba52b8a), fetched per verification/provenance_log.csv",OBSERVED,,,data.gov.sg coe_bids
+2026-10,2,132004.0,131901.0,103.0,1574,1149,"OBSERVED | citation: data.gov.sg COE bidding results (d_69b3380ad7e51aff3a7dcc84eba52b8a), fetched per verification/provenance_log.csv",OBSERVED,,,data.gov.sg coe_bids

@@ -1,0 +1,103 @@
+{
+  "status": "ok",
+  "revenue_base": {
+    "optionA_E_removed": 139489050.0,
+    "optionA_E_cars_only": 139489050.0,
+    "optionB_E_removed": 137001675.0,
+    "optionB_E_cars_only": 137001675.0,
+    "e_shift_delta": {
+      "optionA": 43729050.0,
+      "optionB": 38624175.0,
+      "batch_e_published_optionB": 38624201.0,
+      "note": "Option B delta recomputed from Batch E published 2dp per-band counts; -26 S$ vs Batch E headline (unrounded-count input rounding, PASS at documented 150 S$ tolerance). Option A delta = B-shift counts aggregated onto Option A's 35th/50th pct bands. Both E options carry the identical E-registered-car flow (6,400/yr): 'E removed' adds it to the merged base (delta vs base excluding them); 'E cars only' INCLUDES it in the car feebate base (documented choice, methodology s.13)."
+    }
+  },
+  "incidence_pct_of_total_coe": {
+    "optionA_E_removed": 1.843,
+    "optionA_E_cars_only": 1.862,
+    "optionB_E_removed": 1.811,
+    "optionB_E_cars_only": 1.83,
+    "basis": "merged (2,137.5/round x 24 x with-fee 2027-12 price) + C (685.66M cars-only / 761.87M E-removed, quota x 91,813.5 flat, window 2026-08 b1..2026-10 b2) + D motorcycles (523.0/round x 24 x 11,391.83, same window)"
+  },
+  "crossfoot": "pass",
+  "crossfoot_detail": "5 PASS + 2 INFO rows (no FAIL): base vs Batch D (0.00 S$, PASS); E-shift Option B vs Batch E (26 S$ input rounding, PASS); E-shift 4dp path (55 S$, PASS); 2dp-share paths INFO (quantify -44,475/+18,012 S$ vs exact)",
+  "demand_shift_total": {
+    "optionA": -673.09,
+    "optionB": -691.47,
+    "note": "bids/yr = -Fbar x kappa_M (0.321748); band decomposition = allocation by w_b = (s_b f_b)/sum(s_k f_k); EV/ICE, cohort, OMV-decile rows in tables/demand_shift_by_band.csv + tables/segment_shift.csv (all SCENARIO-labeled, M3 elasticity grades A=MEDIUM B=LOW)"
+  },
+  "renewal_cohort": {
+    "volume_annual": 91922,
+    "class_split": {
+      "pre_A": 46076,
+      "pre_B": 45699,
+      "E_residual": 147
+    },
+    "mix_source": "make/fuel mix: data.gov.sg 2017 registrations (Batch B frozen resource); model-level OMV: LTA OneMotoring Average-OMV 2017 edition (verification/lta_omv_2017_page.html); class split: official LTA 2017 stats (MVP02-1_New_Reg_by_COE.pdf); equal within-make model allocation (approximation), 99.98% coverage",
+    "data_window": "2017-01..2017-12 (OBSERVED registrations + LTA 2017 OMV edition); assumption: full cohort renews in transition year 2027 (upper bound)",
+    "fallback_used": false,
+    "vintage": 2017,
+    "banding_bases": {
+      "PROPOSED_2025pct": "base (paper bands defined on 2025 registrations)",
+      "VINTAGE_2017pct": "sensitivity (annual-review re-derivation): A [23,052/26,379] vs [28,877/36,062]; B [16,570/23,052/26,379/35,155] vs [20,310/28,877/36,062/49,662]"
+    }
+  },
+  "renewal_impact_transition_year": {
+    "pointer": "tables/renewal_impact_master.csv (+ 8 per-cell files under tables/renewal/; priced at cell-level PQP 2027-12 from pqp_by_cell.csv, never clearing price; toggle = quantum only)",
+    "pqp_2027_12_by_option": {
+      "optionA": 129800.16,
+      "optionB": 129743.03
+    },
+    "per_cell_annual_quantum_revenue_sgd": {
+      "OptionA+E_removed": -517215600.0,
+      "OptionA+E_cars_only": -517215600.0,
+      "OptionB+E_removed": -353265450.0,
+      "OptionB+E_cars_only": -353265450.0
+    },
+    "annual_cost_fee_off_sgd": {
+      "optionA": 11931490307.52,
+      "optionB": 11926237506.23
+    },
+    "winner_preA_vs_preB_fee_on": "pre_A under both options (per-vehicle quantum: pre_A -12,628.77 A / -9,260.73 B; pre_B +1,393.10 A / +1,587.45 B)",
+    "key_finding": "2017 vintage cohort is low-OMV vs 2025-based cut points -> renewal feebate under PROPOSED cut points is a NET REBATE of 517.2M S$/yr (A) / 353.3M S$/yr (B), not a net levy; VINTAGE_2017pct variant neutralizes this (quantified in renewal_cohort_banded.csv)"
+  },
+  "files_written": [
+    "src/fee_revenue.py",
+    "src/demand_shift.py",
+    "src/renewal_cohort.py",
+    "src/renewal_impact.py",
+    "data/processed/lta_omv_2017_avg.csv",
+    "data/processed/renewal_cohort_banded.csv",
+    "tables/fee_revenue_base.csv",
+    "tables/fee_revenue_sensitivity.csv",
+    "tables/fee_revenue_incidence.csv",
+    "tables/demand_shift_by_band.csv",
+    "tables/segment_shift.csv",
+    "tables/renewal_impact_master.csv",
+    "tables/renewal/OptionA+E_removed+renewal_feebate_no.csv",
+    "tables/renewal/OptionA+E_removed+renewal_feebate_yes.csv",
+    "tables/renewal/OptionA+E_cars_only+renewal_feebate_no.csv",
+    "tables/renewal/OptionA+E_cars_only+renewal_feebate_yes.csv",
+    "tables/renewal/OptionB+E_removed+renewal_feebate_no.csv",
+    "tables/renewal/OptionB+E_removed+renewal_feebate_yes.csv",
+    "tables/renewal/OptionB+E_cars_only+renewal_feebate_no.csv",
+    "tables/renewal/OptionB+E_cars_only+renewal_feebate_yes.csv",
+    "verification/crossfoot_log.csv",
+    "verification/lta_omv_2017_page.html",
+    "verification/MVP02-1_New_Reg_by_COE.pdf",
+    "verification/COEQuotaAllocationRV_Apr2010-2025.pdf",
+    "methodology_notes.md (appended s.13-15)",
+    "provenance.md (appended s.9)",
+    "batch_handoff_f.json"
+  ],
+  "notes": [
+    "Net feebate revenue: Option A 139,489,050 S$/yr; Option B 137,001,675 S$/yr (both E options identical: E-registered cars are in the car feebate base under both E options; 'E removed' additionally counts them as re-registered merged flow, same 6,400/yr).",
+    "Incidence vs total COE revenue (merged+C+D): 1.81-1.86% (A 1.843% removed / 1.862% cars-only; B 1.811% / 1.830%).",
+    "Revenue is cut-point sensitive: Batch C mix proxies give S1 59.6M/70.4M and S2 23.4M/43.5M base revenue vs the 2025-mix base 95.8M/98.4M - the symmetric +/-15,000 design makes net revenue dominated by cut-point location (2025 mass concentrated in S$20k-40k OMV).",
+    "Demand shift: total -673.09 (A) / -691.47 (B) bids/yr; EV absorbs 102.1%/86.1% of the shift; current-A cohort demand +640.61/+468.15, current-B -1,313.70/-1,159.62; luxury (OMV>49,662) -1,201.47/-1,200.55 vs mass-market +528.38/+509.07.",
+    "Renewal cohort: 91,922 (2017 car registrations; official A 46,076 / B 45,699 + E residual 147). Source chain: Car Cost 2017 PDFs unavailable (4 URL patterns probed, 404) -> LTA OMV 2017 edition available (5,178 model-month rows) -> LTA 2017 annual stats + 2017 registrations slice. 2025-mix fallback NOT used.",
+    "DISCREPANCY (provenance s.9.2): parent context claimed registrations.csv has no 2017 data - false; it holds 2017-01..2017-12 and was used.",
+    "DISCREPANCY (crossfoot_log + provenance s.9.5): Batch E e_shift Option B delta 38,624,201 vs recomputed 38,624,175 (-26 S$ input rounding, PASS); C quota E-removal 8,298 (Batch E rounded) vs exact 8,297.87 (0.11 veh/yr, immaterial).",
+    "Renewal pricing verified: PQP identical across toggle within each option (toggle = quantum only); 2027-01 context pulse +238.02 (A) / +238.03 (B) matches Batch E C-removal pulse exactly."
+  ]
+}

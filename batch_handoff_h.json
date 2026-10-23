@@ -1,0 +1,79 @@
+{
+  "status": "ok",
+  "batch": "H",
+  "steps": [
+    16,
+    17,
+    18
+  ],
+  "verification": {
+    "checks_run": 88,
+    "pass": 87,
+    "pass_documented": 1,
+    "fail": 0,
+    "info": 0,
+    "failures_or_docs": [
+      "pass_documented: Option B band shares cross-foot to 99.99% (2dp rounding of full-precision shares; main cross-foot 100.0% at Option A) \u2014 documented in tables/verification_report.csv, verification/crossfoot_log.csv, REPORT.md s9 and STATS_SUMMARY.md",
+      "D-method PQP validation: single outlier 2010-01 b2 Category D (SINGSTAT QP 852 vs LTA 20,090; LTA authoritative) \u2014 PASS with documented exception, provenance.md s4.2",
+      "B-method PQP validation: max deviation at 2026-09 = 0.83 S$ (known LTA-side deviation, logged) \u2014 PASS within 1.0 S$ tolerance, provenance.md s3.4"
+    ],
+    "traceability": "720 numeric lines scanned across REPORT.md + STATS_SUMMARY.md; 0 untraceable numbers (check d, paragraph-level citation granularity; see verification/report_traceability.csv)",
+    "freeze_audit": "clean (check i: every mix-scale number in a paragraph with an explicit data-window tag, via paragraph text or cited rows' data_window column)",
+    "output": [
+      "tables/verification_report.csv",
+      "verification/report_traceability.csv"
+    ]
+  },
+  "charts": [
+    "ab_convergence_perbidding.png",
+    "demand_shift_by_band.png",
+    "ec_quota_price_paths.png",
+    "fee_revenue.png",
+    "gaming_zones.png",
+    "merged_price_paths.png",
+    "omv_histogram_bands.png",
+    "renewal_cost_cells.png"
+  ],
+  "chart_sizes_bytes": {
+    "ab_convergence_perbidding.png": 218760,
+    "demand_shift_by_band.png": 168730,
+    "ec_quota_price_paths.png": 213864,
+    "fee_revenue.png": 174367,
+    "gaming_zones.png": 214786,
+    "merged_price_paths.png": 344631,
+    "omv_histogram_bands.png": 215799,
+    "renewal_cost_cells.png": 167001
+  },
+  "report_lines": 560,
+  "stats_summary_lines": 207,
+  "stats_summary_values_traceable": true,
+  "file_inventory_count": 144,
+  "files_written": [
+    "src/verify.py",
+    "src/make_charts.py",
+    "tables/verification_report.csv",
+    "verification/report_traceability.csv",
+    "verification/file_inventory.csv",
+    "charts/ab_convergence_perbidding.png",
+    "charts/demand_shift_by_band.png",
+    "charts/ec_quota_price_paths.png",
+    "charts/fee_revenue.png",
+    "charts/gaming_zones.png",
+    "charts/merged_price_paths.png",
+    "charts/omv_histogram_bands.png",
+    "charts/renewal_cost_cells.png",
+    "REPORT.md",
+    "STATS_SUMMARY.md",
+    "methodology_notes.md (s18 appended)",
+    "provenance.md (s10 appended)",
+    "batch_handoff_h.json"
+  ],
+  "notes": [
+    "Traceability engine: paragraph-level citation granularity (markdown soft-wraps place tags on other physical lines than the numbers); citation-syntax stripped before token extraction; tolerances 0.011+1e-9 absolute (2dp rounding), 2% relative for tiny values, magnitude match for signed deltas cited unsigned; structural allowlist (ints 0..60, years 2002..2027) + documented ALLOWLIST (~28 provenance-only entries, each citing provenance.md) + DERIVED registry (values computed from cited cells, each with tolerance + derivation).",
+    "With-fee latest prices 129,873.20 (A) / 129,816.07 (B) are the 2026-10 b2 BACK-SOLVED values (tables/merged_price_option{A,B}_withfee.csv back_solved rows, full precision); the iteration-log columns are 1dp-rounded (129,873.2 / 129,816.1) and the forward-2027-12 withfee price points are 129,800.16 / 129,743.03 \u2014 the report cites the full-precision table cells for 2-decimal figures.",
+    "fee_revenue_sensitivity.csv uses column feebate_option (not option); iteration log uses iterations_used (not n_iterations) \u2014 tags in the reports match the actual schemas.",
+    "methodology_notes.md s18 and provenance.md s10 appended (not rewritten); prior verified sections untouched.",
+    "Charts built from existing tables only (no recomputation); OBSERVED solid vs SCENARIO dashed in all figures; FIG 6 title carries regime start 2027-01-01 and derived vintage 2017 = 2027 - 10.",
+    "No tables from prior batches were modified; only verification_report.csv, file_inventory.csv (new audit outputs) and the report docs were written this batch."
+  ]
+}

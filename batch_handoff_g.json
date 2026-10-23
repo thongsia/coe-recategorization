@@ -1,0 +1,75 @@
+{
+  "status": "ok",
+  "batch": "G",
+  "steps": "14-15 (bob_plan.md)",
+  "gaming": {
+    "per_option_zone_shares_summary": "Option A: p35 zone [27,433-30,321] 23 models, 11.84% of covered mix (~5,418 annualised reg, S$15k at stake); p50 zone [34,259-37,865] 23 models, 13.79% (~6,312, S$15k at stake). Option B: p10 [19,294-21,326] 7 models, 5.56% (~2,544, S$7.5k); p35 [27,433-30,321] 23 models, 11.84% (~5,418, S$7.5k); p50 [34,259-37,865] 23 models, 13.79% (~6,312, S$7.5k); p75 [47,179-52,145] 19 models, 6.84% (~3,130, S$7.5k). +/-5% zone width is a documented analytical choice, not an LTA parameter (stated on every row). Shares independently re-verified against raw Jan-May 2025 make-mix weights (coverage 98.73%); annualised base 45,775 (A) / 45,776 (B) per Batch F fee_revenue_base.",
+    "max_zone_share_pct": 13.789,
+    "max_zone": "p50 cut point 36,062 (identical zone under both options; ~6,312 annualised registrations in-zone; quantum at stake 15,000 S$ under A / 7,500 S$ under B)"
+  },
+  "distortion": {
+    "families_total": 139,
+    "spanning_optionA": 12,
+    "spanning_optionB": 20,
+    "members_affected_optionA": 28,
+    "members_affected_optionB": 55,
+    "mis_banded_share_optionA_pct": 12.9,
+    "mis_banded_share_optionB_pct": 25.35,
+    "mis_banded_denominator": "217 catalog models (share of models whose band depends on which variant is taken)",
+    "max_within_family_quantum_diff": 15000,
+    "max_within_family_quantum_diff_optionA": 15000,
+    "max_within_family_quantum_diff_optionB": 7500,
+    "max_diff_family_optionA": "BYD :: SEAL (SEAL DYNAMIC 100KW OMV 34,833 band 2 q 0 vs SEAL PREMIUM OMV 37,458 band 3 q +15,000, spans p50)",
+    "max_diff_family_optionB": "AVATR :: 07 (07 MAX RWD OMV 44,154 band 4 q +7,500 vs 07 ULTRA AWD OMV 49,766 band 5 q +15,000, spans p75)",
+    "note": "Option A's 12 spanning families are a subset of Option B's 20 (verified; B's 8 extra span the B-only p10/p75 cut points). Family rule documented in methodology_notes.md s.16b."
+  },
+  "segment_shift": "Batch F table verified complete (EV-share + luxury-vs-mass-market mix shifts present per option); no rows added; file byte-identical to Batch F.",
+  "used_car": "directional only - no usable data (stated explicitly; value_type=DIRECTIONAL on all 3 rows; TYPE_DIRECTIONAL added to src/config.py for the label stamp)",
+  "master_matrix_cells": 8,
+  "master_matrix_highlights": {
+    "OptionA": "price path latest 2027-12 = PQP 2027-12 = 129,800.16 S$; feebate revenue base 139,489,050 S$/yr (excl. E-shift 95,760,000 + E-shift 43,729,050; sensitivity S1 59,630,005 / S2 23,365,106); renewal annual cost 11,931,490,307.52 (no feebate) vs 11,414,274,707.52 (yes) S$; renewal delta -517,215,600 S$/yr (NET REBATE); per-vehicle preA -12,628.77 / preB +1,393.10; winner pre_A, loser pre_B; cohort 91,922",
+    "OptionB": "price path latest 2027-12 = PQP 2027-12 = 129,743.03 S$; feebate revenue base 137,001,675 S$/yr (excl. E-shift 98,377,500 + E-shift 38,624,175; sensitivity S1 70,363,905 / S2 43,540,767); renewal annual cost 11,926,237,506.23 (no) vs 11,572,972,056.23 (yes) S$; renewal delta -353,265,450 S$/yr (NET REBATE); per-vehicle preA -9,260.73 / preB +1,587.45; winner pre_A, loser pre_B; cohort 91,921",
+    "pulse": "E_removed cells carry the one-round E-shift pulse +1,428.1354 S$ at 2027-01 b1 on the price path; visible in cell PQP 2027-01..2027-03 as +238.02 (A) / +238.03, +238.02, +238.02 (B, 2027-01 carries a 1-cent 2dp rounding artifact vs raw pulse/6 = 238.0226); E_cars_only cells unadjusted"
+  },
+  "price_paths_distinct": 4,
+  "price_paths_files": 8,
+  "toggle_identity_check": "pass - all 4 {renewal_feebate_no, renewal_feebate_yes} pairs byte-identical (sha256) AND value-identical (pandas equality on price/pulse/PQP columns); 4 distinct sha256 hashes across the 8 files confirm exactly 4 distinct paths; verified programmatically in src/master_matrix.py (check T1), not assumed",
+  "consistency_checks": {
+    "T1_toggle_pair_identity": "pass (4/4 pairs)",
+    "T2_pulse_crossfoot": "pass (OptionA 238.02x3, OptionB 238.03/238.02/238.02 vs raw 238.0226, 1-cent tolerance documented)",
+    "T3_latest_price_equals_pqp_2027_12": "pass (8/8 cells, 2dp)",
+    "T4_renewal_master_pqp_join": "pass (8/8 cells)",
+    "T5_revenue_identical_across_e_options": "pass (A 139,489,050; B 137,001,675)"
+  },
+  "files_written": [
+    "src/consequences.py",
+    "src/master_matrix.py",
+    "src/config.py (TYPE_DIRECTIONAL added)",
+    "tables/boundary_gaming_zones.csv",
+    "tables/classification_distortion.csv",
+    "tables/used_car_directional.csv",
+    "tables/segment_shift.csv (verified only, unchanged)",
+    "tables/master_matrix.csv",
+    "data/processed/price_paths/OptionA+E_removed+renewal_feebate_no.csv",
+    "data/processed/price_paths/OptionA+E_removed+renewal_feebate_yes.csv",
+    "data/processed/price_paths/OptionA+E_cars_only+renewal_feebate_no.csv",
+    "data/processed/price_paths/OptionA+E_cars_only+renewal_feebate_yes.csv",
+    "data/processed/price_paths/OptionB+E_removed+renewal_feebate_no.csv",
+    "data/processed/price_paths/OptionB+E_removed+renewal_feebate_yes.csv",
+    "data/processed/price_paths/OptionB+E_cars_only+renewal_feebate_no.csv",
+    "data/processed/price_paths/OptionB+E_cars_only+renewal_feebate_yes.csv",
+    "methodology_notes.md (sections 16-17 appended)"
+  ],
+  "notes": [
+    "Discrepancy logged (pre-existing, from Batch C): tables/banding_cutpoints.csv column 'band_above_quantum_sgd' carries the quantum of the band BELOW the cut-off (the band ending at that cut), not above; verified against config quantums and asserted in src/consequences.py.",
+    "Discrepancy logged: Option B 2027-01 cell-PQP pulse diff reads 238.03 vs raw pulse/6 = 238.0226 - a 1-cent artifact of pqp_by_cell publishing each cell PQP rounded to 2dp independently; matches the Batch E C-removal pulse +238.03 exactly (Batch F handoff).",
+    "Inherited Batch F float artifact: Option B cohort_volume 91,921 vs Option A 91,922 (91,921.99 scaling artifact); carried through unchanged from tables/renewal_impact_master.csv.",
+    "Catalog contains one duplicated (make, model) name: MERCEDES BENZ C180 AMG LN x2 (OMV 37,301 and 43,020 - two trims, separate catalog entries); both are separate banding rows and the family rule groups them into one family.",
+    "Gaming-zone shares are shares of the COVERED Jan-May 2025 mix (coverage 98.73%); makes not in the catalog are excluded by the Batch C fallback convention.",
+    "Family-grouping heuristic (documented in s.16b): 217 models -> 139 families per option; two genuinely distinct models sharing a base name would be over-merged (none found in the 217-model audit); the per-family spanning rows in the CSV are the verifiable ground truth.",
+    "Used-car channel: NO usable data in this run - directional statements only, explicitly labeled value_type=DIRECTIONAL; no numbers produced.",
+    "The +/-5% gaming-zone width is a documented analytical choice (config.GAMING_ZONE_WIDTH_PCT), not an LTA parameter; stated on every row of tables/boundary_gaming_zones.csv.",
+    "Batch F's tables/segment_shift.csv was NOT modified (extend-only rule; all required shift rows already present).",
+    "All outputs stamped via config.output_label with regime_start 2027-01-01 + derived vintage 2017 (2027 - 10-yr COE term) + scenario tag; master-matrix price-path files use the DISTINCT path id as scenario tag so toggle pairs are byte-identical."
+  ]
+}

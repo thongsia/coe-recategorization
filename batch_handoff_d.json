@@ -1,0 +1,86 @@
+{
+  "status": "ok",
+  "merged_price_latest_nofee": 131965.17,
+  "merged_price_latest_nofee_p10": 131950.25,
+  "merged_price_latest_nofee_p90": 131974.77,
+  "merged_price_forward_end_nofee": 131892.13,
+  "static_bounds": {
+    "window": "2025-01..2026-10 (recent 22 months; 44 biddings per category)",
+    "min": 85000,
+    "max": 141000
+  },
+  "forward_scenario_quota_assumption": "hold merged A+B quota at the most recent 6 biddings (rounds) average: mean(quota_A + quota_B) over 2026-08 b1 .. 2026-10 b2 = 2137.5; demand anchored at the last observed round (2026-10 b2: P_A=132004, P_B=131901, Q_A=1191, Q_B=923) with bidder pools held static (no demand growth); horizon 2027-01 b1 .. 2027-12 b2 (24 rounds, 2 biddings/month; regime start 2027-01-01 per config)",
+  "withfee_latest": {
+    "optionA": 129873.2,
+    "optionB": 129816.07
+  },
+  "withfee_latest_p10_p90": {
+    "optionA": [
+      129858.28,
+      129882.8
+    ],
+    "optionB": [
+      129801.14,
+      129825.67
+    ]
+  },
+  "withfee_forward_end": {
+    "optionA": 129800.16,
+    "optionB": 129743.03
+  },
+  "convergence": {
+    "optionA": {
+      "iterations": 2,
+      "residual": 3.637979e-12,
+      "converged": true,
+      "max_price_update_SGD": 2091.9716,
+      "note": "iterations = 1 price update (magnitude Fbar) + 1 verification pass; fixed point P_feb = P_nofee - Fbar exact for linear demand; tolerances price 0.01 SGD / bids 1e-6 / max 100 iters"
+    },
+    "optionB": {
+      "iterations": 2,
+      "residual": 3.637979e-12,
+      "converged": true,
+      "max_price_update_SGD": 2149.1065,
+      "note": "same convention as Option A"
+    }
+  },
+  "feebe_parameters": {
+    "optionA": {
+      "avg_quantum_registration_weighted_SGD": 2091.97,
+      "avg_quantum_from_2dp_shares_SGD": 2091.0,
+      "feebate_demand_shift_bids": -673.09,
+      "expected_annualised_revenue_SGD": 95760000
+    },
+    "optionB": {
+      "avg_quantum_registration_weighted_SGD": 2149.11,
+      "avg_quantum_from_2dp_shares_SGD": 2149.5,
+      "feebate_demand_shift_bids": -691.47,
+      "expected_annualised_revenue_SGD": 98377500
+    }
+  },
+  "invariants": "INV-7 (no-response merged price within static bounds): PASS \u2014 back-solved 0 violations in 398 rounds (P_M is a convex combination of the same round's A/B prices; min 18761.4, max 133760), forward 24/24 rounds within [85000, 141000] (all 131892.1). INV-8a (zero-quantum feebate): PASS \u2014 demand shift 0 bids, revenue 0 SGD/yr, max|P_feb-P_nofee| = 2.9e-11 SGD (float noise). INV-8b (zero elasticity): PASS \u2014 with-fee price = no-fee price, max diff 0.0 SGD. All 3 rows in verification/invariant_checks.csv.",
+  "files_written": [
+    "src/merged_price.py",
+    "src/fee_price_iteration.py",
+    "tables/merged_price_nofeebate.csv",
+    "tables/quota_reallocation.csv",
+    "tables/merged_price_optionA_withfee.csv",
+    "tables/merged_price_optionB_withfee.csv",
+    "tables/fee_price_iteration_log.csv",
+    "verification/invariant_checks.csv",
+    "methodology_notes.md (appended s.9 Step 7, s.10 Step 8)"
+  ],
+  "notes": [
+    "Demand representation (methodology_notes.md s.9): M3 first-difference slopes -> LOCAL level-consistent demand surface anchored at each round's observed clearing point (P_c,t, Q_c,t): N_c(P) = Q_c,t - (P - P_c,t)/alpha_c. Anchor quantity = observed CLEARED quota (losing bids are below the margin, not demand at the margin). M3 beta (dquota term) does NOT enter the price solve: with Q_M = Q_A + Q_B the quota-response terms cancel identically; beta reported for context only.",
+    "Back-solved merged price = convex combination of observed A/B prices (weights w_A=0.623, w_B=0.377 from 1/alpha over kappa_M=0.321748 bids/S$) -> cannot diverge from observed A/B prices by construction; INV-7 confirms 0 violations. Latest back-solved (2026-10 b2): 131,965.2 between A=132,004 and B=131,901.",
+    "Forward path is FLAT at 131,892.1 (all 24 rounds) by design: static bidder pool (2026-10 b2 anchor) + static quota 2137.5; the 23.5-bid quota gap vs the anchor round lowers the price by 73.0 SGD.",
+    "Quota-assumption interpretation: '6 biddings' read as 6 bidding rounds (2026-08 b1..2026-10 b2) = 2137.5; the 6-category-observation (3-round) reading gives 2137.0 \u2014 0.5 units, immaterial.",
+    "p10-p90 band: Monte Carlo 10,000 draws (seed 20261023), alpha_A/alpha_B drawn independently UNIFORM on the 80% NW-HAC CIs from tables/demand_curves.csv; bounding-style SCENARIO band, not a statistical CI (joint distribution not identified). Point estimate from exact M3 point coefficients. B's LOW grade (wide CI) dominates the band.",
+    "Feebate (methodology_notes.md s.10): N_feb(P) = N(P + Fbar), Fbar = registration-weighted sum of s_k x f_k using EXACT Step 5 annualised registration counts (2dp-share cross-checks logged in the iteration log). Both options have POSITIVE average quantum (mix skews to upper-OMV bands) -> with-fee COE price is LOWER than no-fee by Fbar; Option A Fbar=+2091.97 SGD (revenue 95.76M SGD/yr), Option B Fbar=+2149.11 SGD (revenue 98.38M SGD/yr) under the frozen 2025-01..2025-05 mix (98.73% coverage).",
+    "Iteration log records per option: tolerance, max iterations, iterations used (2 = 1 update + 1 verification), final residual (3.6e-12 bids), max price update (= Fbar), latest with-fee prices. Zero-quantum and zero-elasticity negative controls run through the same iterate_fee_price machinery (Fbar=0 / kappa=0 branch).",
+    "Data note: data.gov.sg coe_bids extract covers 199 of 202 calendar months 2010-01..2026-10 (2020-04/05/06 absent) \u2014 identical to the Step 6 estimation sample, so the merged path is consistent with the curve-estimation window.",
+    "Plan-stated facts verified against data: A +4.99 S$/bid (p=1.5e-15), B +8.24 (p=0.0003) match tables/demand_curves.csv exactly; band shares OptionA 35.16/15.74/49.10 and OptionB 10.17/24.98/15.74/24.22/24.88 match tables/banding_shares.csv; quantums match config (cross-checked in code, assert). No new discrepancies; the garbled prior-study path in the plan was already logged in Batch A (verification/constraint_report.csv).",
+    "All outputs SCENARIO-labeled with config.output_label stamps (regime_start 2027-01, vintage 2017) and curve-grade dependency stated in a dedicated column; observed inputs carry obs_* prefixes. Quota reallocation: at the common price the merged quota splits between the former A/B pools (sum = merged quota exactly; the pool priced above the merged price gains quota). Single PQP = 3-month MA of the scenario merged price (config.PQP_WINDOW_MONTHS=3).",
+    "Invariant file handling is idempotent: both scripts dedupe by check_id, so re-runs do not duplicate INV-7/8a/8b rows."
+  ]
+}

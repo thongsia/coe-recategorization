@@ -1,0 +1,25 @@
+check,status,detail,timestamp_utc,constraint_stage
+workspace_writability:workspace_root,pass,dir exists=True writable=True; write/read/delete round-trip ok ('ok'),2026-10-23T00:56:28Z,
+workspace_writability:src/,pass,dir exists=True writable=True; write/read/delete round-trip ok ('ok'),2026-10-23T00:56:28Z,
+workspace_writability:data/raw/,pass,dir exists=True writable=True; write/read/delete round-trip ok ('ok'),2026-10-23T00:56:28Z,
+workspace_writability:data/processed/,pass,dir exists=True writable=True; write/read/delete round-trip ok ('ok'),2026-10-23T00:56:28Z,
+workspace_writability:tables/,pass,dir exists=True writable=True; write/read/delete round-trip ok ('ok'),2026-10-23T00:56:28Z,
+workspace_writability:charts/,pass,dir exists=True writable=True; write/read/delete round-trip ok ('ok'),2026-10-23T00:56:28Z,
+workspace_writability:docs/,pass,dir exists=True writable=True; write/read/delete round-trip ok ('ok'),2026-10-23T00:56:28Z,
+workspace_writability:verification/,pass,dir exists=True writable=True; write/read/delete round-trip ok ('ok'),2026-10-23T00:56:28Z,
+data_govsg_action_api_reachability,pass,"HTTP 200 from https://data.gov.sg/api/action/datastore_search?resource_id=d_69b3380ad7e51aff3a7dcc84eba52b8a&limit=1; response ok, total rows reported=1990",2026-10-23T00:56:28Z,
+data_govsg_versioned_endpoint_v1 (informational),info,"HTTP 403 from https://api.data.gov.sg/v1/action/datastore_search?resource_id=d_69b3380ad7e51aff3a7dcc84eba52b8a&limit=1; CONFIRMED unusable, consistent with plan; plan assumption 3: versioned v1/v3 endpoints are dead - action-API only",2026-10-23T00:56:28Z,
+onemotoring_lta_reachability,pass,HTTP 200 from https://onemotoring.lta.gov.sg,2026-10-23T00:56:28Z,
+local_pdf:consult_paper.pdf,pass,path=/home/hteo/workspace/coe-category-study/docs/consult_paper.pdf; exists=True; bytes=487738,2026-10-23T00:56:28Z,
+local_pdf:annex_b.pdf,pass,path=/home/hteo/workspace/coe-category-study/docs/annex_b.pdf; exists=True; bytes=286377,2026-10-23T00:56:28Z,
+local_pdf:annex_c.pdf,pass,path=/home/hteo/workspace/coe-category-study/docs/annex_c.pdf; exists=True; bytes=229460,2026-10-23T00:56:28Z,
+local_pdf:car_cost_aug2026.pdf,pass,path=/home/hteo/workspace/coe-category-study/docs/car_cost_aug2026.pdf; exists=True; bytes=680260,2026-10-23T00:56:28Z,
+method_precedent_documented,pass,path=/home/hteo/workspace/coe-category-study/docs/methodology_notes.md; exists=True; bytes=67836,2026-10-23T00:56:28Z,
+step3:coe_thousands_separators_audit,pass,"expected=identify rows with comma-formatted numbers (strip at transform time) | actual=109 raw rows affected (bids_success/bids_received, 2023-05..2026-10) | raw file left untouched; stripped in verify/panel transforms only",2026-10-23T00:56:57Z,batch_b_step3
+step3:row_count_reconciliation:coe_bids,pass,expected=API-stated total == fetched == plan expectation (1990) | actual=fetched=1990 api_stated=1990 plan_expected=1990,2026-10-23T00:56:57Z,batch_b_step3
+step3:row_count_reconciliation:registrations,pass,expected=API-stated total == fetched == plan expectation (51669) | actual=fetched=51669 api_stated=51669 plan_expected=51669,2026-10-23T00:56:57Z,batch_b_step3
+step3:coe_last_month_both_biddings,pass,"expected=last month 2026-10 with biddings [1, 2] | actual=last month 2026-10 with biddings [np.int64(1), np.int64(2)]",2026-10-23T00:56:57Z,batch_b_step3
+step3:registrations_last_month,pass,expected=2025-05 | actual=2025-05,2026-10-23T00:56:57Z,batch_b_step3
+step3:registrations_null_number_count,pass,"expected=count null/blank 'number' rows; exclude consistently (logged, not dropped silently) | actual=null_number_rows=29463 valid_rows=22206 of 51669 | downstream mix estimates must use the 22206 valid rows (null-number rows excluded)",2026-10-23T00:56:57Z,batch_b_step3
+step3:spot_prices_2026_10,pass,expected=config.COE_SPOT_VALUES_2026_10 (b1: A 130001 B 130100 C 91889 D 11012 E 137000; b2: A 132004 B 131901 E 135790) | actual=2026-10 b1 A: 130001 == 130001 OK; 2026-10 b1 B: 130100 == 130100 OK; 2026-10 b1 C: 91889 == 91889 OK; 2026-10 b1 D: 11012 == 11012 OK; 2026-10 b1 E: 137000 == 137000 OK; 2026-10 b2 A: 132004 == 132004 OK; 2026-10 b2 B: 131901 == 131901 OK; 2026-10 b2 E: 135790 == 135790 OK,2026-10-23T00:56:57Z,batch_b_step3
+step3:inversion_set_2026_per_bidding,pass,expected={2026-02 b2 2026-04 b2 2026-06 b2 2026-10 b2} | actual={2026-02 b2 2026-04 b2 2026-06 b2 2026-10 b2},2026-10-23T00:56:57Z,batch_b_step3

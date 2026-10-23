@@ -1,0 +1,70 @@
+{
+  "status": "ok",
+  "batch": "E (Steps 9-10)",
+  "batch_date": "2026-10-23",
+  "e_to_car_share": {
+    "base": 1.0,
+    "sensitivity": [0.5, 1.0],
+    "basis": "ASSUMPTION: base 100% of E demand re-enters the next car bidding exercise (paper s2.23 removal mechanics: urgent buyers wait for the next COE bidding - demand moves, not destroyed; no observed drop-out rate); 50% documented lower bound allowing for churn/abandonment"
+  },
+  "e_shift_omv_banding_composition": "Category-B-skewed (ASSUMPTION, cited): coe_class=='B' subset of tables/banding_models_optionB.csv (129 of 217 catalog models), 2025-01..2025-05 registration weights renormalized (frozen-mix tag); paper s2.22 'In recent years, Category E COEs have been mostly used for Category B cars'. Option B band shares: 0-10th 5.27% / 10-35th 15.54% / 35-50th 12.83% / 50-75th 26.17% / >75th 40.19% (high-value dominant). Annual E-shift registrations per band: 337.35 / 994.46 / 821.11 / 1675.11 / 2571.97 (sum 6400); net quantum revenue delta at PROPOSED quantums +38,624,201 SGD/yr (tables/e_shift_feebate_base_delta.csv - Batch F input; Batch D Fbar left unaltered in this step's price paths)",
+  "c_quota_effect": {
+    "removed": "+11.11% (mechanism-derived: 10% E deregistration share since May 2017, paper fn5 p.13, returns to C; C quota = 100% of own flow = old/0.9; forward 311.17 -> 345.74/round, approx 7468 -> 8298/yr)",
+    "cars_only": "0 (shielded; paper s2.23(b) 'without impacting Category C COE supply'; forward 311.17/round held)"
+  },
+  "c_price_note": "C forward price flat at last-6 average observed premium 91813.5/round under BOTH options; under removal the +11.11% quota shock implies downward pressure that is NOT quantified - catC bidding-response NOT DETECTABLE (NC1 lead p=0.018 FAIL, evidence_grading.csv); no-shock level = conservative upper bound, stated on every row",
+  "e_shift_annual_registrations": 6400,
+  "e_shift_annual_registrations_basis": "observed E per-bidding cleared quota last-6 average 266.67/round (2026-08 b1..2026-10 b2) x 24 rounds x 100% share",
+  "transient_treatment": "ONE-ROUND PULSE at 2027-01 b1 (the 'next COE bidding exercise' per paper s2.23): E-shifted demand = observed E per-bidding bids_received last-6 average 459.5 bids x 100% share; dP = dN/kappa_M = +1428.14 SGD (base; sensitivity 50% = +714.07 SGD) on the option-level with-fee merged price; full reversion to the option-level path from 2027-01 b2 (documented choice: episodic urgent demand; a permanent flow would contradict Batch D's static bidder-pool design and static-bounds logic). Pulse value cross-verified in pqp.py against an independent recompute from the raw panel (exact)",
+  "e_cars_only_premium": "E premium above merged-car price collapses toward 0: base level 3777.33 SGD = mean(E - max(A,B)) over last 6 observed rounds, linear decay to 0 over the first 6 forward rounds (3 months ~ E TCOE validity, paper fn4 p.13); from 2027-04 b1 E price = option-level with-fee merged price exactly. E quota held at last-6 average 266.67/round (mechanism unchanged). Merged-car path under cars-only = option-level with-fee path UNADJUSTED (no car-demand shift, stated explicitly)",
+  "pqp_validation": {
+    "max_abs_diff_sgd": 0.83,
+    "mean_abs_diff_sgd": 0.428,
+    "scope": "POOLED A+B headline (the categories feeding the merged PQP); window 2010-03..2026-09 (panel overlap; 2020-04/05/06 absent from coe_bids); 392 category-months (196 per category)",
+    "per_category_max_abs_diff_sgd": {"A": 0.83, "B": 0.83, "C": 0.83, "D": 3205.5},
+    "per_category_mean_abs_diff_sgd": {"A": 0.41, "B": 0.446, "C": 0.438, "D": 16.776},
+    "result": "PASS (tolerance <= 1.0 SGD per Batch B)",
+    "mechanism": "residual signature: published - MA3 in {0,1/6,...,5/6} SGD for 783 of 784 category-months => published PQP = MA-3 of the same observed premiums rounded UP to next whole SGD; sole outlier D 2010-03 (-3205.50) = known SINGSTAT single-cell error 2010-01 b2 D (852 vs 20090 authoritative, Batch B log) entering the window (excluding it D max 0.83)",
+    "citation": "SINGSTAT 'Motor Vehicle Quota, Quota Premium And Prevailing Quota Premium, Monthly (LTA data)' via data.gov.sg dataset d_22094bf608253d36c0c63b52d852dd6e (2002-02..2026-09; data/processed/published_pqp.csv; live cross-check LTA OneMotoring 2026-10 in Batch B); PQP definition: consult_paper.pdf fn3 p.12"
+  },
+  "pqp_latest": {
+    "A_removed": 129800.16,
+    "A_cars_only": 129800.16,
+    "B_removed": 129743.03,
+    "B_cars_only": 129743.03
+  },
+  "pqp_2027_01": {
+    "A_removed": 130122.07,
+    "A_cars_only": 129884.05,
+    "B_removed": 130064.94,
+    "B_cars_only": 129826.91
+  },
+  "pqp_note": "latest = 2027-12 (pulse window has rolled out; = flat forward with-fee level); removal cells differ from cars-only cells only in PQP months 2027-01..2027-03 (+238.02 SGD = 1428.14/6, the pulsed round is one point of 6 in those windows); 209 months per cell (2010-03..2027-12, months with bidding; 2020-04/05/06 absent)",
+  "price_paths_distinct": 4,
+  "cells": 8,
+  "toggle_pair_check": "verified programmatically on the written data/processed/pqp_by_cell.csv: all 4 toggle pairs (renewal_feebate_no vs yes) identical, max abs diff exactly 0.0 SGD; 4 paths pairwise distinct; INV-10 PASS",
+  "files_written": [
+    "src/ec_scenarios.py",
+    "src/pqp.py",
+    "tables/ec_scenario_E_removed.csv",
+    "tables/ec_scenario_E_cars_only.csv",
+    "tables/e_shift_feebate_base_delta.csv",
+    "data/processed/pqp_by_cell.csv",
+    "tables/pqp_derivation.csv",
+    "verification/invariant_checks.csv (INV-9, INV-10 appended, idempotent)",
+    "verification/constraint_report.csv (2 rows appended: batch_e_step10 / batch_e_step9)",
+    "methodology_notes.md (appended s.11 Step 10, s.12 Step 9)",
+    "batch_handoff_e.json"
+  ],
+  "notes": [
+    "Order: Step 10 ran first (its E-shift demand feeds the Step 9 per-E-option price paths), per batch instruction.",
+    "E/C shifts modeled as QUOTA/DEMAND additions, never via a bidding-response curve: catE NOT DETECTABLE (M3 b1 p=0.494) and catC NOT DETECTABLE (NC1 lead p=0.018 FAIL) per tables/evidence_grading.csv.",
+    "ec_scenario tables: 1266 rows each = 398 observed-history rounds x {merged_car, C, E} + 24 forward rounds x {merged_car, C, E}; merged_car rows carry OBSERVED A/B premiums + back-solved nofee and both options' with-fee prices (history) and base + E-adjusted forward prices; all SCENARIO rows regime/vintage stamped via config.output_label, mix-based rows carry the 2025-01..2025-05 frozen tag, PROPOSED E options cited to paper s2.21-s2.24.",
+    "Merged-car forward quota held at Batch D convention (last-6 average 2137.5/round) in both E tables.",
+    "E-shift registrations are a delta to the feebate BASE for Batch F (band counts + quantum revenue delta +38.62M SGD/yr under PROPOSED quantums, B-skewed composition); Batch D price paths/Fbar are NOT re-solved in this batch (documented in methodology s.11).",
+    "PQP convention: PQP(M) = mean of ALL b1+b2 clearing prices in the last 3 months WITH bidding, ending at M (M included; months without bidding skipped) - Batch B's verified MA-3 convention, paper fn3 p.12; per-cell PQP always from the cell's OWN path (no option-level reuse across E options; removal vs cars-only differ exactly in 2027-01..03).",
+    "Renewal-feebate toggle rule encoded in pqp_by_cell.csv (renewal_quantum_basis: 'PQP alone' vs 'PQP + band quantum'); toggle affects renewal quanta ONLY, never the price path - verified identical (max diff 0.0) for all 4 toggle pairs on the written output.",
+    "No new discrepancies: plan-stated facts (10% E deregistration share, C +11%, published PQP 12904 rows A-D without E, Batch D Fbar/kappa) all verified against data (verification/constraint_report.csv batch_e rows); the D 2010-03 validation outlier re-confirms the known SINGSTAT single-cell error logged in Batch B.",
+    "Known LTA-side minor deviations inside the validated window (2026-09 B -0.83 SGD and 52 months at the generic +0.83 = 5/6 class) are the identified round-UP-to-whole-SGD mechanism, all within the 1.0 SGD tolerance."
+  ]
+}

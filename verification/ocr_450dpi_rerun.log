@@ -1,0 +1,4 @@
+annex_b: words=50 avg=0.869 t=15.8s
+annex_c: words=49 avg=0.830 t=15.7s
+cover: words=10 avg=0.962 t=14.1s
+WROTE verification/ocr_resolution_check.csv

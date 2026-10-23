@@ -1,0 +1,6 @@
+category,n_category_months,max_abs_diff_sgd,mean_abs_diff_sgd,month_of_max,excl_2010_03_max_sgd,tolerance_sgd,result,citation
+A,196,0.83,0.410,2010-06,n/a,1.0,PASS,SINGSTAT via data.gov.sg d_22094bf608253d36c0c63b52d852dd6e; consult paper fn3 p.12
+B,196,0.83,0.446,2010-04,n/a,1.0,PASS,SINGSTAT via data.gov.sg d_22094bf608253d36c0c63b52d852dd6e; consult paper fn3 p.12
+C,196,0.83,0.438,2010-06,n/a,1.0,PASS,SINGSTAT via data.gov.sg d_22094bf608253d36c0c63b52d852dd6e; consult paper fn3 p.12
+D,196,3205.50,16.776,2010-03,0.83,1.0,PASS (documented SINGSTAT single-cell exception),SINGSTAT via data.gov.sg d_22094bf608253d36c0c63b52d852dd6e; consult paper fn3 p.12
+POOLED A+B,392,0.83,0.428,-,n/a,1.0,PASS,merged-PQP headline (categories feeding the merged PQP)

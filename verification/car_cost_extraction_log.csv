@@ -1,0 +1,17 @@
+field,value
+source,"docs/car_cost_aug2026.pdf (LTA, Aug 2026)"
+bytes,680260
+pages,8
+data_rows,217
+columns,22
+coe_class_A_rows,88
+coe_class_B_rows,129
+omv_min,12856
+omv_max,128696
+validation_problems,0
+method,pymupdf find_tables() (22-col bordered table)
+fuel_type_codes,"P=Petrol, H=Petrol-Electric, R=Petrol-Electric Plug-In, B=Petrol-CNG, C=CNG, E=Electric, Y=Diesel-Electric, Q=Diesel-Electric Plug-In (per Note 9, p.8)"
+fuel_code_distribution,"E=104, H=80, P=21, R=12 (of 217)"
+coE_prices_aug2026_1st_bidding,"A=123,890 (88 rows); B=129,910 (129 rows)"
+eeai_cap_2026,"$7,500 (per Note 8, p.8: 1 Jan - 31 Dec 2026)"
+label,OBSERVED | citation: LTA Car Cost Aug 2026

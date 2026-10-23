@@ -1,0 +1,145 @@
+file,size_bytes,sha256,archived_utc,inventory,notes
+REPORT.md,51469,03a48115903f7088a3bb4a329e045c15dfe90a5371fd99b489fb59a7baeb74d9,2026-10-22T23:12:10Z,full_run,final report (Step 18)
+STATS_SUMMARY.md,21739,8f5a59c6a8fe1828bf58073456c5a84500b67c28f289751ff3f30ae27d50f840,2026-10-22T23:12:10Z,full_run,one-page stats summary (Step 18)
+batch_handoff_a.json,5293,416b55e9e7950e2e10b5a593e5b31a162ff9543530d6499902a6dfc3caf0a213,2026-10-22T23:12:10Z,full_run,
+batch_handoff_b.json,4778,ff397a1e42260360a36e90bf0ef2c05682014b03085f6044090b0c07890a6e6e,2026-10-22T23:12:10Z,full_run,
+batch_handoff_c.json,6346,7d8e4f53ff9dafefe9ef14310f641de9c5c58e48b405cfd33186907a8ddb3bf7,2026-10-22T23:12:10Z,full_run,
+batch_handoff_d.json,6689,5e9f1da05b719eee07e1a71fbc7ade1bcf58448d6233a81061cac5a52b6ec2b8,2026-10-22T23:12:10Z,full_run,
+batch_handoff_e.json,8103,8559572b8f8cfb21bee3fbb8188f1a24b4cf353ed31040e8c0227a00de5589cf,2026-10-22T23:12:10Z,full_run,
+batch_handoff_f.json,6960,86240a4987bdfedf38ba778398c1a4b543b5da490ad126893971e8424e68a25a,2026-10-22T23:12:10Z,full_run,
+batch_handoff_g.json,7466,d459faa7e4bbffca29edaac55a2499ee5b03332e9efccf358a420288470955a1,2026-10-22T23:12:10Z,full_run,
+bob_brief.md,8259,418a32341a0a2052152372f4afe7a0d3b0769245845474ff058cfcc2a00d613f,2026-10-22T23:12:10Z,full_run,
+bob_dispatch.log,34324,e0cbdb76c9ceb9f8b1876480463cbcfa6bb830166b52f2b7e51441b598cd1fbd,2026-10-22T23:12:10Z,full_run,
+bob_plan.md,32837,042e1d4387ab81e9c717653bf200f3adf33468519ac1614179f51475bda571da,2026-10-22T23:12:10Z,full_run,plan
+bob_results.json,199592,e28de69b019f601181d5b998c65eb24c72e3be8c15fc42ab0d9fff8b505f0473,2026-10-22T23:12:10Z,full_run,
+calls.jsonl,32375,29c4e60f0b7d6d38a2993c8c13188878e6745fbc54e05f2a6ec8f8ee3210d769,2026-10-22T23:12:10Z,full_run,
+charts/ab_convergence_perbidding.png,218760,39a3aabeafdf777cd305777e22c25588287ce8ba355079c1ddab26a4e60fa1a2,2026-10-22T23:12:10Z,full_run,chart (Step 17)
+charts/demand_shift_by_band.png,168730,816e3e36cb55ff1b19f0cd5e64b81e174fbf2c8d6354799de3ace923ccd0eef6,2026-10-22T23:12:10Z,full_run,chart (Step 17)
+charts/ec_quota_price_paths.png,213864,de2723fc218e30e382cdba375432da500184f468cdf563f3dc915ad3344671df,2026-10-22T23:12:10Z,full_run,chart (Step 17)
+charts/fee_revenue.png,174367,5a8e21e682339f9e64aa33f29ccca5c03824dfc43dcbaa2853e1713afbab5b12,2026-10-22T23:12:10Z,full_run,chart (Step 17)
+charts/gaming_zones.png,214786,de8bb90ee99d31362c71b616346cd2569ea48536f0ca0047cf23368bdcf5ed0a,2026-10-22T23:12:10Z,full_run,chart (Step 17)
+charts/merged_price_paths.png,344631,1f009c032e04b90b0ec68f5ae533964fe31f9c7e6cff5daeb9e09b6d1612aced,2026-10-22T23:12:10Z,full_run,chart (Step 17)
+charts/omv_histogram_bands.png,215799,e4c35a85b7944e2d8aa53cb3eebd7cc914ac744e54673a1fce10221a2bbce8d9,2026-10-22T23:12:10Z,full_run,chart (Step 17)
+charts/renewal_cost_cells.png,167001,6fa1dfac036576cb4357733900d995f2f2dadd36cbbb9d93eb05d2b969919278,2026-10-22T23:12:10Z,full_run,chart (Step 17)
+data/processed/car_cost_aug2026.csv,31183,892629b9a86f6c3a7a34b0b65c2274ce15b8802097a54e79b5e895376cfcb733,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/coe_panel_perbidding.csv,725198,d576802d76f6fff648540d1f64a37b22a1a5147f95fb0ed8de6188dcf0e058cb,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/lta_omv_2017_avg.csv,299547,0f42808b83df746e49dc668c25a436c9e449df8be8a0e6b6a3b8dbf1940cc9c5,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/lta_omv_2025_avg.csv,178005,c8a1e0d80a6a3e80d4716ba0f207b22f8acda52f9b6898a84531ab219327d331,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/lta_omv_2025_crosscheck.csv,118395,33a1211c5b15e3fbf4c7a274f457363ee96e1a9c3c571cdb88e0945ef159b42e,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/pqp_by_cell.csv,2320231,3ec541d58ca6b4eaf3a64781ea640190a6dd484a016105e8c86bca39dbf30d80,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/price_paths/OptionA+E_cars_only+renewal_feebate_no.csv,456349,0f59d21bdfd8128dd6cd4d3f3d184a7fe2c135a5a26e4e5d0a9586eeead574e0,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/price_paths/OptionA+E_cars_only+renewal_feebate_yes.csv,456349,0f59d21bdfd8128dd6cd4d3f3d184a7fe2c135a5a26e4e5d0a9586eeead574e0,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/price_paths/OptionA+E_removed+renewal_feebate_no.csv,468179,f3be957cfcc666b543642c02f6887e55a159869733062d385c496a7364f443c4,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/price_paths/OptionA+E_removed+renewal_feebate_yes.csv,468179,f3be957cfcc666b543642c02f6887e55a159869733062d385c496a7364f443c4,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/price_paths/OptionB+E_cars_only+renewal_feebate_no.csv,456329,7385a5e140b6299042364bca9a08286d68dfadbc69b7fb088666ec253321fe90,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/price_paths/OptionB+E_cars_only+renewal_feebate_yes.csv,456329,7385a5e140b6299042364bca9a08286d68dfadbc69b7fb088666ec253321fe90,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/price_paths/OptionB+E_removed+renewal_feebate_no.csv,468159,2c5f63dc01fb6e518fe33645debdb200950461457fc8580196851d8f8d4e1640,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/price_paths/OptionB+E_removed+renewal_feebate_yes.csv,468159,2c5f63dc01fb6e518fe33645debdb200950461457fc8580196851d8f8d4e1640,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/published_pqp.csv,6692034,1341b1498bfe2b34d07ac5a69f00bcbb77aad61f6a7082e4b335ae110255b384,2026-10-22T23:12:10Z,full_run,processed data
+data/processed/renewal_cohort_banded.csv,53522,eadbb909166cc7830a496b6910db99de16df9b4e0c0049810048d0ea6db3811f,2026-10-22T23:12:10Z,full_run,processed data
+data/raw/coe_bids.csv,89937,b8ff61472cb9e42fb8cc81c733a37ca6c9f90646f5d3dd36ed44cb4cbbe10df5,2026-10-22T23:12:10Z,full_run,raw data (frozen)
+data/raw/registrations.csv,2710861,6a700944937190b1d6d960a3d8c6d50a74b637e36d7670da0e568206e395aea8,2026-10-22T23:12:10Z,full_run,raw data (frozen)
+docs/annex_b.pdf,286377,5bb0c36984c8fdcd35ade14e80e0acac924ad7ee41d552d8b505adac2bc76226,2026-10-22T23:12:10Z,full_run,source documents
+docs/annex_b.png,4505040,02f0ea72ebcf71821f814e222797f26bd360162de25d302a6eb6962b1aa320db,2026-10-22T23:12:10Z,full_run,source documents
+docs/annex_b_450dpi.png,9073889,5adb48f21adbac6ab89bc4158f78b1fb87ce4bdb5efdccc56fc07b7db0da9b89,2026-10-22T23:12:10Z,full_run,source documents
+docs/annex_c.pdf,229460,b7b057c9c47612223e2138b1d71e0521f91e6c1b0ab832af70972211bc2c39e4,2026-10-22T23:12:10Z,full_run,source documents
+docs/annex_c.png,3583543,69729c24714e8f0478517445a9c250fcd9c65fdfffceb769d0acb45e0e0c8ce6,2026-10-22T23:12:10Z,full_run,source documents
+docs/annex_c_450dpi.png,7248484,2b0e5cc4c28f323d79cc32974ea5341592b70504a5989486d546b33aff6b379a,2026-10-22T23:12:10Z,full_run,source documents
+docs/annex_ocr.md,4532,c2c82c64d4e64cfe63695a242a24dbd848a85944aef1e494ad34d029452f8eda,2026-10-22T23:12:10Z,full_run,source documents
+docs/car_cost_aug2026.pdf,680260,2c9345720444aad9dff151bafca13679e1f0f24f5e6fdffd203949e11b41dca8,2026-10-22T23:12:10Z,full_run,source documents
+docs/consult_paper.pdf,487738,8b71700a49ab8c499a22f43af6466f61dea73974f9086ac28bcfb70fe8b64a69,2026-10-22T23:12:10Z,full_run,source documents
+docs/consult_paper_cover_ocr.md,476,999144b6820ca0e483a3b4544982c639b820002aa621746d488c1eee5d2eed17,2026-10-22T23:12:10Z,full_run,source documents
+docs/consult_paper_p17_figure.png,254698,7951f102404b282f991b836e20a4e5ddd9d29d6e1f509ce265a25c7cf7b8a858,2026-10-22T23:12:10Z,full_run,source documents
+docs/consult_paper_p1_cover.png,3644572,3605bb72ce7d247abf5dd2362ea9f0120fb6f09dbd50cc3fc746d3301314ec15,2026-10-22T23:12:10Z,full_run,source documents
+docs/consult_paper_p1_cover_300.png,7183414,709556be00a17f1358004ee06e02d89f1effdbb62201ef987ff1c1fcccee9924,2026-10-22T23:12:10Z,full_run,source documents
+docs/consult_paper_text.md,33792,2874ff3e42ce7e9e0dfe38b6a1401a8b1093d8cd05f80e7116a8e10eb79ba3b3,2026-10-22T23:12:10Z,full_run,source documents
+docs/cover_450dpi.png,13757863,7d18c76f67ee76a041bb21fb9d415d954fe0f43cc540c53ac7d57c93bb70c80c,2026-10-22T23:12:10Z,full_run,source documents
+dory_brief.md,9076,d7aa74333ac7310b46d90e18497dcdefaaa25855c2c13427d8de1b9c26d6c951,2026-10-22T23:12:10Z,full_run,
+feasibility.md,4398,02972f487bc91308692f9e7237f2ead7b52e5f54dac0e0eb3de0511ae4cd9e59,2026-10-22T23:12:10Z,full_run,
+final_plan.txt,41600,ae6b5fd190937b8fc4c7812e33bacf5cd254ece8e3c9bd3522715dd9e6af2d71,2026-10-22T23:12:10Z,full_run,
+final_prompt.txt,14413,6b25733da4bb82a80f76daedf415103b1a14005c593203ded1efc8079e6fc0b7,2026-10-22T23:12:10Z,full_run,
+final_review.txt,3081,fb67affdd69b3aa601ee31fd481aa58503394aea534f6a272655aa8031e1596f,2026-10-22T23:12:10Z,full_run,
+gate0_message.txt,1452,270520535ef2de7cfa9a20f7f01efd753a48895bc7518f4b1ec41ec78255c26c,2026-10-22T23:12:10Z,full_run,
+gate1_message.txt,2440,c228cdc0594e01817aa74c37ae9f82320d0aabe5f35212a3e9379438ed47abc1,2026-10-22T23:12:10Z,full_run,
+kakis_state.json,10033,101f8ac7e1af69119838aa86c85592afd1981be92231aa76481fd9ac71bd13b6,2026-10-22T23:12:10Z,full_run,
+methodology_notes.md,67836,ccb5ad34aa806d63674789218eb8e3130a646295b41ef2ddf1a6d03aa40c44cc,2026-10-22T23:12:10Z,full_run,"methodology (finalized, s1-18)"
+notification.log,213,2323fde78a8d6e5bf60f013a782de3398b5cafd5b2a90233a8ebdaf021ca7dc9,2026-10-22T23:12:10Z,full_run,
+provenance.md,23586,7f42bbdc6aeb75bd6e00dee828bfcbc31da647fb95622120074fa574c13623c8,2026-10-22T23:12:10Z,full_run,"provenance (finalized, s1-10)"
+src/_build_handoff_f.py,9465,a13b5c9c5fcc7a89027ca4411ad7e9ad972ae443f76451f0e5f665cb659f2d63,2026-10-22T23:12:10Z,full_run,source script
+src/banding.py,35907,ffee8590fd225e4918ae96ade67db3d82c9f59936d405bfc0910e33dd13100ff,2026-10-22T23:12:10Z,full_run,source script
+src/baseline_panel.py,7814,4b36cfb6b2eb206ada1b67a0be49a0097214f00b54271b2bda49e0ebed110e4b,2026-10-22T23:12:10Z,full_run,source script
+src/config.py,12725,fecdee3ecd98825f7f74205c51b4778431912434a7134aa07bd1e8e3857d561a,2026-10-22T23:12:10Z,full_run,source script
+src/consequences.py,30286,b6a146641dbb1af979ae9508c391fbcc13ca2c5fdbef68cc3e057778608be383,2026-10-22T23:12:10Z,full_run,source script
+src/demand_curves.py,29865,f3c29599cad72c9493368110ddcd03248b893879bab267e28ad6a5d35331a31b,2026-10-22T23:12:10Z,full_run,source script
+src/demand_shift.py,11226,0eed4b9734ff3b29ca380eed0648c93e86f93443a2dc6c099993ea1fb18112c0,2026-10-22T23:12:10Z,full_run,source script
+src/ec_scenarios.py,30289,75748d9f9d86b7c013974f3a1e443adbce4b04b9069faf8d6d784ecbb46f8cb5,2026-10-22T23:12:10Z,full_run,source script
+src/env_check.py,8696,a54dc5d0566c54317de16c9464d85ac3e622f7ef7f6633b5daa18daf32c71c39,2026-10-22T23:12:10Z,full_run,source script
+src/extract_car_cost.py,6822,9dc4803e1bbffcddbd5d529fb53d06acd667d5abdf3abe410f45c35c107f1cb8,2026-10-22T23:12:10Z,full_run,source script
+src/extract_paper.py,2200,f129dbb85ffd55b1469d336112f6a8474a0283ceb8638183e51d446262aacde9,2026-10-22T23:12:10Z,full_run,source script
+src/fee_price_iteration.py,21554,85fb2716f6ecc9e01ec78194fbd5d03f17d7a13f3782f7ce0b61aa9a8d3e4386,2026-10-22T23:12:10Z,full_run,source script
+src/fee_revenue.py,20616,ed53aad8a7fc1889bb94e84478b7bc830722a95ba37756709600b742dad231d3,2026-10-22T23:12:10Z,full_run,source script
+src/fetch_data.py,11229,d4129b66cd696f0d1fa60e97ef3879519a8beb78641a5705b4c3a3bec995c3a2,2026-10-22T23:12:10Z,full_run,source script
+src/fetch_published_pqp.py,18619,a82f8741583a4d3aae86eb43822275c9215270f7af9f8478a3e3161167ac4cd1,2026-10-22T23:12:10Z,full_run,source script
+src/make_charts.py,27460,771757abfa3ed086ae41da34a52b65e27f7e45ca8bf9fd8cc8762e38cddd9955,2026-10-22T23:12:10Z,full_run,source script
+src/master_matrix.py,17963,794ebfac3b3b2d8295bf2ada699450a4236281f31456db7804b491d4d0b65c11,2026-10-22T23:12:10Z,full_run,source script
+src/merged_price.py,22570,8e0c61a42c5feb9b94d441c98fc36555b52d0eb0eb4e27c103d6a6e0c621aed4,2026-10-22T23:12:10Z,full_run,source script
+src/ocr_annexes.py,10200,da9f5addb38c6556a33b1f245826e1a17129b035ee4d35fb659423483644c94e,2026-10-22T23:12:10Z,full_run,source script
+src/pqp.py,28088,7b8c188abf9168d4e8a175fed0a0b0f87f4d24ba8c146d051e916436c9312759,2026-10-22T23:12:10Z,full_run,source script
+src/renewal_cohort.py,15276,60e6c27865c6f7a82cfa91272452116ad28084bd1073e58266273d0d8d29e1e8,2026-10-22T23:12:10Z,full_run,source script
+src/renewal_impact.py,8767,5b4ca4fbca255932b4598b7cf8cd85a3fb9ce6aadc92e185b41f09440856fe41,2026-10-22T23:12:10Z,full_run,source script
+src/verify.py,68984,d03712f49ee01eebe492f9121c8656edf6e8faeb2f6acec783593088a3a362b3,2026-10-22T23:12:10Z,full_run,source script
+src/verify_anchors.py,11470,d13e1ace961e508d5680edd4efb454fc1994813160206c712d3ea8119d7df035,2026-10-22T23:12:10Z,full_run,source script
+tables/banding_cutpoints.csv,11335,60282ab826aaa4e510d6ce626861636589874ecc19e2076a385b1e18b894531a,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/banding_mismatches.csv,33078,6610fbedca0d76bdb258d749f5a6ef2d03feaae2993b0c1140e5fe499d3e1479,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/banding_models_optionA.csv,163423,4146833584d4256d38e84a81015075d81cd579a831e19b5e58e5e76f70daf353,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/banding_models_optionB.csv,163416,432d5ac9cd4208c0b3bba48c236165106ed782e858d6c708431e52c4a29cf951,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/banding_shares.csv,4048,0963bfe17c126dd8332c36e7bc3dacd2dbce0d8907ddd96a9248fadf7d9a38c0,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/boundary_gaming_zones.csv,16936,e0a2ed872565d0b7e0a4f559adff9326238f13b7edc21d72c786f61c638ea6ba,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/classification_distortion.csv,31969,db28438735adf53c0bd017771dd3a310860c3fdefc4e1abed01c81d4f9f0bbfc,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/consultation_parameters.csv,7748,57db56a508d6f3a28388bb76a756abb79d907165ca1c161781e2686c22095001,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/demand_curves.csv,90977,857df0f787d788849f9d8e26808f9a7524d8bc3e3096ee2a12ab090c46b54e07,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/demand_shift_by_band.csv,50489,ecbd79a90110b43878bf095aeef80ea7766bfa7e9f96e7fa074f27d15720618b,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/e_shift_feebate_base_delta.csv,7261,3fe51b01f9d6de7c12347bbaa1e350d27c2d92ba56e923085df7498542a1e695,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/ec_scenario_E_cars_only.csv,700506,513f82573fde0eef108a8dd6d0931fe0bbfe79f2c2ce2277d77de90ab9fcb75f,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/ec_scenario_E_removed.csv,694889,852bd8d280b2144a32e0efe6c482caadb48c563be4476e6832986903db21ce69,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/evidence_grading.csv,15282,dc7e678f531454a742f17d99e99534b1bf1c9b779f61efacd7b03fa50fed6f37,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/fee_price_iteration_log.csv,4337,313764fb8de7f2688e8042e9e121b5ba4431a9a05d91d04feb08dd0ee0d24212,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/fee_revenue_base.csv,5514,ab54452b693146b092f2779c65b6aed17b246910925320ac809b294440e1c0f4,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/fee_revenue_incidence.csv,5589,9eee5d37966057d5a7531b00df8f78f6f2e61ce49d25cc3b93c416288ac99d63,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/fee_revenue_sensitivity.csv,8515,55efdb77aaa89ebd4040c5be6a1cc1eb13d182ec43b043542e076a5fcf197c5e,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/inversions_2026.csv,987,a6fb15fea0321628701ece7899dde5ce14ceb7163d65f1ec0be9d6d9516ca8e9,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/master_matrix.csv,13363,9384d511f23d22fe7dee45715cfe21a85036672957ba6ba2f83c5aac0ea85384,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/merged_price_nofeebate.csv,589279,92e4eeb4f12cbb0822209235eec5448bf1d7db1b084b7d2b7537ac422ab0bd58,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/merged_price_optionA_withfee.csv,723116,536b0da6518dab1e57eefe849e0871acbde60202e416d6c8f18db4c53044cd97,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/merged_price_optionB_withfee.csv,723120,f06907ac90e3e290efd2f682be5e4a566c4bc08b8f54d7f4bf3255cfdaa355be,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/pqp_derivation.csv,25369,de641de711479c678823d847a4214d43a1515163acb004dc24453e7b346a61b0,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/quota_reallocation.csv,593329,12943d2e1191fbe25084fe708df1a15b639eae4aa762e1ce3cc38b711ff1349a,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/renewal/OptionA+E_cars_only+renewal_feebate_no.csv,9627,c4eef47cf19a10420b11b539967cab34dc8cbdcbb4ba5fe8c28eb6a95fe8b825,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/renewal/OptionA+E_cars_only+renewal_feebate_yes.csv,9714,c720a9739c4baedd541248f19322e0482b43b0d36651a6532490145e8e57fd61,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/renewal/OptionA+E_removed+renewal_feebate_no.csv,9591,27e9945f92dac7912803b77231d5fc38703de80fc823edd8318e231d88b0daba,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/renewal/OptionA+E_removed+renewal_feebate_yes.csv,9678,3896659b8c6cf692fefbb527e22bd28357a6eef36a2f105586cedd8ddbe8f4ed,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/renewal/OptionB+E_cars_only+renewal_feebate_no.csv,15898,b4609ed3de41e11ca2ac8579cef786336d0a83346fcdb2c29d9723f6956b798c,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/renewal/OptionB+E_cars_only+renewal_feebate_yes.csv,16087,dfa06ad5ae3557212aaa10b8260b71a525babd7b431df3be151099e2992640f6,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/renewal/OptionB+E_removed+renewal_feebate_no.csv,15838,df7fc73066ca2b1a09eadc884dc2cde9737b623abb3276b3c62177ee2cb1a07c,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/renewal/OptionB+E_removed+renewal_feebate_yes.csv,16027,7ab2506838c1891293b4c40d2323cd1fbd289f81b98b4af2da9236a56caa7401,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/renewal_impact_master.csv,12893,9660e4191d20344b7127cb6eddc9d21f6adcb1e63d5983e63e0c0f55b00a235f,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/segment_shift.csv,8120,d2d2588b52378879aac6dc1519175e15c407d7177ddd1e27af7e4e4e09419cd8,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/used_car_directional.csv,4166,5b8a3a02ea073a080c798576b2bcee333f97050c56e73ac3f0aef720a4aafaea,2026-10-22T23:12:10Z,full_run,table (prior batches)
+tables/verification_report.csv,21172,9c819cc98f8009ee0bab796763e48c7477a2f4a3e4bcc3fe5d1612db85d57c50,2026-10-22T23:12:10Z,full_run,verification suite output (Step 16)
+verification/COEQuotaAllocationRV_Apr2010-2025.pdf,5990346,d262df5573806aff8b61864c68d7c0b27ef34bcb2c22b30c82b64f67920457ff,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/MVP02-1_New_Reg_by_COE.pdf,138181,263d60d3c9a00f7df8c62cdd4d6085036dc4ff0b51220ab3a6a59ad2af2cbfeb,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/car_cost_extraction_log.csv,685,b21cccf1067f2e283758d7c225c6fe47ccba2f92746e0ed52728c3ccdcd76a8f,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/constraint_report.csv,6693,c5b069e297789c51e64b1463b9aaec494001818dbb3c98adcafe4860a4cfa345,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/crossfoot_log.csv,1621,2f9ce7a4347b43c2f5c763975175ad8fb99ab8a82559706f4b611d82db7fc5a3,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/fetch_requests.csv,9214,cf95d07dc21a487ae252eb1f48e55e13695125ab10dbfcfeb6eb2a7e91842f2a,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/fetch_run.log,7075,12aea540369bf2218139ed5716cb8ad46d1b7307543f8b04a76acdea2a0850c5,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/invariant_checks.csv,9190,b6b3b9d5c50593fd4cf130f1651451876cea40230608f7ec2dacad1886e63a74,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/label_audit.csv,2034,b12bb51f93d2de8dccd04fcad6ba4bef7ed11a30fcaf56bfadcfaceb1cbe06c3,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/lta_omv_2017_page.html,2086047,1e5214db59adfb566128e165af8e55a18f57f1683539ecce83809fb5cac1506e,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/lta_omv_2025_page.html,1430307,3e69fe45b96d07e696e8e5d25e024afc52f6f0e475689d7c9375161777e21d87,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/ocr_450dpi_rerun.log,150,a98c22bbc34a1a6fe2d8b463bc2bd60be858189bb52fd93f3ba3f069dc51f907,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/ocr_resolution_check.csv,2216,867ad5a77bc2e128e4a7d9aab0087a9ef7e420489011476c8f919f69718a04a3,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/ocr_run.log,1856,e36b6bfd4750c6156329ef6c6e233674136b304363aed55c3e992fa36cbc20fe,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/pqp_recheck_summary.csv,766,ca9414849b0222927007db561caa8e547e6ff24f3897cb0bc1d90269687038c0,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/provenance_log.csv,1705,02a5b68f715e1f76b9297452c44d0466e8bb57bf1f358b14b5cc7a798e090e5d,2026-10-22T23:12:10Z,full_run,verification artifact
+verification/report_traceability.csv,291535,c622fe6d5e80024b2f1805f4be5180c98a38a831679847a188f7280f3ed5be2e,2026-10-22T23:12:10Z,full_run,per-number traceability map (Step 16 d)

@@ -1,0 +1,8 @@
+component,path,expected_sgd,actual_sgd,diff_sgd,tolerance_sgd,pass_fail,expected_source,note
+base_OptionA,exact_band_counts,95760000.0,95760000.0,0.0,0.01,PASS,batch_handoff_d.json expected_annualised_revenue_SGD,independent dollar recompute
+base_OptionB,exact_band_counts,98377500.0,98377500.0,0.0,0.01,PASS,batch_handoff_d.json expected_annualised_revenue_SGD,independent dollar recompute
+e_shift_OptionB,batch_e_band_counts,38624201.0,38624175.0,-26.0,150.0,PASS,batch_handoff_e.json (tables/e_shift_feebate_base_delta.csv),Batch E per-band contributions used unrounded model-weight counts; published band counts are 2dp -> diff is input rounding (0.0007% relative)
+e_shift_OptionA,batch_e_band_counts,43729050.0,43729050.0,0.0,0.01,PASS,Step 11 recompute (aggregated from Batch E Option-B band counts),Batch E per-band contributions used unrounded model-weight counts; published band counts are 2dp -> diff is input rounding (0.0007% relative)
+base_OptionA,share2dp_x_total,95760000.0,95715525.0,-44475.0,n/a,INFO (quantifies band-share rounding vs exact counts; not a pass/fail check),batch_handoff_d.json expected_annualised_revenue_SGD,2dp share path quantifies band-share rounding vs exact counts
+base_OptionB,share2dp_x_total,98377500.0,98395512.0,18012.0,n/a,INFO (quantifies band-share rounding vs exact counts; not a pass/fail check),batch_handoff_d.json expected_annualised_revenue_SGD,2dp share path quantifies band-share rounding vs exact counts
+e_shift_OptionB,share4dp_x_6400,38624201.0,38624256.0,55.0,150.0,PASS,batch_handoff_e.json (tables/e_shift_feebate_base_delta.csv),independent dollar recompute

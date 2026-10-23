@@ -1,0 +1,18 @@
+loading easyocr reader (en) ...
+/home/hteo/.local/lib/python3.12/site-packages/torch/ao/nn/quantized/dynamic/modules/rnn.py:162: UserWarning: torch.quantize_per_tensor, torch.quantize_per_channel and other quantized tensor creation functions that produce tensors with dtype torch.quint8, torch.qint8, and torch.qint32 are deprecated and will be removed in a future PyTorch release. Please see https://github.com/pytorch/pytorch/issues/184982 for more information. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/quantized/Quantizer.cpp:111.)
+  w_ih = torch.quantize_per_tensor(
+reader loaded in 2.5s
+OCR annex_b.png ...
+/home/hteo/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+  done in 15.6s; words=50; conf avg=0.854 min=0.641 max=1.000; high(>=0.8)=32/50
+OCR annex_c.png ...
+/home/hteo/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+  done in 16.2s; words=49; conf avg=0.803 min=0.467 max=1.000; high(>=0.8)=26/49
+OCR cover /home/hteo/.hermes/kakis-runs/coe-category-study_20261022182314/docs/consult_paper_p1_cover_300.png ...
+/home/hteo/.local/lib/python3.12/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+  cover done in 13.9s; words=10; conf avg=0.934
+WROTE /home/hteo/.hermes/kakis-runs/coe-category-study_20261022182314/docs/annex_ocr.md
+WROTE /home/hteo/.hermes/kakis-runs/coe-category-study_20261022182314/docs/consult_paper_cover_ocr.md

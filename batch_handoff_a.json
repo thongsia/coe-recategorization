@@ -1,0 +1,60 @@
+{
+  "status": "ok",
+  "batch": "A (Steps 1-2)",
+  "batch_date": "2026-10-22",
+  "regime_start_date": "2027-01-01",
+  "regime_start_source": "default 2027-01 + reason: no implementation/effective date stated in the paper or annexes; paper says comments due 2 Nov 2026 (s1.17, p.6) and the review is 'expected to be completed by the end of 2026' (s4.3, p.20); earliest plausible regime start is 2027, so 2027-01 (first bidding exercise of 2027) is adopted and stamped on every scenario label",
+  "vintage": 2017,
+  "vintage_derivation": "start year 2027 - 10-year initial COE term (paper s1.3, p.3) = 2017; the 2016 cohort renews in 2026, entirely pre-regime, excluded from first-renewal-cycle analysis (pre-regime context only)",
+  "constraint_report_path": "verification/constraint_report.csv",
+  "files_written": [
+    "src/config.py",
+    "src/env_check.py",
+    "src/extract_paper.py",
+    "src/ocr_annexes.py",
+    "src/extract_car_cost.py",
+    "verification/constraint_report.csv",
+    "verification/car_cost_extraction_log.csv",
+    "verification/ocr_resolution_check.csv",
+    "verification/ocr_run.log",
+    "verification/ocr_450dpi_rerun.log",
+    "docs/consult_paper_text.md",
+    "docs/annex_ocr.md",
+    "docs/consult_paper_cover_ocr.md",
+    "docs/consult_paper_p1_cover.png",
+    "docs/consult_paper_p17_figure.png",
+    "docs/annex_b.png",
+    "docs/annex_c.png",
+    "docs/annex_b_450dpi.png",
+    "docs/annex_c_450dpi.png",
+    "data/processed/car_cost_aug2026.csv",
+    "tables/consultation_parameters.csv",
+    "methodology_notes.md",
+    "batch_handoff_a.json"
+  ],
+  "row_counts": {
+    "car_cost": 217,
+    "consultation_parameters": 29
+  },
+  "car_cost_catalog": {
+    "rows": 217,
+    "columns": 22,
+    "sn_sequential": "1-217 verified",
+    "coe_class_A_rows": 88,
+    "coe_class_B_rows": 129,
+    "coe_prices_aug2026_1st_bidding": {"A": 123890, "B": 129910},
+    "validation": "row arithmetic all pass (TBC sum, TWC sum, diff-with-COE)"
+  },
+  "annex_ocr_confidence": "Annex B: mean 0.854, 32/50 words >=0.8 (HIGH); Annex C: mean 0.803, 26/49 words >=0.8 (MEDIUM); 450 DPI re-OCR cross-check stable (50->50, 49->49 words) confirming completeness; known misreads ($ read as S, etc.) tabulated with corrected readings in docs/annex_ocr.md",
+  "scope_confirmation": "paper text matches user-stated scope: end date 2 Nov 2026 in s1.17/s4.3; A+B merge s2.4; value-based feebate s2.5/s2.8-s2.9 + fn2; Category E review s2.21-s2.24. Start date 8 Oct 2026 not stated in paper (cover OCR title-only); anchored to user scope / LTA news release per plan.",
+  "environment_checks": "17 checks, 0 fail: workspace writable (8 dirs, round-trip), data.gov.sg action-API HTTP 200 (1,990 total rows reported on COE resource), onemotoring.lta.gov.sg HTTP 200, 4 local PDFs present, prior-study dir accessible (read-only). Versioned api.data.gov.sg/v1 probe: HTTP 403 = unusable (consistent with plan).",
+  "notes": [
+    "DISCREPANCY (logged): bob_plan.md steps 1/6/13 + assumptions cite garbled prior-study path coe-rebate-bidding-analysis_20261014036210 (does not exist). Real path coe-rebate-bidding-analysis_20261012151812/ev_rebate_analysis used; config.PRIOR_STUDY_DIR is the single source of truth. See verification/constraint_report.csv row prior_study_path_discrepancy_check.",
+    "DISCREPANCY (logged): plan refers to the 'typical models' tables in the annex-OCR context; they are actually Tables 1 (p.11) / 2 (p.12) in the paper body (text layer). Annex B = illustrative merger+feebate mechanics; Annex C = illustrative median-OMV method with a worked $31k-$38k example. Implemented per the actual documents.",
+    "PROPOSED parameters (18) and stated facts (11) captured with citations in tables/consultation_parameters.csv; no parameter re-invented. Key PROPOSED: Option A 3 bands -15000/0/+15000 at 35th/50th OMV percentiles of 2025 registrations (Table 1, p.11); Option B 5 bands -15000/-7500/0/+7500/+15000 at 10th/35th/50th/75th (Table 2, p.12); median OMV per model for banding, annual review + annual publication (s2.15-s2.16); PQP = 3-month moving average (fn3, p.12); single price + single PQP post-merge (s2.19); renewal-feebate is an open question (s2.19-s2.20); Category E options = remove vs cars-only (s2.23); E receives 10% of A/B/C deregistrations since May 2017 (fn5, p.13).",
+    "All quantitative outputs downstream must carry config labels (scenario tag, data window 2025-01..2025-05 frozen mix, regime_start 2027-01-01, vintage 2017, PROPOSED-vs-COMPUTED) via src/config.py output_label().",
+    "Registration-mix data window is frozen at 2025-05 (data.gov.sg resource d_d3f4d708e1d0a37b4365414e2fad3a07); bulk fetch is Batch B (Step 3), offset pagination <=500 rows/request on https://data.gov.sg/api/action/datastore_search only.",
+    "Prior study (read-only): 16 src modules (00_data.py ... 15_report.py), tables/, data/ - reusable method precedent for Step 6 (HAC demand curves, negative controls, evidence grading).",
+    "Car Cost Aug 2026 catalog: 217 models, 88 Class A / 129 Class B; fuel codes P/H/R/B/C/E/Y/Q (Note 9); EV rows have blank engine_cc; 103/217 rows carry a distributor selling price. Useful cross-validation target: every 'typical model' named in paper Tables 1/2 exists in this catalog (incl. M.G. listed as 'M.G.')."
+  ]
+}

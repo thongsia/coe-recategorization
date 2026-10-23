@@ -1,0 +1,11 @@
+table,check,expected,actual,pass_fail,details
+tables/master_matrix.csv,regime_start_in_label,all 8 rows carry 'regime_start: 2027-01-01',8/8,pass,
+tables/master_matrix.csv,vintage_matches_derivation,vintage = 2017 = start year 2027 - 10-yr COE term in all 8 rows,vintage col all '2017' = config.transition_year_vintage() = 2017; derivation '2027 - 10-yr COE term',pass,
+tables/renewal_impact_master.csv,priced_at_cell_level_pqp,"per_vehicle_cost_pqp_only == pqp_2027_12 for all 8 cells; price_basis cites pqp_by_cell (never clearing price, never reused option-level PQP)",all 8 exact; price_basis mentions pqp_by_cell: 8/8,pass,
+tables/renewal_impact_master.csv,pqp_join_vs_pqp_by_cell,master pqp_2027_12 == pqp_by_cell pqp_sgd(2027-12) per cell (8/8),8/8 exact,pass,
+data/processed/pqp_by_cell.csv,cell_pqp_not_reused_option_level,"E_removed vs E_cars_only cell PQPs differ (removal pulse; own-path MA, no reused option-level PQP)",2027-01 OptionA: removed 130122.07 vs cars_only 129884.05 (diff 238.02 = pulse/6),pass,
+tables/renewal/*.csv,regime_start_and_cell_pqp_pricing,"all 8 per-cell renewal tables: regime_start 2027-01-01 in every label; renewal_cost_per_vehicle - quantum_applied == cell pqp_2027_12 (exact); price_basis = cell-level merged PQP via pqp_by_cell (never clearing price, never reused option-level PQP)",8/8 files verified,pass,
+tables/ec_scenario_E_removed.csv,scenario_rows_stamped_observed_rows_untagged,forward_scenario rows carry regime_start 2027-01-01; observed_history rows value_type=OBSERVED,72 scenario rows / 1194 observed rows,pass,
+tables/ec_scenario_E_cars_only.csv,scenario_rows_stamped_observed_rows_untagged,forward_scenario rows carry regime_start 2027-01-01; observed_history rows value_type=OBSERVED,72 scenario rows / 1194 observed rows,pass,
+data/processed/price_paths/*.csv,regime_start_in_label,all 422 rows x 8 files carry regime_start 2027-01-01,verified,pass,
+data/processed/pqp_by_cell.csv,regime_start_in_label,all 1672 rows carry regime_start 2027-01-01,verified,pass,
