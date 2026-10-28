@@ -45,7 +45,7 @@ summary). Every number in this README is quoted from the tables in
   Category E shift flow of 6,400 re-entering cars/yr). But under the
   two documented sensitivity variants the total swings from S$67.09M to
   S$139.49M/yr — roughly a fourfold range — depending on which
-  value cut points LTA ultimately uses (Figure 4, Table 3).
+  value cut points LTA ultimately uses (Figure 4, Table 4).
 - **The open question flips the sign.** If the feebate also applies to COE
   **renewals**, the first renewal cohort (cars first registered in 2017)
   is mostly older, cheaper cars that land in the rebate bands: the feebate
@@ -53,7 +53,7 @@ summary). Every number in this README is quoted from the tables in
   S$353.3M/yr (Option B)** for the transition year — a rebate to
   mass-market renewal holders, who get back about S$12,600 (A) or S$9,261
   (B) per car, while current Category B owners pay about S$1,400–1,600
-  more per car (Figure 6, Table 4).
+  more per car (Figure 6, Table 5).
 - **The consultation paper's own banding tables are internally
   inconsistent under public OMVs.** Of the paper's indicative banding
   tables, 2 rows (Option A, of 32) and 4 rows (Option B, of 34) carry
@@ -78,6 +78,10 @@ are estimates under a stated 1 Jan 2027 regime start (the paper gives no
 implementation date) — they are not predictions.
 
 ## 2. The data
+
+Six official sources carry the study (Table 1):
+
+**Table 1. Data sources and the window each covers.**
 
 | Data | What it tells us |
 |---|---|
@@ -116,7 +120,7 @@ All parameters below are **PROPOSED values from the consultation paper**
 (29 parameters extracted, each cited to its paper section;
 `tables/consultation_parameters.csv`).
 
-**Table 1. Feebate Option A — 3 bands, cut points at the 35th and 50th
+**Table 2. Feebate Option A — 3 bands, cut points at the 35th and 50th
 OMV percentiles of 2025 registrations (PROPOSED band structure; the
 dollar cut points are computed by the study from the 2025 mix).**
 
@@ -126,7 +130,7 @@ dollar cut points are computed by the study from the 2025 mix).**
 | 35–50th (S$28,877–36,062) | 15.74% | 0 |
 | above 50th (above S$36,062) | 49.10% | +S$15,000 (fee) |
 
-**Table 2. Feebate Option B — 5 bands, cut points at the 10th/35th/50th/
+**Table 3. Feebate Option B — 5 bands, cut points at the 10th/35th/50th/
 75th percentiles (PROPOSED structure; computed cut points shown).**
 
 | Band | Share of 2025 mix | Quantum |
@@ -207,7 +211,7 @@ E-removed cells is the one-round Category E shift effect (+S$1,428.14).*
 ### 4.3 The banding: cheaper cars are rebated, pricier cars pay — and the paper's own tables don't quite add up
 
 Banding the 217 models of the Aug 2026 catalog against the 2025
-registration mix gives the shares in Tables 1 and 2: under Option A,
+registration mix gives the shares in Tables 2 and 3: under Option A,
 35.16% of registrations fall in the S$15,000-rebate band, 15.74% in the
 neutral band, and 49.10% in the S$15,000-fee band (about 16,093 / 7,205
 / 22,477 registrations per year, out of a 45,775 base). Figure 3 shows
@@ -239,9 +243,9 @@ covering 98.73% of Jan–May 2025 car registrations (19,073 of 19,318).*
 Annual net feebate revenue under the Jan–May 2025 mix, with and without
 the Category E shift flow (6,400 E-de-registered cars/yr re-entering the
 merged category, Category-B-skewed mix — a stated assumption with a
-50–100% sensitivity):
+50–100% sensitivity; Table 4):
 
-**Table 3. Annual net feebate revenue by option (COMPUTED scenario
+**Table 4. Annual net feebate revenue by option (COMPUTED scenario
 estimates, S$/yr; mix window 2025-01..2025-05, frozen at 2025-05).**
 
 | | Option A | Option B |
@@ -306,9 +310,9 @@ scenario cell's own merged PQP (S$129,800.16 for all Option A cells,
 S$129,743.03 for all Option B cells, at the 2027-12 end): applying the
 feebate to renewals **reduces** the transition-year renewal cost by
 **S$517,215,600 (Option A) / S$353,265,450 (Option B)** — a net rebate
-to the government's own budget position, delivered to owners:
+to the government's own budget position, delivered to owners (Table 5):
 
-**Table 4. Per-vehicle renewal impact under the feebate (COMPUTED;
+**Table 5. Per-vehicle renewal impact under the feebate (COMPUTED;
 2017-vintage cohort banded at the PROPOSED 2025 cut points).**
 
 | | Option A | Option B |
