@@ -30,7 +30,7 @@ assumptions register, and the automated verification trail — see
 summary). Every number in this README is quoted from the tables in
 `tables/`, and the automated verifier re-checks all of them on every run.
 
-## 1. The short answer
+## 1. TL;DR
 
 - **The merge itself barely moves prices.** The two car categories are
   already priced almost identically: in the 2 Oct 2026 bidding, Category A
