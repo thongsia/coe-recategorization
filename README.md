@@ -32,52 +32,55 @@ summary). Every number in this README is quoted from the tables in
 
 ## 1. TL;DR
 
-- **The merge itself barely moves prices.** The two car categories are
-  already priced almost identically: in the 19–21 Oct 2026 bidding
+- **The proposed merge would barely move prices.** The two car categories
+  are already priced almost identically: in the 19–21 Oct 2026 bidding
   (2nd October 2026 exercise), Category A cleared at S$132,004 and
   Category B at S$131,901 — a S$103 gap — and in
-  2026, A actually cleared *above* B in four rounds (Figure 1). The merged
-  single price back-solves to S$131,965 for that round and holds flat at
-  S$131,892 through 2027 — essentially where both categories already are
-  (Figure 2).
-- **The feebate is a modest net revenue source — but its size is very
-  cut-point-sensitive.** Base revenue is S$95.76M/yr under Option A and
-  S$98.38M/yr under Option B (S$139.49M and S$137.00M/yr including the
-  Category E shift flow of 6,400 re-entering cars/yr). But under the
-  two documented sensitivity variants the total swings from S$67.09M to
-  S$139.49M/yr — roughly a twofold range (Option A's base-only revenue
-  swings fourfold, S$23.37M to S$95.76M) — depending on which value cut
-  points LTA ultimately uses (Figure 4, Table 4).
-- **The open question flips the sign.** If the feebate also applies to COE
-  **renewals**, the first renewal cohort (cars first registered in 2017)
-  is mostly older, cheaper cars that land in the rebate bands: the feebate
-  becomes a **net cost to the government of S$517.2M/yr (Option A) or
-  S$353.3M/yr (Option B)** for the transition year — a rebate to
-  mass-market renewal holders, who get back about S$12,600 (A) or S$9,261
-  (B) per car, while current Category B owners pay about S$1,400–1,600
-  more per car (Figure 6, Table 5).
+  2026, A actually cleared *above* B in four rounds (Figure 1). In the
+  scenario, the single merged price back-solves to S$131,965 for that
+  round and is modelled flat at S$131,892 through 2027 — essentially
+  where both categories already are (Figure 2).
+- **The proposed feebate would be a modest net revenue source — but its
+  size is very cut-point-sensitive.** Base revenue would be S$95.76M/yr
+  under Option A and S$98.38M/yr under Option B (S$139.49M and
+  S$137.00M/yr including the Category E shift flow of 6,400 re-entering
+  cars/yr). But under the two documented sensitivity variants the total
+  swings from S$67.09M to S$139.49M/yr — roughly a twofold range (Option
+  A's base-only revenue swings fourfold, S$23.37M to S$95.76M) —
+  depending on which value cut points LTA ultimately uses (Figure 4,
+  Table 4).
+- **The open question flips the sign.** If the feebate also applies to
+  COE **renewals**, the first renewal cohort (cars first registered in
+  2017) is mostly older, cheaper cars that land in the rebate bands: the
+  feebate would become a **net cost to the government of S$517.2M/yr
+  (Option A) or S$353.3M/yr (Option B)** for the transition year — a
+  rebate to mass-market renewal holders, who get back about S$12,600 (A)
+  or S$9,261 (B) per car, while current Category B owners pay about
+  S$1,400–1,600 more per car (Figure 6, Table 5).
 - **The consultation paper's own banding tables are internally
   inconsistent under public OMVs.** Of the paper's indicative banding
   tables, 2 rows (Option A, of 32) and 4 rows (Option B, of 34) carry
   models whose published values put them on the wrong side of the paper's
   own stated cut points. This is reported as a finding, not corrected
   (section 4.3).
-- **Unintended consequences are real but bounded.** About 14% of the
-  registration mix sits within ±5% of Option A's middle band boundary,
-  with a S$15,000 quantum at stake — measurable spec-gaming exposure
-  (Figure 8); the feebate shifts demand toward cheaper cars (Figure 5);
-  removing Category E raises Category C's quota by 11% but closes the
-  urgent-bid channel for time-constrained buyers (Figure 7).
+- **Under the proposal, the unintended consequences would be real but
+  bounded.** About 14% of the registration mix sits within ±5% of Option
+  A's middle band boundary, with a S$15,000 quantum at stake — measurable
+  spec-gaming exposure (Figure 8); the feebate would shift demand toward
+  cheaper cars (Figure 5); removing Category E would raise Category C's
+  quota by 11% but close the urgent-bid channel for time-constrained
+  buyers (Figure 7).
 
-Bottom line: **the merge is a low-risk administrative consolidation at
-today's prices, and the feebate on new registrations is a modest revenue
-source whose exact size LTA has not yet pinned down. The number that
-deserves scrutiny in the consultation is the renewal question: applying
-the feebate to renewals turns a small revenue stream into a six-figure
-rebate per transition-year holder, costing the government half a billion
-dollars or more in the first renewal cycle.** All scenario numbers below
-are estimates under a stated 1 Jan 2027 regime start (the paper gives no
-implementation date) — they are not predictions.
+Bottom line: **as proposed, the merge would be a low-risk administrative
+consolidation at today's prices, and the feebate on new registrations
+would be a modest revenue source whose exact size LTA has not yet pinned
+down. The number that deserves scrutiny in the consultation is the
+renewal question: applying the feebate to renewals would turn a small
+revenue stream into a six-figure rebate per transition-year holder,
+costing the government half a billion dollars or more in the first
+renewal cycle.** All scenario numbers below are estimates under a stated
+1 Jan 2027 regime start (the paper gives no implementation date) — they
+are not predictions.
 
 ## 2. The data
 
