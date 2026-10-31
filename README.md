@@ -431,7 +431,8 @@ analytical choice of the study, not an LTA parameter.*
 ### 4.9 What we can and can't claim
 
 - **Can claim:** A and B already clear within about S$103 of each other,
-  and the merged price back-solves to within S$100 of both; the feebate
+  and the merged category's price, calculated for the same round, comes
+  out within S$100 of both; the feebate
   is a modest net revenue source on new registrations (S$137–139M/yr
   base case, S$67–139M/yr across documented sensitivities) that lowers
   the merged price by about 1.6%; applying the feebate to renewals
@@ -442,7 +443,8 @@ analytical choice of the study, not an LTA parameter.*
   magnitudes.
 - **Can't claim:** any of these as realised outcomes. Every scenario
   number is an estimate under a stated 2027-01-01 regime start, the
-  frozen 2025-05 mix, scenario-grade demand elasticities (no structural
+  registration mix pinned at 2025-01..2025-05 (section 2), scenario-grade
+  demand elasticities (no structural
   causal claim), and the stated assumptions (100% E re-entry, full-cohort
   transition-year renewal, flat C price, per-cell PQP pricing). The
   magnitude of the feebate revenue — and of the renewal cost — is
