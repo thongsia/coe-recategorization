@@ -56,7 +56,8 @@ summary). Every number in this README is quoted from the tables in
   consultation, the total ranges from S$67.09M to S$139.49M/yr — about
   twofold (for Option A, the new-registration revenue alone ranges
   fourfold, S$23.37M to S$95.76M) (Figure 4, Table 4).
-- **The consultation's open question flips the sign.** If the feebate
+- **The consultation's open question turns a modest revenue into a big
+  cost.** If the feebate
   also applies to COE **renewals**, the first cars to renew — those first
   registered in 2017 — are mostly older, cheaper cars that fall in the
   rebate bands. The feebate would then **cost the government S$517.2M in
