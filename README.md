@@ -99,43 +99,48 @@ stated 1 Jan 2027 regime start (the paper gives no implementation date)
 
 Six official sources carry the study (Table 1):
 
-**Table 1. Data sources and the window each covers.**
+**Table 1. Data sources, the window each covers, and the caveats
+(Caveats 1–6 below) that apply to each.**
 
-| Data | What it tells us |
-|---|---|
-| COE bidding results, 2010-01 to 2026-10 (1,990 rows) | Every auction's final price, bids received, and quota sold, per category and per bidding round. Bids are placed mostly by car dealers on their customers' behalf |
-| Vehicle registrations, 2016-01 to 2025-05 (51,669 rows) | Monthly registrations by make, fuel type and importer — the mix used to value the bands |
-| LTA "Cost for Cars Registered", Aug 2026 (217 models) | Per-model OMV (Open Market Value — LTA's official value of a car), fuel type and COE class; the catalog every model is banded against |
-| LTA per-model OMV editions, 2017 and 2025 | Historical model-level OMVs (2017 for the renewal cohort; 2025 for the cut-point sensitivity) |
-| Published PQP history, 2002-02 to 2026-09 (12,904 rows) | LTA's published renewal prices for categories A–D — used to validate the study's PQP method |
-| LTA quota allocation, Apr 2010 to 2025 (90-page official PDF) | Historical COE quota splits across categories |
+| Data | What it tells us | Caveats |
+|---|---|---|
+| COE bidding results, 2010-01 to 2026-10 (1,990 rows) | Every auction's final price, bids received, and quota sold, per category and per bidding round. Bids are placed mostly by car dealers on their customers' behalf | — |
+| Vehicle registrations, 2016-01 to 2025-05 (51,669 rows) | Monthly registrations by make, fuel type and importer — the mix used to value the bands | 1, 2, 4 |
+| LTA "Cost for Cars Registered", Aug 2026 (217 models) | Per-model OMV (Open Market Value — LTA's official value of a car), fuel type and COE class; the catalog every model is banded against | — |
+| LTA per-model OMV editions, 2017 and 2025 | Historical model-level OMVs (2017 for the renewal cohort; 2025 for the cut-point sensitivity) | 3, 4 |
+| Published PQP history, 2002-02 to 2026-09 (12,904 rows) | LTA's published renewal prices for categories A–D — used to validate the study's PQP method | 6 |
+| LTA quota allocation, Apr 2010 to 2025 (90-page official PDF) | Historical COE quota splits across categories | — |
 
 Data caveats worth knowing:
 
-- **The banding mix is pinned to 2025-01..2025-05.** Every mix-based
-  number (band shares, cut points, gaming zones, feebate revenue) is
-  computed on those five months of registrations, annualised, and carries
-  that window as an explicit tag. The window matches the reference mix of
-  the consultation paper's indicative banding tables — which is why the
-  section 4.3 cross-check is valid — and the tag records which mix each
-  number was computed under, so the results stay reproducible if the
-  upstream dataset is later extended. (At snapshot time the official
-  dataset had not been updated past May 2025.)
-- **29,463 of 51,669 registration rows (57.0%) carry no vehicle count**
-  and are excluded consistently; all estimates state the valid-row base.
-- **The 2025 model-level OMV distribution is not public.** LTA's 2025
-  edition publishes model-month *average* OMV only, so the main banding
-  uses the labelled Jan–May 2025 registration mix × catalog
-  reconstruction; the LTA 2025 edition is carried as sensitivity S1, and
-  uniform model weights as sensitivity S2 (section 4.4).
-- **The 2017 renewal cohort is built from real 2017 registrations plus
-  the LTA 2017 OMV edition** (4,265 valid car rows, 56 makes; the 2017
-  Car Cost PDFs were no longer available — four probed URLs, all 404).
-- **Used-car markets have no usable data** — the used-car channel is
-  reported as directional only, never quantified (section 4.8).
-- **No E-category PQP is published** — the published PQP history covers
-  A–D only, which is fine: the merged-car PQP is a scenario quantity
-  built from the merged price path.
+1. **The banding mix is pinned to 2025-01..2025-05** (vehicle
+   registrations). Every mix-based number (band shares, cut points,
+   gaming zones, feebate revenue) is computed on those five months of
+   registrations, annualised, and carries that window as an explicit
+   tag. The window matches the reference mix of the consultation paper's
+   indicative banding tables — which is why the section 4.3 cross-check
+   is valid — and the tag records which mix each number was computed
+   under, so the results stay reproducible if the upstream dataset is
+   later extended. (At snapshot time the official dataset had not been
+   updated past May 2025.)
+2. **29,463 of 51,669 registration rows (57.0%) carry no vehicle
+   count** (vehicle registrations) and are excluded consistently; all
+   estimates state the valid-row base.
+3. **The 2025 model-level OMV distribution is not public** (2025 OMV
+   edition). LTA's 2025 edition publishes model-month *average* OMV
+   only, so the main banding uses the labelled Jan–May 2025 registration
+   mix × catalog reconstruction; the LTA 2025 edition is carried as
+   sensitivity S1, and uniform model weights as sensitivity S2
+   (section 4.4).
+4. **The 2017 renewal cohort is built from real 2017 registrations plus
+   the LTA 2017 OMV edition** (vehicle registrations; 2017 OMV edition):
+   4,265 valid car rows, 56 makes; the 2017 Car Cost PDFs were no longer
+   available — four probed URLs, all 404.
+5. **Used-car markets have no usable data** — the used-car channel is
+   reported as directional only, never quantified (section 4.8).
+6. **No E-category PQP is published** (PQP history) — the published PQP
+   history covers A–D only, which is fine: the merged-car PQP is a
+   scenario quantity built from the merged price path.
 
 ## 3. What LTA is proposing
 
