@@ -39,8 +39,8 @@ summary). Every number in this README is quoted from the tables in
   2026, A actually sold *above* B in four rounds (Figure 1). If the two
   had been one category, its price in that same round would have been
   S$131,965; averaged over the last six rounds it is S$131,892, and the
-  study carries that level forward unchanged through 2027 — right where
-  both categories already are (Figure 2).
+  study assumes it stays at that level through 2027 — right where both
+  categories already are (Figure 2).
 - **The proposed feebate would be a modest source of government revenue
   — but its size depends heavily on where the value bands are cut.** On
   new car registrations alone, the feebate would raise about S$95.76M/yr
