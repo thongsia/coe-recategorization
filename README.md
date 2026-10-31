@@ -33,8 +33,9 @@ summary). Every number in this README is quoted from the tables in
 ## 1. TL;DR
 
 - **The merge itself barely moves prices.** The two car categories are
-  already priced almost identically: in the 2 Oct 2026 bidding, Category A
-  cleared at S$132,004 and Category B at S$131,901 — a S$103 gap — and in
+  already priced almost identically: in the 19–21 Oct 2026 bidding
+  (2nd October 2026 exercise), Category A cleared at S$132,004 and
+  Category B at S$131,901 — a S$103 gap — and in
   2026, A actually cleared *above* B in four rounds (Figure 1). The merged
   single price back-solves to S$131,965 for that round and holds flat at
   S$131,892 through 2027 — essentially where both categories already are
@@ -44,8 +45,9 @@ summary). Every number in this README is quoted from the tables in
   S$98.38M/yr under Option B (S$139.49M and S$137.00M/yr including the
   Category E shift flow of 6,400 re-entering cars/yr). But under the
   two documented sensitivity variants the total swings from S$67.09M to
-  S$139.49M/yr — roughly a fourfold range — depending on which
-  value cut points LTA ultimately uses (Figure 4, Table 4).
+  S$139.49M/yr — roughly a twofold range (Option A's base-only revenue
+  swings fourfold, S$23.37M to S$95.76M) — depending on which value cut
+  points LTA ultimately uses (Figure 4, Table 4).
 - **The open question flips the sign.** If the feebate also applies to COE
   **renewals**, the first renewal cohort (cars first registered in 2017)
   is mostly older, cheaper cars that land in the rebate bands: the feebate
@@ -163,9 +165,9 @@ Beyond the two banding options, the consultation asks:
 Category A has traditionally been the cheaper category. By 2026 that
 ordering is gone: A cleared *above* B in exactly four rounds of 2026 —
 all second biddings (Feb +S$1,500, Apr +S$2,009, Jun +S$345, Oct
-+S$103), with more bids on the A side in each round (Figure 1). The 2
-Oct 2026 round — the latest observed — is the closest: S$132,004 vs
-S$131,901, a S$103 gap on prices of about S$132,000.
++S$103), with more bids on the A side in each round (Figure 1). The
+19–21 Oct 2026 round — the latest observed — is the closest: S$132,004
+vs S$131,901, a S$103 gap on prices of about S$132,000.
 
 **Figure 1.** A and B clearing prices per bidding round, 2010–2026
 (observed); the inset zooms the four 2026 rounds where A cleared above B.
@@ -301,9 +303,14 @@ This is the consultation's open PQP question, and it is where the sign
 flips. The first renewals under a 2027-01 regime are cars whose initial
 COE was registered in **2017** (2027 minus the 10-year initial COE
 term) — a cohort of **91,922 vehicles** (Option A pricing; 91,921 under
-Option B). The cohort's average OMV is S$22,002, below Option A's
-35th-percentile cut point (S$28,877): most of it lands in the rebate
-bands.
+Option B). The cohort skews cheap: under Option A's cut points, 97% of
+the pre-Category-A half (average OMV S$22,002, below the 35th-percentile
+cut point of S$28,877) and 57% of the pre-Category-B half land in the
+rebate bands — 77% of the cohort overall.
+The bundled registration file covers Categories A and B only: the 9,640
+cars registered under Category E in 2017 (official 2017 total 101,415)
+also come up for renewal in 2027 and are not priced here, so the
+figures in this section apply to the A+B cohort.
 
 Under the PROPOSED 2025 cut points, pricing the renewal cost at each
 scenario cell's own merged PQP (S$129,800.16 for all Option A cells,
