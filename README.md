@@ -68,9 +68,13 @@ summary). Every number in this README is quoted from the tables in
 - **The consultation paper's own banding tables are internally
   inconsistent under public OMVs (LTA's published car values).** In the
   paper's indicative banding tables, 2 rows of Option A's (of 32) and 4
-  of Option B's (of 34) name models whose published values fall on the
-  wrong side of the paper's own stated cut points. This is reported as a
-  finding, not corrected (section 4.3).
+  of Option B's (of 34) flag band lines that no dollar value can
+  satisfy: the models the paper itself lists cannot all sit on the
+  right side of the line. For example, the paper's Option A table lists
+  the Toyota Noah (published OMV S$28,083) below its 35th-percentile
+  line and the Toyota Corolla Altis (S$22,200) above it — the cheaper
+  car above the dearer one. This is reported as a finding, not
+  corrected (section 4.3).
 - **Under the proposal, the side effects would be real but limited.**
   About 14% of new registrations sit within ±5% of Option A's middle
   band boundary, where the fee changes by S$15,000 — enough incentive for
