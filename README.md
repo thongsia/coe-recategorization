@@ -33,54 +33,57 @@ summary). Every number in this README is quoted from the tables in
 ## 1. TL;DR
 
 - **The proposed merge would barely move prices.** The two car categories
-  are already priced almost identically: in the 19–21 Oct 2026 bidding
-  (2nd October 2026 exercise), Category A cleared at S$132,004 and
-  Category B at S$131,901 — a S$103 gap — and in
-  2026, A actually cleared *above* B in four rounds (Figure 1). In the
-  scenario, the single merged price back-solves to S$131,965 for that
-  round and is modelled flat at S$131,892 through 2027 — essentially
-  where both categories already are (Figure 2).
-- **The proposed feebate would be a modest net revenue source — but its
-  size is very cut-point-sensitive.** Base revenue would be S$95.76M/yr
-  under Option A and S$98.38M/yr under Option B (S$139.49M and
-  S$137.00M/yr including the Category E shift flow of 6,400 re-entering
-  cars/yr). But under the two documented sensitivity variants the total
-  swings from S$67.09M to S$139.49M/yr — roughly a twofold range (Option
-  A's base-only revenue swings fourfold, S$23.37M to S$95.76M) —
-  depending on which value cut points LTA ultimately uses (Figure 4,
-  Table 4).
-- **The open question flips the sign.** If the feebate also applies to
-  COE **renewals**, the first renewal cohort (cars first registered in
-  2017) is mostly older, cheaper cars that land in the rebate bands: the
-  feebate would become a **net cost to the government of S$517.2M/yr
-  (Option A) or S$353.3M/yr (Option B)** for the transition year — a
-  rebate to mass-market renewal holders, who get back about S$12,600 (A)
-  or S$9,261 (B) per car, while current Category B owners pay about
+  already cost almost the same: in the 19–21 Oct 2026 bidding (2nd
+  October 2026 exercise), a Category A COE sold for S$132,004 and a
+  Category B COE for S$131,901 — a S$103 difference — and in
+  2026, A actually sold *above* B in four rounds (Figure 1). If the two
+  had been one category, its price in that same round would have been
+  S$131,965; averaged over the last six rounds it is S$131,892, and the
+  study carries that level forward unchanged through 2027 — right where
+  both categories already are (Figure 2).
+- **The proposed feebate would be a modest source of government revenue
+  — but its size depends heavily on where the value bands are cut.** On
+  new car registrations alone, the feebate would raise about S$95.76M/yr
+  under Option A and S$98.38M/yr under Option B; adding the 6,400
+  cars/yr that would re-enter the car pool if Category E is removed
+  brings the total to S$139.49M and S$137.00M/yr. LTA has not yet fixed
+  the band cut points: under the two alternatives documented in the
+  consultation, the total ranges from S$67.09M to S$139.49M/yr — about
+  twofold (for Option A, the new-registration revenue alone ranges
+  fourfold, S$23.37M to S$95.76M) (Figure 4, Table 4).
+- **The consultation's open question flips the sign.** If the feebate
+  also applies to COE **renewals**, the first cars to renew — those first
+  registered in 2017 — are mostly older, cheaper cars that fall in the
+  rebate bands. The feebate would then **cost the government S$517.2M in
+  2027 (Option A) or S$353.3M (Option B)**: effectively a rebate to
+  mass-market renewal owners, who would get back about S$12,600 (A) or
+  S$9,261 (B) per car, while current Category B owners would pay about
   S$1,400–1,600 more per car (Figure 6, Table 5).
 - **The consultation paper's own banding tables are internally
-  inconsistent under public OMVs.** Of the paper's indicative banding
-  tables, 2 rows (Option A, of 32) and 4 rows (Option B, of 34) carry
-  models whose published values put them on the wrong side of the paper's
-  own stated cut points. This is reported as a finding, not corrected
-  (section 4.3).
-- **Under the proposal, the unintended consequences would be real but
-  bounded.** About 14% of the registration mix sits within ±5% of Option
-  A's middle band boundary, with a S$15,000 quantum at stake — measurable
-  spec-gaming exposure (Figure 8); the feebate would shift demand toward
-  cheaper cars (Figure 5); removing Category E would raise Category C's
-  quota by 11% but close the urgent-bid channel for time-constrained
-  buyers (Figure 7).
+  inconsistent under public OMVs (LTA's published car values).** In the
+  paper's indicative banding tables, 2 rows of Option A's (of 32) and 4
+  of Option B's (of 34) name models whose published values fall on the
+  wrong side of the paper's own stated cut points. This is reported as a
+  finding, not corrected (section 4.3).
+- **Under the proposal, the side effects would be real but limited.**
+  About 14% of new registrations sit within ±5% of Option A's middle
+  band boundary, where the fee changes by S$15,000 — enough incentive for
+  buyers to trim a car's spec to just under the line (Figure 8); the
+  feebate would also push demand toward cheaper cars (Figure 5); and
+  removing Category E would raise the commercial-vehicle category's (C)
+  quota by 11% while closing off the fast-track option for buyers who
+  need a COE urgently (Figure 7).
 
 Bottom line: **as proposed, the merge would be a low-risk administrative
 consolidation at today's prices, and the feebate on new registrations
-would be a modest revenue source whose exact size LTA has not yet pinned
-down. The number that deserves scrutiny in the consultation is the
-renewal question: applying the feebate to renewals would turn a small
-revenue stream into a six-figure rebate per transition-year holder,
-costing the government half a billion dollars or more in the first
-renewal cycle.** All scenario numbers below are estimates under a stated
-1 Jan 2027 regime start (the paper gives no implementation date) — they
-are not predictions.
+would be a modest source of revenue whose exact size LTA has not yet
+fixed. The number that deserves scrutiny in the consultation is the
+renewal question: if the feebate also applies to renewals, that small
+revenue stream would flip into a six-figure rebate for each car renewing
+in the first year — costing the government half a billion dollars or
+more in 2027 alone.** All scenario numbers below are estimates under a
+stated 1 Jan 2027 regime start (the paper gives no implementation date)
+— they are not predictions.
 
 ## 2. The data
 
