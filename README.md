@@ -9,7 +9,12 @@ Category A ("mass-market" cars) and Category B ("higher-value" cars) into
 one passenger-car category** with a single COE price and a single renewal
 price (the PQP — LTA's 3-month moving average of COE prices), and add a
 **value-based fee-and-rebate ("feebate")**: cars in lower value bands get a
-rebate off the COE price, cars in higher bands pay an extra fee. The
+rebate off the COE price, cars in higher bands pay an extra fee. The paper
+sketches the feebate in two alternative band structures — **Option A**,
+three bands with a S$15,000 rebate / no fee / S$15,000 fee, and
+**Option B**, five bands stepping from a S$15,000 rebate to a S$15,000
+fee in S$7,500 steps — with the band boundaries set at percentiles of
+car values, though the exact dollar cut points are not fixed. The
 consultation also reviews the treatment of **Category E** (remove it
 entirely, or keep it for cars only) and leaves open the question of whether
 the feebate should also apply to **COE renewals**.
