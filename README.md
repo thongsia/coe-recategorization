@@ -1,6 +1,6 @@
 # Merging car COE categories A and B: who pays, and who is rebated?
 
-_Disclaimer: This analysis was prompted by a human, then initially designed and carried out by an AI agent (Hermes + Qwen3.8-27B), and finally shaped and edited collaboratively between the two._
+_Disclaimer: This analysis was prompted by a human, then initially designed and carried out by an AI agent (Hermes + Qwen3.8-27B + [AIOS skillset](https://github.com/thongsia/aios)), and finally shaped and edited collaboratively between the two._
 
 Singapore's Land Transport Authority (LTA) is running a public consultation
 (8 Oct – 2 Nov 2026) on how to re-categorise cars for COE
