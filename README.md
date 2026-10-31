@@ -191,10 +191,15 @@ Beyond the two banding options, the consultation asks:
 - **Renewals (the open PQP question):** should the feebate also apply
   when COEs are renewed?
 - **Review cadence:** the banding is to be reviewed **annually**.
-- **Implementation date:** the paper states none. The study therefore
-  anchors every scenario at **1 Jan 2027** (the earliest plausible start
-  given the consultation closes 2 Nov 2026 with LTA findings due in
-  1H2027) — a documented ASSUMPTION carried in every scenario label.
+- **Implementation date:** the paper states none. The consultation closes
+  2 Nov 2026 and LTA findings are due in 1H2027, so a real start is
+  more likely 2H2027 or 2028. The study nonetheless anchors every
+  scenario at **1 Jan 2027** — the earliest date the regime could
+  possibly take effect (the lower bound of the start-date range, not a
+  prediction of when it actually starts) — a documented ASSUMPTION
+  carried in every scenario label; if LTA later announces a different
+  effective date, the scenario labels and the transition-year renewal
+  cohort vintage are re-stamped accordingly.
 
 ## 4. What we found
 
