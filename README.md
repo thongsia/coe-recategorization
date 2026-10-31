@@ -15,8 +15,8 @@ entirely, or keep it for cars only) and leaves open the question of whether
 the feebate should also apply to **COE renewals**.
 
 This repo contains a data-driven scenario study of that proposal, using 16
-years of official COE auction results (2010-01 to 2026-10), a frozen
-vehicle-registration dataset (2016-01 to 2025-05), LTA's public car
+years of official COE auction results (2010-01 to 2026-10), a vehicle
+registration dataset (2016-01 to 2025-05), LTA's public car
 catalog ("Cost for Cars Registered", Aug 2026 edition), LTA's per-model
 OMV editions (2017 and 2025), and 24 years of published PQP history
 (2002-02 to 2026-09).
@@ -88,7 +88,7 @@ Six official sources carry the study (Table 1):
 | Data | What it tells us |
 |---|---|
 | COE bidding results, 2010-01 to 2026-10 (1,990 rows) | Every auction's final price, bids received, and quota sold, per category and per bidding round. Bids are placed mostly by car dealers on their customers' behalf |
-| Vehicle registrations, 2016-01 to 2025-05 (51,669 rows, **frozen at 2025-05**) | Monthly registrations by make, fuel type and importer — the mix used to value the bands |
+| Vehicle registrations, 2016-01 to 2025-05 (51,669 rows) | Monthly registrations by make, fuel type and importer — the mix used to value the bands |
 | LTA "Cost for Cars Registered", Aug 2026 (217 models) | Per-model OMV (Open Market Value — LTA's official value of a car), fuel type and COE class; the catalog every model is banded against |
 | LTA per-model OMV editions, 2017 and 2025 | Historical model-level OMVs (2017 for the renewal cohort; 2025 for the cut-point sensitivity) |
 | Published PQP history, 2002-02 to 2026-09 (12,904 rows) | LTA's published renewal prices for categories A–D — used to validate the study's PQP method |
@@ -96,10 +96,15 @@ Six official sources carry the study (Table 1):
 
 Data caveats worth knowing:
 
-- **The registration mix is frozen at 2025-05.** The official dataset has
-  not been updated past May 2025, so every banding and revenue estimate
-  carries the explicit window "2025-01..2025-05, frozen at 2025-05" — the
-  last five months of actual registrations, annualised.
+- **The banding mix is pinned to 2025-01..2025-05.** Every mix-based
+  number (band shares, cut points, gaming zones, feebate revenue) is
+  computed on those five months of registrations, annualised, and carries
+  that window as an explicit tag. The window matches the reference mix of
+  the consultation paper's indicative banding tables — which is why the
+  section 4.3 cross-check is valid — and the tag records which mix each
+  number was computed under, so the results stay reproducible if the
+  upstream dataset is later extended. (At snapshot time the official
+  dataset had not been updated past May 2025.)
 - **29,463 of 51,669 registration rows (57.0%) carry no vehicle count**
   and are excluded consistently; all estimates state the valid-row base.
 - **The 2025 model-level OMV distribution is not public.** LTA's 2025
