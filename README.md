@@ -55,7 +55,7 @@ summary). Every number in this README is quoted from the tables in
   the band cut points: under the two alternatives documented in the
   consultation, the total ranges from S$67.09M to S$139.49M/yr — about
   twofold (for Option A, the new-registration revenue alone ranges
-  fourfold, S$23.37M to S$95.76M) (Figure 4, Table 4).
+  fourfold, S$23.37M to S$95.76M) (Figure 4, Table 5).
 - **The consultation's open question turns a modest revenue into a big
   cost.** If the feebate
   also applies to COE **renewals**, the first cars to renew — those first
@@ -64,7 +64,7 @@ summary). Every number in this README is quoted from the tables in
   2027 (Option A) or S$353.3M (Option B)**: effectively a rebate to
   mass-market renewal owners, who would get back about S$12,600 (A) or
   S$9,261 (B) per car, while current Category B owners would pay about
-  S$1,400–1,600 more per car (Figure 6, Table 5).
+  S$1,400–1,600 more per car (Figure 6, Table 6).
 - **The consultation paper's own banding tables are internally
   inconsistent under public OMVs (LTA's published car values).** In the
   paper's indicative banding tables, 2 rows of Option A's (of 32) and 4
@@ -74,7 +74,7 @@ summary). Every number in this README is quoted from the tables in
   the Toyota Noah (published OMV S$28,083) below its 35th-percentile
   line and the Toyota Corolla Altis (S$22,200) above it — the cheaper
   car above the dearer one. This is reported as a finding, not
-  corrected (section 4.3).
+  corrected (Table 4; section 4.3).
 - **Under the proposal, the side effects would be real but limited.**
   About 14% of new registrations sit within ±5% of Option A's middle
   band boundary, where the fee changes by S$15,000 — enough incentive for
@@ -242,12 +242,27 @@ the OMV distribution with the bands overlaid for both options.
 
 Cross-validating against the paper's own "typical models" banding
 tables: the study's reconstruction agrees with the paper on 24 of 32
-model rows (Option A) and 18 of 34 (Option B) — and 2 rows (A) / 4 rows
-(B) are **internally inconsistent under the public OMVs**: the paper
-assigns two models of the same table row to bands on opposite sides of
-its own stated cut point. This is reported as a finding of the study,
-not corrected in the paper's tables (section 4.1 of the report;
+rows (Option A) and 18 of 34 (Option B). In the remaining rows — 2 of
+Option A's band lines and 4 of Option B's — the paper's own model list
+makes the line impossible: the most expensive model it lists below the
+line is cheaper than the least expensive model it lists above it, so no
+dollar value for the line is consistent with the paper's table (Table
+4). This is reported as a finding of the study, not corrected in the
+paper's tables (section 4.1 of the report;
 `tables/banding_mismatches.csv`).
+
+**Table 4. The six band lines in the paper's indicative tables that no
+dollar value can satisfy (public OMVs: LTA Car Cost Aug 2026 catalog;
+LTA 2025 edition where the model is no longer catalogued).**
+
+| Option | Band line | Paper lists it below the line | Paper lists it above the line |
+|---|---|---|---|
+| A | 35th percentile | Toyota Noah (S$28,083) | Toyota Corolla Altis (S$22,200) |
+| A | 50th percentile | BYD Sealion 7 Dynamic (S$36,062) | Audi Q3 (S$30,629) |
+| B | 10th percentile | BYD E6 (S$26,000) | Hyundai Kona 1.6 HEV (S$19,373) |
+| B | 35th percentile | Toyota Noah (S$28,083) | Toyota Corolla Altis (S$22,200) |
+| B | 50th percentile | BYD Sealion 7 Dynamic (S$36,062) | Audi Q3 (S$30,629) |
+| B | 75th percentile | BYD Sealion 7 Performance (S$45,188) | Honda Civic Type R (S$39,494) |
 
 **Figure 3.** OMV distribution of the 217-model Car Cost (Aug 2026)
 catalog, weighted by the Jan–May 2025 registration mix, with the
@@ -266,9 +281,9 @@ covering 98.73% of Jan–May 2025 car registrations (19,073 of 19,318).*
 Annual net feebate revenue under the Jan–May 2025 mix, with and without
 the Category E shift flow (6,400 E-de-registered cars/yr re-entering the
 merged category, Category-B-skewed mix — a stated assumption with a
-50–100% sensitivity; Table 4):
+50–100% sensitivity; Table 5):
 
-**Table 4. Annual net feebate revenue by option (COMPUTED scenario
+**Table 5. Annual net feebate revenue by option (COMPUTED scenario
 estimates, S$/yr; mix window 2025-01..2025-05, frozen at 2025-05).**
 
 | | Option A | Option B |
@@ -338,9 +353,9 @@ scenario cell's own merged PQP (S$129,800.16 for all Option A cells,
 S$129,743.03 for all Option B cells, at the 2027-12 end): applying the
 feebate to renewals **reduces** the transition-year renewal cost by
 **S$517,215,600 (Option A) / S$353,265,450 (Option B)** — a net rebate
-to the government's own budget position, delivered to owners (Table 5):
+to the government's own budget position, delivered to owners (Table 6):
 
-**Table 5. Per-vehicle renewal impact under the feebate (COMPUTED;
+**Table 6. Per-vehicle renewal impact under the feebate (COMPUTED;
 2017-vintage cohort banded at the PROPOSED 2025 cut points).**
 
 | | Option A | Option B |
