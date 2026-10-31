@@ -152,6 +152,14 @@ All parameters below are **PROPOSED values from the consultation paper**
 (29 parameters extracted, each cited to its paper section;
 `tables/consultation_parameters.csv`).
 
+Both options define their bands as percentiles of one reference mix —
+the **2025 mix**: actual car registrations from January to May 2025
+(19,318 vehicles; pinned at 2025-05, section 2 caveat a), valued at the
+Aug 2026 catalog's OMVs. The paper sets the band boundaries as
+percentiles of this mix, and the study computes the dollar cut points —
+and the "share of 2025 mix" column — from it (section 2, caveat a,
+explains why the window is pinned).
+
 **Table 2. Feebate Option A — 3 bands, cut points at the 35th and 50th
 OMV percentiles of 2025 registrations (PROPOSED band structure; the
 dollar cut points are computed by the study from the 2025 mix).**
