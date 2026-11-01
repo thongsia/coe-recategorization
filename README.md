@@ -52,10 +52,11 @@ summary). Every number in this README is quoted from the tables in
   under Option A and S$98.38M/yr under Option B; adding the 6,400
   cars/yr that would re-enter the car pool if Category E is removed
   brings the total to S$139.49M and S$137.00M/yr. LTA has not yet fixed
-  the band cut points: under the two alternatives documented in the
-  consultation, the total ranges from S$67.09M to S$139.49M/yr — about
-  twofold (for Option A, the new-registration revenue alone ranges
-  fourfold, S$23.37M to S$95.76M) (Figure 4, Table 5).
+  the band cut points: across the study's base placement and its two
+  sensitivity variants (Table 5), the total ranges from S$67.09M to
+  S$139.49M/yr — about twofold (for Option A, the new-registration
+  revenue alone ranges fourfold, S$23.37M to S$95.76M) (Figure 4,
+  Table 5).
 - **The consultation's open question turns a modest revenue into a big
   cost.** If the feebate
   also applies to COE **renewals**, the first cars to renew — those first
@@ -337,11 +338,23 @@ estimates, S$/yr; mix window 2025-01..2025-05, frozen at 2025-05).**
 | Sensitivity S1 (LTA-2025-edition cut points), total | 103,359,055 | 108,988,080 |
 | Sensitivity S2 (uniform model weights), total | 67,094,156 | 82,164,941 |
 
+*S1 and S2 vary only the band boundaries — the "cut points" of section
+3 — not the car mix: S1 locates the boundaries using LTA's official
+2025-edition car prices (OMV) instead of the study's catalog values,
+and S2 assumes every model in the mix is equally common (ignoring how
+many of each model were actually registered). The "total" on these rows
+means the same as on the Total row above — i.e. including the E-shift
+flow: the same 6,400-car delta, banded at the base cut points, is
+added to every variant, so the difference between the three revenue
+rows is purely the cut points.*
+
 The feebate is about **1.8–1.9% of total COE revenue** — modest next to
 the multi-billion-dollar COE take — and the net demand response is
-negligible (−673 bids/yr under A, −691 under B). The cut-point base
-dominates the uncertainty: base revenue alone swings from S$23.37M to
-S$95.76M/yr for Option A across the documented variants (Figure 4).
+negligible (−673 bids/yr under A, −691 under B). The cut points
+dominate the uncertainty: base revenue alone (excluding the E-shift)
+swings from S$95.76M/yr at the base cut points to S$59.63M (S1) and
+S$23.37M (S2) for Option A — S$70.36M and S$43.54M for Option B
+(Figure 4).
 
 **Figure 4.** Annual net feebate revenue by option (scenario,
 Jan–May 2025 mix): base, E-shift delta, total, and cut-point
