@@ -228,20 +228,40 @@ zoom with each inversion's spread.*
 
 ### 4.2 Merging produces one price, essentially where both already are
 
-Back-solving the merged A+B category against its combined quota (held at
-2,137.5 per round — the last six rounds' average, so the total car quota
-is preserved) gives a single price of **S$131,965.17** at the last
-observed round, and a flat forward path of **S$131,892.13** through
-2027 (Figure 2, left). That is S$73 below the 2026-10 level — about a
-23-bid gap — and the forward path is flat by construction of the
-scenario. With the feebate applied, the merged price settles
-about **1.6% lower**: S$129,873 (Option A) / S$129,816 (Option B) at
-the last observed round, S$129,800 / S$129,743 at the 2027-12 end —
-the price of the feebate's average S$2,092 (A) / S$2,149 (B) quantum
-per registration passed through to the clearing price. The right panel
-shows the per-cell detail: four distinct price paths serve the full
-eight-cell scenario matrix (Option A/B × E removed/cars-only × renewal
-feebate no/yes), and the dotted lines are each cell's renewal PQP.
+Section 4.1 showed the two categories now clear at nearly the same price.
+The natural follow-up: once they are merged, what does the single price
+come out to — and what would move it?
+
+**The merged price is essentially the price already being paid.** The
+study works this out from the actual bids: take each round's bids and
+the combined quota (2,137.5 per round — the last six rounds' average,
+i.e. the same total number of cars as today), and compute the price a
+single merged category would clear at. It does so for every round from
+2010 to 2026 (the dashed "back-solved" line in Figure 2, left); in the
+last observed round (19–21 Oct 2026) the merged price is
+**S$131,965** — within S$40 of the Category A price and S$65 of the
+Category B price, because the two prices are now that close. The
+scenario holds it flat at **S$131,892** through 2027 (a stated
+ASSUMPTION: the same number of bidders, at the same willingness to
+pay). In short, the merger itself is price-neutral: it unifies two
+prices that are already nearly identical, and creates no price shock.
+
+**The only thing that moves the price is the feebate — and it moves it
+slightly down.** Across the mix, the average car pays a net S$2,092
+(Option A) / S$2,149 (Option B) more in fees than it gets back in
+rebates. Bidders work that into their bids, so the merged price settles
+about **1.6% lower**: S$129,873 (A) / S$129,816 (B) at the last
+observed round, S$129,800 / S$129,743 by the end of 2027. For the
+average car the total outlay (price + fee − rebate) is about the same as
+before; the drop is money moving from bidders to the government — the
+revenue counted in section 4.4.
+
+The right panel of Figure 2 shows the same merged price under each
+scenario variant: four lines, because the two Category-E options
+(section 4.7) and the two band structures each shift the price slightly
+differently. The renewal-feebate question does not change this price at
+all — it only changes what renewal owners pay (section 4.6); the dotted
+lines are each variant's renewal price (PQP).
 
 **Figure 2.** Merged A+B price paths, 2010 back-solved to 2027 forward
 (scenario, regime start 2027-01); left: no-fee vs with-fee under both
