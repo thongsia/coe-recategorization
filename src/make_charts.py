@@ -69,7 +69,12 @@ def mkfig(name, caption, fig, title=None):
       - caption horizontally centered on the FIGURE (not the axes);
       - caption width < figure width minus a 40px margin (one line);
       - caption does not overlap any axes bbox or any x-axis label;
-      - title (if any) does not overlap panel titles or y-axis labels.
+      - title (if any) does not overlap panel titles or y-axis labels;
+      - panel titles do not overlap each other (side-by-side panels
+        with long titles used to interleave into one unreadable line);
+      - every panel title fits inside the figure canvas (a title wider
+        than its panel used to spill past the canvas edge and force
+        bbox_inches='tight' to stretch the saved image).
     Problems are printed as WARNING lines next to the 'wrote' line."""
     path = os.path.join(CH, name)
     if title:
@@ -102,6 +107,20 @@ def mkfig(name, caption, fig, title=None):
                 if child.get_visible() and child.get_text():
                     if st.overlaps(child.get_window_extent(renderer)):
                         problems.append(f"title overlaps {child.get_text()[:30]!r}")
+    # panel titles vs each other, and vs the figure canvas
+    title_exts = []
+    for ax in fig.axes:
+        t = ax.title
+        if t.get_visible() and t.get_text():
+            title_exts.append((t.get_window_extent(renderer), t.get_text()[:30]))
+    for i in range(len(title_exts)):
+        for j in range(i + 1, len(title_exts)):
+            if title_exts[i][0].overlaps(title_exts[j][0]):
+                problems.append(
+                    f"panel titles overlap: {title_exts[i][1]!r} vs {title_exts[j][1]!r}")
+    for ext, txt in title_exts:
+        if ext.x0 < -2 or ext.x1 > W + 2:
+            problems.append(f"panel title exceeds canvas width: {txt!r}")
     if problems:
         print(f"WARNING {name}: layout problems: {problems}")
     fig.savefig(path, dpi=150, bbox_inches="tight")
@@ -176,7 +195,7 @@ def fig2():
     ax1.plot([t for t, _ in wB], [v for _, v in wB], "--", color="#ff7f0e", lw=1.6, label="merged with-fee, Option B (SCENARIO)")
     ax1.axvline(dt.datetime(2027, 1, 1), color="k", lw=0.8, ls=":")
     ax1.text(dt.datetime(2027, 2, 15), ax1.get_ylim()[0] + 800, "regime start 2027-01-01\n(forward: 24 rounds, flat by static-pool design)", fontsize=7)
-    ax1.set_title("(a) Option-level merged-car price paths (2010 back-solved .. 2027 forward)")
+    ax1.set_title("(a) Option-level merged-car price paths\n(2010 back-solved .. 2027 forward)")
     ax1.set_ylabel("Merged-car price (S$)")
     ax1.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
     ax1.grid(alpha=0.3)
@@ -207,8 +226,9 @@ def fig2():
         pqpc[c] = pts
         ax2.plot([t for t, _ in pts], [v for _, v in pts], ":", color=cols[c], lw=2.2,
                  label=f"{c} cell PQP (SCENARIO)")
-    ax2.set_title("(b) Per-cell paths and cell-level renewal PQP lines, 2026-06..2027-12 "
-                  "(4 distinct paths serve the 8 cells; toggle pairs byte-identical, sha256-verified)")
+    ax2.set_title("(b) Per-cell paths and cell-level renewal PQP\n"
+                  "2026-06..2027-12 (4 distinct paths serve the 8 cells;\n"
+                  "toggle pairs byte-identical, sha256-verified)")
     ax2.set_ylabel("Price / PQP (S$)")
     ax2.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
     ax2.tick_params(labelsize=7)
@@ -241,7 +261,7 @@ def fig3():
     ax1.text(0.02, 0.9, "band 1 (0-35th): −15,000 | share 35.16%\nband 2 (35-50th): 0 | share 15.74%\nband 3 (>50th): +15,000 | share 49.10%",
              transform=ax1.transAxes, fontsize=8, va="top",
              bbox=dict(boxstyle="round", fc="white", alpha=0.85))
-    ax1.set_title("(a) Option A — 3 bands at 35th/50th OMV percentiles (PROPOSED percentiles, COMPUTED cut points)")
+    ax1.set_title("(a) Option A — 3 bands at 35th/50th OMV percentiles\n(PROPOSED percentiles, COMPUTED cut points)")
     ax1.set_ylabel("Registration mix weight (Jan-May 2025)")
     ax1.grid(alpha=0.3, axis="y")
     ax2.hist(omvB, bins=edges, weights=wB, color="#c5b0d5", edgecolor="white", lw=0.3)
@@ -254,7 +274,7 @@ def fig3():
     ax2.text(0.02, 0.9, "band shares: 10.17 / 24.98 / 15.74 / 24.22 / 24.88%\nquantums: −15,000 / −7,500 / 0 / +7,500 / +15,000",
              transform=ax2.transAxes, fontsize=8, va="top",
              bbox=dict(boxstyle="round", fc="white", alpha=0.85))
-    ax2.set_title("(b) Option B — 5 bands at 10th/35th/50th/75th OMV percentiles (PROPOSED percentiles, COMPUTED cut points)")
+    ax2.set_title("(b) Option B — 5 bands at 10th/35th/50th/75th OMV percentiles\n(PROPOSED percentiles, COMPUTED cut points)")
     ax2.set_ylabel("Registration mix weight (Jan-May 2025)")
     ax2.set_xlabel("Model OMV (S$, Car Cost Aug 2026 catalog)")
     ax2.grid(alpha=0.3, axis="y")
@@ -317,7 +337,7 @@ def fig5():
         ax2p.tick_params(labelsize=7)
         tot = f([r for r in sub if r[ixd["dimension"]] == "TOTAL"][0][ixd["delta_bids_per_year"]])
         ev = f([r for r in sub if r[ixd["dimension"]] == "fuel" and r[ixd["value"]] == "EV"][0][ixd["delta_bids_per_year"]])
-        ax.set_title(f"({lab}) {opt}: total {tot:,.0f} bids/yr; EV {ev:,.0f} ({ev/tot*100:.1f}% of shift)")
+        ax.set_title(f"({lab}) {opt}: total {tot:,.0f} bids/yr\nEV {ev:,.0f} ({ev/tot*100:.1f}% of shift)")
         ax.set_ylabel("Delta bids/yr by band (SCENARIO)")
         ax.grid(alpha=0.3, axis="y")
     mkfig("demand_shift_by_band.png",
@@ -380,7 +400,7 @@ def fig7():
             if pts:
                 ax.plot([t for t, _ in pts], [v for _, v in pts], linestyle=ls, color=col, lw=1.6, label=f"{lab} — {tag}")
     ax1.axvline(dt.datetime(2027, 1, 1), color="k", lw=0.8, ls=":")
-    ax1.set_title("(a) Forward quotas per round (SCENARIO): C +11.11% under removal (345.74/round vs 311.17), E → 0 under removal (266.67/round cars-only)")
+    ax1.set_title("(a) Forward quotas per round (SCENARIO)\nC +11.11% under removal (345.74 vs 311.17/round);\nE → 0 under removal (266.67/round cars-only)")
     ax1.set_ylabel("Quota per round")
     ax1.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
     ax1.legend(fontsize=7)
@@ -400,7 +420,7 @@ def fig7():
         if Epts:
             ax.plot([t for t, _ in Epts], [v for _, v in Epts], linestyle=colstyle, color="#d62728", lw=1.4, label=f"E, Option A (premium decays to 0 over 6 rounds) — {tag}")
     ax2.axvline(dt.datetime(2027, 1, 1), color="k", lw=0.8, ls=":")
-    ax2.set_title("(b) Forward prices (SCENARIO): C flat at 91,813.5 (NOT DETECTABLE response, conservative bound); E premium 3,777.33 → 0 (cars-only)")
+    ax2.set_title("(b) Forward prices (SCENARIO)\nC flat at 91,813.5 (NOT DETECTABLE response;\nconservative bound); E premium 3,777.33 → 0 (cars-only)")
     ax2.set_ylabel("Price (S$)")
     ax2.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
     ax2.legend(fontsize=6.5)
@@ -433,7 +453,7 @@ def fig8():
             ax.annotate(f"{r[ixd['percentile']]}th zone\nshare {share:.2f}%\n{nmod} models, ~{ann:,.0f} reg/yr\nquantum at stake {qp:,.0f} S$",
                         xy=(mid, ax.get_ylim()[1] * 0.55), fontsize=6.8, ha="center",
                         bbox=dict(boxstyle="round", fc="white", alpha=0.9, ec="gray"))
-        ax.set_title(f"({lab}) {opt} — ±5% OMV boundary zones around each cut point (zone width = documented analytical choice, NOT an LTA parameter)")
+        ax.set_title(f"({lab}) {opt} — ±5% OMV boundary zones around each cut point\n(zone width = documented analytical choice, NOT an LTA parameter)")
         ax.set_ylabel("Registration mix weight (Jan-May 2025)")
         ax.grid(alpha=0.3, axis="y")
     ax2.set_xlabel("Model OMV (S$, Car Cost Aug 2026 catalog)")
