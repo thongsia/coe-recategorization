@@ -37,6 +37,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import matplotlib.dates as mdates  # noqa: E402
+import datetime as dt  # noqa: E402
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import config  # noqa: E402
@@ -61,6 +62,11 @@ def f(v):
         return None
 
 
+def mbdate(m, b):
+    """Month 'YYYY-MM' + bidding no -> datetime: 1st of month + 31*(b-1)/2 days."""
+    return dt.datetime(int(m[:4]), int(m[5:7]), 1) + dt.timedelta(days=31 * (int(b) - 1) / 2)
+
+
 def mkfig(name, caption, fig, title=None):
     """Save a figure with a short title on top (optional) and a centered
     'Figure N: ...' caption band below the plot. The caption band is
@@ -74,7 +80,9 @@ def mkfig(name, caption, fig, title=None):
         with long titles used to interleave into one unreadable line);
       - every panel title fits inside the figure canvas (a title wider
         than its panel used to spill past the canvas edge and force
-        bbox_inches='tight' to stretch the saved image).
+        bbox_inches='tight' to stretch the saved image);
+      - in-axes text (annotations) does not collide with the panel
+        title, and no text/annotation extends past the canvas.
     Problems are printed as WARNING lines next to the 'wrote' line."""
     path = os.path.join(CH, name)
     if title:
@@ -118,6 +126,18 @@ def mkfig(name, caption, fig, title=None):
             if title_exts[i][0].overlaps(title_exts[j][0]):
                 problems.append(
                     f"panel titles overlap: {title_exts[i][1]!r} vs {title_exts[j][1]!r}")
+    # in-axes text (annotations etc.) must not collide with the panel title
+    for ax in fig.axes:
+        t = ax.title
+        if not (t.get_visible() and t.get_text()):
+            continue
+        tb = t.get_window_extent(renderer)
+        for child in ax.get_children():
+            if child is t or not isinstance(child, plt.Text) or not child.get_text():
+                continue
+            if child.get_window_extent(renderer).overlaps(tb):
+                problems.append(
+                    f"in-axes text overlaps panel title: {child.get_text()[:30]!r}")
     for ext, txt in title_exts:
         if ext.x0 < -2 or ext.x1 > W + 2:
             problems.append(f"panel title exceeds canvas width: {txt!r}")
@@ -183,20 +203,17 @@ def fig1():
 # 2. Merged price paths: option-level + per-cell + cell PQP
 # ======================================================================
 def fig2():
-    import datetime as dt
-    def d(m, b):
-        return dt.datetime(int(m[:4]), int(m[5:7]), 1) + dt.timedelta(days=31 * (int(b) - 1) / 2)
     ixn, rowsn = read("tables/merged_price_nofeebate.csv")
-    nofee = [(d(r[ixn["month"]], r[ixn["bidding_no"]]), f(r[ixn["merged_price_point"]])) for r in rowsn if f(r[ixn["merged_price_point"]])]
+    nofee = [(mbdate(r[ixn["month"]], r[ixn["bidding_no"]]), f(r[ixn["merged_price_point"]])) for r in rowsn if f(r[ixn["merged_price_point"]])]
     ixwA, rowwA = read("tables/merged_price_optionA_withfee.csv")
-    wA = [(d(r[ixwA["month"]], r[ixwA["bidding_no"]]), f(r[ixwA["withfee_price_point"]])) for r in rowwA if f(r[ixwA["withfee_price_point"]])]
+    wA = [(mbdate(r[ixwA["month"]], r[ixwA["bidding_no"]]), f(r[ixwA["withfee_price_point"]])) for r in rowwA if f(r[ixwA["withfee_price_point"]])]
     ixwB, rowwB = read("tables/merged_price_optionB_withfee.csv")
-    wB = [(d(r[ixwB["month"]], r[ixwB["bidding_no"]]), f(r[ixwB["withfee_price_point"]])) for r in rowwB if f(r[ixwB["withfee_price_point"]])]
+    wB = [(mbdate(r[ixwB["month"]], r[ixwB["bidding_no"]]), f(r[ixwB["withfee_price_point"]])) for r in rowwB if f(r[ixwB["withfee_price_point"]])]
     # observed A/B reference
     ixp, rowsp = read("data/processed/coe_panel_perbidding.csv")
-    A = [(d(r[ixp["month"]], r[ixp["bid_no"]]), f(r[ixp["premium"]])) for r in rowsp if r[ixp["category"]] == "A"]
-    B = [(d(r[ixp["month"]], r[ixp["bid_no"]]), f(r[ixp["premium"]])) for r in rowsp if r[ixp["category"]] == "B"]
-    fig, (ax1, axb, ax2) = plt.subplots(1, 3, figsize=(16, 5.5), gridspec_kw={"width_ratios": [1.3, 1, 1]})
+    A = [(mbdate(r[ixp["month"]], r[ixp["bid_no"]]), f(r[ixp["premium"]])) for r in rowsp if r[ixp["category"]] == "A"]
+    B = [(mbdate(r[ixp["month"]], r[ixp["bid_no"]]), f(r[ixp["premium"]])) for r in rowsp if r[ixp["category"]] == "B"]
+    fig, (ax1, axb) = plt.subplots(1, 2, figsize=(13, 5.5), gridspec_kw={"width_ratios": [1.2, 1]})
     ax1.plot([t for t, _ in A], [v for _, v in A], "-", color="#1f77b4", lw=0.5, alpha=0.45, label="A observed (OBSERVED)")
     ax1.plot([t for t, _ in B], [v for _, v in B], "-", color="#d62728", lw=0.5, alpha=0.45, label="B observed (OBSERVED)")
     ax1.plot([t for t, _ in nofee], [v for _, v in nofee], "--", color="#555555", lw=1.4, label="merged no-fee (SCENARIO, dashed)")
@@ -233,45 +250,8 @@ def fig2():
     axb.legend(fontsize=6, loc="upper right")
     axb.text(dt.datetime(2027, 6, 1), 130846, "feebate: -S$2,092 (-1.6%)",
              fontsize=6.5, ha="center")
-
-    # right: 4 distinct per-cell paths + cell PQP lines
-    cells = ["OptionA+E_removed", "OptionA+E_cars_only", "OptionB+E_removed", "OptionB+E_cars_only"]
-    cols = {"OptionA+E_removed": "#1f77b4", "OptionA+E_cars_only": "#2ca02c",
-            "OptionB+E_removed": "#ff7f0e", "OptionB+E_cars_only": "#9467bd"}
-    pulse_pts = []
-    for c in cells:
-        ixp2, rowsp2 = read(f"data/processed/price_paths/{c}+renewal_feebate_no.csv")
-        pts = [(d(r[ixp2["month"]], r[ixp2["bidding_no"]]), f(r[ixp2["price_sgd"]])) for r in rowsp2
-               if r[ixp2["month"]] >= "2026-06"]
-        ax2.plot([t for t, _ in pts], [v for _, v in pts], "--", color=cols[c], lw=1.5,
-                 label=f"{c} price (SCENARIO)")
-        # pulse annotation for removal cells: 2027-01 b1 is plotted at 2027-01-01
-        if "E_removed" in c:
-            pulse_pts.extend(v for t, v in pts if t == dt.datetime(2027, 1, 1))
-    if pulse_pts:
-        ax2.annotate("E-shift pulse +1,428 S$ (2027-01 b1 only)",
-                     xy=(dt.datetime(2027, 1, 1), max(pulse_pts)),
-                     xytext=(dt.datetime(2027, 4, 1), 133500), fontsize=7, ha="center",
-                     arrowprops=dict(arrowstyle="->", lw=0.7))
-    ixq, rowsq = read("data/processed/pqp_by_cell.csv")
-    pqpc = {}
-    for c in cells:
-        pts = [(d(r[ixq["month"]], "1"), f(r[ixq["pqp_sgd"]])) for r in rowsq
-               if r[ixq["distinct_path_id"]] == c and r[ixq["month"]] >= "2027-01"]
-        pqpc[c] = pts
-        ax2.plot([t for t, _ in pts], [v for _, v in pts], ":", color=cols[c], lw=2.2,
-                 label=f"{c} cell PQP (SCENARIO)")
-    ax2.set_title("(c) Per-cell paths and cell-level\n"
-                  "renewal PQP (2026-06..2027-12)\n"
-                  "4 paths serve the 8 cells;\n"
-                  "toggle pairs byte-identical")
-    ax2.set_ylabel("Price / PQP (S$)")
-    ax2.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
-    ax2.tick_params(labelsize=7)
-    ax2.grid(alpha=0.3)
-    ax2.legend(fontsize=6, ncol=2, loc="lower right")
     mkfig("merged_price_paths.png",
-          "Figure 2: Merged A+B price paths, 2010 back-solved to 2027 forward (scenario, regime start 2027-01); left: no-fee vs with-fee (Options A/B); middle: recent zoom 2026-09..2027-12; right: per-cell paths + renewal PQP.",
+          "Figure 2: Merged A+B price paths, 2010 back-solved to 2027 forward (scenario, regime start 2027-01); left: no-fee vs with-fee (Options A/B); right: recent zoom 2026-09..2027-12.",
           fig, title="Merged A+B car price paths — no-fee vs with-fee")
 
 
@@ -306,7 +286,7 @@ def fig3():
         ax2.axvspan(lo, hi, color=col, alpha=0.18)
     for x, lab in ((20310, "10th: 20,310"), (28877, "35th: 28,877"), (36062, "50th: 36,062"), (49662, "75th: 49,662")):
         ax2.axvline(x, color="k", lw=1.0, ls="--")
-        ax2.annotate(lab, xy=(x, ax2.get_ylim()[1] * 0.97), fontsize=7.5, ha="center", rotation=30)
+        ax2.annotate(lab, xy=(x, ax2.get_ylim()[1] * 0.95), fontsize=7.5, ha="center")
     ax2.text(0.02, 0.9, "band shares: 10.17 / 24.98 / 15.74 / 24.22 / 24.88%\nquantums: −15,000 / −7,500 / 0 / +7,500 / +15,000",
              transform=ax2.transAxes, fontsize=8, va="top",
              bbox=dict(boxstyle="round", fc="white", alpha=0.85))
@@ -386,7 +366,7 @@ def fig5():
 # ======================================================================
 def fig6():
     ixm, rowsm = read("tables/renewal_impact_master.csv")
-    fig, ax = plt.subplots(figsize=(11, 5.5))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 5.5), gridspec_kw={"width_ratios": [1.15, 1]})
     import numpy as np
     cells = ["OptionA+E_removed", "OptionA+E_cars_only", "OptionB+E_removed", "OptionB+E_cars_only"]
     no = [f([r for r in rowsm if r[ixm["cell"]] == c + "+renewal_feebate_no"][0][ixm["annual_cost_total_sgd"]]) / 1e9 for c in cells]
@@ -394,21 +374,56 @@ def fig6():
     cohort = [f([r for r in rowsm if r[ixm["cell"]] == c + "+renewal_feebate_no"][0][ixm["cohort_volume"]]) for c in cells]
     pqp = [f([r for r in rowsm if r[ixm["cell"]] == c + "+renewal_feebate_no"][0][ixm["pqp_2027_12_sgd"]]) for c in cells]
     x = np.arange(len(cells)); wdt = 0.36
-    b1 = ax.bar(x - wdt/2, no, wdt, color="#d9d9d9", edgecolor="k", lw=0.6, label="renewal feebate OFF (PQP only)")
-    b2 = ax.bar(x + wdt/2, yes, wdt, color="#1f77b4", edgecolor="k", lw=0.6, label="renewal feebate ON (PQP + band quantum)")
+    b1 = ax1.bar(x - wdt/2, no, wdt, color="#d9d9d9", edgecolor="k", lw=0.6, label="renewal feebate OFF (PQP only)")
+    b2 = ax1.bar(x + wdt/2, yes, wdt, color="#1f77b4", edgecolor="k", lw=0.6, label="renewal feebate ON (PQP + band quantum)")
     for i, (nv, yv) in enumerate(zip(no, yes)):
-        ax.text(i - wdt/2, nv + 0.06, f"{nv:.2f}B", ha="center", fontsize=8)
-        ax.text(i + wdt/2, yv + 0.06, f"{yv:.2f}B", ha="center", fontsize=8)
-        ax.annotate(f"Δ {yv-nv:+.2f}B/yr (NET REBATE)", xy=(i + wdt/2, yv), xytext=(i + 0.02, yv - 0.55),
-                    fontsize=7.5, ha="center", color="#0b3d91")
-    ax.set_xticks(x)
-    ax.set_xticklabels([f"{c}\ncohort {n:,.0f}\n2027-12 PQP {p:,.2f}" for c, n, p in zip(cells, cohort, pqp)], fontsize=8)
-    ax.set_ylabel("2027 transition-year renewal cost (S$B, full cohort renews — upper bound)")
-    ax.set_ylim(0, 13.2)
-    ax.grid(alpha=0.3, axis="y")
-    ax.legend(fontsize=8)
+        ax1.text(i - wdt/2, nv + 0.06, f"{nv:.2f}B", ha="center", fontsize=8)
+        ax1.text(i + wdt/2, yv + 0.06, f"{yv:.2f}B", ha="center", fontsize=8)
+        ax1.annotate(f"Δ {yv-nv:+.2f}B/yr (NET REBATE)", xy=(i + wdt/2, yv), xytext=(i + 0.02, yv - 0.55),
+                     fontsize=7.5, ha="center", color="#0b3d91")
+    ax1.set_xticks(x)
+    ax1.set_xticklabels([f"{c}\ncohort {n:,.0f}\n2027-12 PQP {p:,.2f}" for c, n, p in zip(cells, cohort, pqp)], fontsize=8)
+    ax1.set_title("(a) 2027 transition-year renewal cost\nper scenario cell (S$B)")
+    ax1.set_ylabel("2027 transition-year renewal cost (S$B, full cohort renews — upper bound)")
+    ax1.set_ylim(0, 13.2)
+    ax1.grid(alpha=0.3, axis="y")
+    ax1.legend(fontsize=8)
+
+    # (b) the per-cell merged price paths + cell-level renewal PQP that the
+    # costs in (a) are priced at (moved here from Figure 2, 2026-11: it is
+    # scenario-matrix detail, not part of the merged-price story)
+    cols = {"OptionA+E_removed": "#1f77b4", "OptionA+E_cars_only": "#2ca02c",
+            "OptionB+E_removed": "#ff7f0e", "OptionB+E_cars_only": "#9467bd"}
+    pulse_pts = []
+    for c in cells:
+        ixp2, rowsp2 = read(f"data/processed/price_paths/{c}+renewal_feebate_no.csv")
+        pts = [(mbdate(r[ixp2["month"]], r[ixp2["bidding_no"]]), f(r[ixp2["price_sgd"]])) for r in rowsp2
+               if r[ixp2["month"]] >= "2026-06"]
+        ax2.plot([t for t, _ in pts], [v for _, v in pts], "--", color=cols[c], lw=1.5,
+                 label=f"{c} price (SCENARIO)")
+        # pulse annotation for removal cells: 2027-01 b1 is plotted at 2027-01-01
+        if "E_removed" in c:
+            pulse_pts.extend(v for t, v in pts if t == dt.datetime(2027, 1, 1))
+    if pulse_pts:
+        ax2.annotate("E-shift pulse +1,428 S$ (2027-01 b1 only)",
+                     xy=(dt.datetime(2027, 1, 1), max(pulse_pts)),
+                     xytext=(dt.datetime(2027, 4, 1), 133500), fontsize=7, ha="center",
+                     arrowprops=dict(arrowstyle="->", lw=0.7))
+    ixq, rowsq = read("data/processed/pqp_by_cell.csv")
+    for c in cells:
+        pts = [(mbdate(r[ixq["month"]], "1"), f(r[ixq["pqp_sgd"]])) for r in rowsq
+               if r[ixq["distinct_path_id"]] == c and r[ixq["month"]] >= "2027-01"]
+        ax2.plot([t for t, _ in pts], [v for _, v in pts], ":", color=cols[c], lw=2.2,
+                 label=f"{c} cell PQP (SCENARIO)")
+    ax2.set_title("(b) Per-cell merged price paths\nand cell-level renewal PQP\n(2026-06..2027-12)")
+    ax2.set_ylim(120500, 135000)
+    ax2.set_ylabel("Price / PQP (S$)")
+    ax2.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
+    ax2.tick_params(labelsize=7)
+    ax2.grid(alpha=0.3)
+    ax2.legend(fontsize=6, ncol=2, loc="lower right")
     mkfig("renewal_cost_cells.png",
-          "Figure 6: 2027 transition-year renewal cost per scenario cell (scenario, full-cohort upper bound): feebate on renewals vs not, with net-rebate deltas.",
+          "Figure 6: 2027 transition-year renewal cost per scenario cell (scenario, full-cohort upper bound): feebate on renewals vs not, with net-rebate deltas; right: the per-cell merged price paths and renewal PQP those costs are priced at.",
           fig, title="2027 transition-year renewal cost per scenario cell (S$B)")
 
 

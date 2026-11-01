@@ -256,31 +256,19 @@ average car the total outlay (price + fee − rebate) is about the same as
 before; the drop is money moving from bidders to the government — the
 revenue counted in section 4.4.
 
-The right panel of Figure 2 shows the same merged price under each
-scenario variant: four lines, because the two Category-E options
-(section 4.7) and the two band structures each shift the price slightly
-differently. The renewal-feebate question does not change this price at
-all — it only changes what renewal owners pay (section 4.6); the dotted
-lines are each variant's renewal price (PQP).
-
 **Figure 2.** Merged A+B price paths, 2010 back-solved to 2027 forward
 (scenario, regime start 2027-01); left: full history, no-fee vs
-with-fee under both options; middle: recent zoom (2026-09 to 2027-12)
-showing the feebate step and the Option A/B difference; right: the
-four per-cell paths and their renewal PQP lines.
+with-fee under both options; right: recent zoom (2026-09 to 2027-12)
+showing the feebate step and the Option A/B difference.
 
-![Merged A+B car price paths, 2010 back-solved to 2027 forward; left: no-fee vs with-fee (Options A/B); middle: recent zoom 2026-09..2027-12; right: per-cell paths + renewal PQP](charts/merged_price_paths.png)
+![Merged A+B car price paths, 2010 back-solved to 2027 forward; left: no-fee vs with-fee (Options A/B); right: recent zoom 2026-09..2027-12](charts/merged_price_paths.png)
 
 *Faint solid lines are the observed A and B prices. Dashed grey: merged
 price with no feebate. Dashed blue/orange: merged price with the
 feebate under Option A / Option B — the two with-fee paths are within
 S$60 of each other in every round, so at the left panel's scale the
-Option B line (drawn last) lies on top of the Option A line; the middle
-panel separates them. Right panel: the four distinct per-cell price
-paths (renewal-feebate toggle pairs are
-byte-identical, sha256-verified) with their cell-level renewal PQP
-lines, 2027-01 to 2027-12. The small pulse at the 2027-01 round in the
-E-removed cells is the one-round Category E shift effect (+S$1,428.14).*
+Option B line (drawn last) lies on top of the Option A line; the right
+panel separates them.*
 
 ### 4.3 The banding: cheaper cars are rebated, pricier cars pay — and the paper's own tables don't quite add up
 
@@ -401,7 +389,8 @@ figures in this section apply to the A+B cohort.
 
 Under the PROPOSED 2025 cut points, pricing the renewal cost at each
 scenario cell's own merged PQP (S$129,800.16 for all Option A cells,
-S$129,743.03 for all Option B cells, at the 2027-12 end): applying the
+S$129,743.03 for all Option B cells, at the 2027-12 end — the paths
+those PQPs come from are in Figure 6(b)): applying the
 feebate to renewals **reduces** the transition-year renewal cost by
 **S$517,215,600 (Option A) / S$353,265,450 (Option B)** — a net rebate
 to the government's own budget position, delivered to owners (Table 6):
@@ -429,18 +418,25 @@ coverage) turns the Option A net from −S$517.2M (cost) into
 +S$124.9M (revenue) — a year-of-values and list-granularity effect that
 public data cannot separate.
 
-**Figure 6.** 2027 transition-year renewal cost per scenario cell
+**Figure 6.** (a) 2027 transition-year renewal cost per scenario cell
 (scenario, full-cohort upper bound): feebate on renewals vs not, with
-net-rebate deltas.
+net-rebate deltas; (b) the per-cell merged price paths and the
+cell-level renewal PQP those costs are priced at.
 
-![2027 transition-year renewal cost per scenario cell (S$B)](charts/renewal_cost_cells.png)
+![2027 transition-year renewal cost per scenario cell (S$B), and the per-cell merged price paths + cell-level renewal PQP they are priced at](charts/renewal_cost_cells.png)
 
 *Grey bars: renewal cost with the feebate OFF (PQP only); blue bars:
 with the feebate ON (PQP + band quantum). Each cell's label carries its
 2017-vintage cohort size and its 2027-12 cell-level PQP. The annotated
 deltas are the net rebates to the government (negative = cost to
 government, benefit to owners). Pricing basis: each cell's own merged
-PQP, never the clearing price.*
+PQP, never the clearing price. Right panel: the four distinct per-cell
+price paths those PQPs come from (the renewal-feebate toggle pairs are
+price-identical — four paths serve the eight scenario cells); the two
+Category-E options (section 4.7) and the two band structures shift the
+paths slightly differently. Dotted lines: each cell's renewal PQP. The
+small pulse at the 2027-01 round in the E-removed cells is the
+one-round Category E shift effect (+S$1,428.14).*
 
 **If the regime starts on 1 Jan 2028 instead.** LTA findings are due
 1H2027, so 2028 is the more probable effective date (section 3); the
