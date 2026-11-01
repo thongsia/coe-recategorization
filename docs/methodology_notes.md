@@ -1200,3 +1200,60 @@ and STATS_SUMMARY.md (one page, every value cited inline). Both are
 machine-checked by the traceability engine (check d) and the freeze
 audit (check i) on the final pass — 0 untraceable numbers, clean label
 audits.
+
+## 19. Step 13b — 2028-start renewal sensitivity (added 2026-11-01,
+review session)
+
+**Why.** The base case anchors the regime at 2027-01-01, but the
+consultation paper states no implementation date and LTA findings are
+due 1H2027, so a 2028 start is the more probable real-world date. This
+sensitivity re-derives the first-renewal cohort for a 2028-01-01 anchor
+so the README (section 4.6, Table 7) can state both.
+
+**Derivation.** `src/renewal_cohort_2028_sensitivity.py` mirrors
+Step 13 exactly, with:
+- vintage = 2028 - 10 = **2018** (config.transition_year_vintage with an
+  explicit regime_start); the 2017 cohort renews 2027, PRE-regime under
+  this anchor, and is excluded;
+- official 2018 class split A 39,877 / B 40,216 (LTA Annual Vehicle
+  Statistics 2025 edition, same file as s15's 2017 cross-check, 2018
+  row);
+- 2018 slice of data/raw/registrations.csv: 80,281 valid car
+  registrations, 52 makes; 188-vehicle residual carried as E_residual
+  with the Batch E composition;
+- model-level OMV: LTA 2018 "Average OMV of New Cars Registered"
+  edition (provenance.md s9.7; fetched 2026-11-01 after LTA's scheduled
+  maintenance; 3,978 model-month rows, 875 models, 44 makes; coverage
+  99.98% of the cohort; equal within-make allocation, same as Step 13);
+- both cut-point bases: PROPOSED_2025pct (headline) and VINTAGE_2018pct
+  (2018's own percentiles: Option A 22,799/27,183; Option B
+  15,596/22,799/27,183/37,965).
+
+**Results (quantum net = first-year feebate cost to the government;
+PQP-independent).**
+- PROPOSED basis: Option A -377,561,400 (-4,703/car; pre-A -11,971.69,
+  pre-B +2,450.49); Option B -274,526,775 (-3,420/car; pre-A
+  -9,017.68, pre-B +2,087.14).
+- VINTAGE_2018pct basis: +135.2M (A) / +143.4M (B) — the sign flips,
+  same cut-point-base effect as Step 13's VINTAGE_2017pct.
+- vs base case (2017 cohort): -377.6M is 27% smaller than -517.2M
+  (A); -274.5M is 22% smaller than -353.3M (B); sign unchanged.
+
+**Method cross-check.** Re-running the Step 13 computation on the 2017
+cohort from the shipped row-level files reproduces the shipped
+-517,215,600 (A) / -353,265,450 (B) exactly before the 2018 figures
+were accepted. (An earlier exploratory run that used unscaled
+within-band allocation totals gave -331.2M/-238.8M; the scaled
+per-class rows above are the method-consistent figures and the ones
+reported in the README.)
+
+**OMV-list sensitivity (affects the base case too).** Re-banding the
+2017 cohort against the coarser 2025 edition (93% coverage instead of
+99.98%) turns the Option A net from -517.2M into +124.9M — the
+year-of-values and list-granularity effects are confounded in public
+data. Reported in README section 4.6 as a magnitude caveat, not a
+headline change.
+
+**Status.** SENSITIVITY — additive; no base-case table, label or
+verification check was modified. `src/verify.py` unchanged (its
+invariants reference the 2027-01 base-case labels, which are untouched).

@@ -107,7 +107,7 @@ Six official sources carry the study (Table 1):
 | COE bidding results, 2010-01 to 2026-10 (1,990 rows) | Every auction's final price, bids received, and quota sold, per category and per bidding round. Bids are placed mostly by car dealers on their customers' behalf | — |
 | Vehicle registrations, 2016-01 to 2025-05 (51,669 rows) | Monthly registrations by make, fuel type and importer — the mix used to value the bands | a, b, d |
 | LTA "Cost for Cars Registered", Aug 2026 (217 models) | Per-model OMV (Open Market Value — LTA's official value of a car), fuel type and COE class; the catalog every model is banded against | — |
-| LTA per-model OMV editions, 2017 and 2025 | Historical model-level OMVs (2017 for the renewal cohort; 2025 for the cut-point sensitivity) | c, d |
+| LTA per-model OMV editions, 2017, 2018 and 2025 | Historical model-level OMVs (2017 for the renewal cohort; 2018 for the 2028-start renewal sensitivity; 2025 for the cut-point sensitivity) | c, d |
 | Published PQP history, 2002-02 to 2026-09 (12,904 rows) | LTA's published renewal prices for categories A–D — used to validate the study's PQP method | f |
 | LTA quota allocation, Apr 2010 to 2025 (90-page official PDF) | Historical COE quota splits across categories | — |
 
@@ -134,10 +134,13 @@ so the main banding uses the labelled Jan–May 2025 registration mix ×
 catalog reconstruction; the LTA 2025 edition is carried as sensitivity
 S1, and uniform model weights as sensitivity S2 (section 4.4).
 
-**d. The 2017 renewal cohort is built from real 2017 registrations plus
-the LTA 2017 OMV edition** (vehicle registrations; 2017 OMV edition):
-4,265 valid car rows, 56 makes; the 2017 Car Cost PDFs were no longer
-available — four probed URLs, all 404.
+**d. The renewal cohorts are built from real registrations plus the
+vintage-matched LTA OMV edition** (vehicle registrations; LTA OMV
+editions): the 2017 cohort (base case) — 4,265 valid car rows, 56
+makes; the 2018 cohort (2028-start sensitivity, section 4.6) — 80,281
+cars, 52 makes, 99.98% coverage. The 2017 Car Cost PDFs were no longer
+available — four probed URLs, all 404 — so the vintage OMV editions are
+the best available model-level source.
 
 **e. Used-car markets have no usable data** — the used-car channel is
 reported as directional only, never quantified (section 4.8).
@@ -199,7 +202,8 @@ Beyond the two banding options, the consultation asks:
   prediction of when it actually starts) — a documented ASSUMPTION
   carried in every scenario label; if LTA later announces a different
   effective date, the scenario labels and the transition-year renewal
-  cohort vintage are re-stamped accordingly.
+  cohort vintage are re-stamped accordingly. The 2028 start is quantified
+  as a renewal-cohort sensitivity in section 4.6.
 
 ## 4. What we found
 
@@ -391,8 +395,14 @@ the study assumes the whole 2017 cohort renews in the transition year
 (actual renewal behaviour is not modelled). And the effect is
 cut-point-base-dependent: re-banding the 2017 cohort at its *own*
 2017-vintage percentiles largely neutralises the net rebate — so the
-direction of the renewal effect turns on which year's values LTA uses
-for banding renewals (section 6 of the report).
+the direction of the renewal effect turns on which year's values LTA uses
+for banding renewals (section 6 of the report). The magnitude is also
+sensitive to which year's model-level OMV list is used for the banding:
+the base case uses the vintage-matched 2017 edition (99.98% coverage);
+re-banding the same 2017 cohort against the coarser 2025 edition (93%
+coverage) turns the Option A net from −S$517.2M (cost) into
++S$124.9M (revenue) — a year-of-values and list-granularity effect that
+public data cannot separate.
 
 **Figure 6.** 2027 transition-year renewal cost per scenario cell
 (scenario, full-cohort upper bound): feebate on renewals vs not, with
@@ -406,6 +416,43 @@ with the feebate ON (PQP + band quantum). Each cell's label carries its
 deltas are the net rebates to the government (negative = cost to
 government, benefit to owners). Pricing basis: each cell's own merged
 PQP, never the clearing price.*
+
+**If the regime starts on 1 Jan 2028 instead.** LTA findings are due
+1H2027, so 2028 is the more probable effective date (section 3); the
+sensitivity is quantified here. The first-renewal cohort would then be
+the **2018 cohort — 80,281 vehicles** (official A 39,877 + B 40,216 +
+188 unattributed; 12.8% smaller than the 2017 cohort), and the 2017
+cohort would renew in 2027 under the old regime, without the feebate.
+The 2018 cohort is banded at the same PROPOSED cut points, by the same
+method, using the vintage-matched LTA 2018 OMV edition (99.98%
+coverage; the edition was fetched 1 Nov 2026 after LTA's scheduled
+maintenance and is archived in `verification/`):
+
+**Table 7. First renewal year by regime start (COMPUTED; same method
+and full-cohort assumption as Table 6).**
+
+| | 2027 start (2017 cohort) | 2028 start (2018 cohort) |
+|---|---|---|
+| Cohort size | 91,922 | 80,281 |
+| Pre-A owners, per vehicle (Option A) | −S$12,628.77 (rebate) | −S$11,971.69 (rebate) |
+| Pre-B owners, per vehicle (Option A) | +S$1,393.10 (fee) | +S$2,450.49 (fee) |
+| Pre-A owners, per vehicle (Option B) | −S$9,260.73 (rebate) | −S$9,017.68 (rebate) |
+| Pre-B owners, per vehicle (Option B) | +S$1,587.45 (fee) | +S$2,087.14 (fee) |
+| Net to the government, Option A | −S$517,215,600 | −S$377,561,400 |
+| Net to the government, Option B | −S$353,265,450 | −S$274,526,775 |
+
+The 2028 start shrinks the first-year cost by about 27% (Option A) /
+22% (Option B), but does not change its sign: the cohort is smaller and
+slightly less skewed to the rebate bands (57.2% in the rebate band under
+Option A, vs 60.5% for 2017). The cut-point-base effect works the same
+way: re-banding the 2018 cohort at its *own* 2018-vintage percentiles
+turns the net into a government revenue of +S$135.2M (Option A) /
++S$143.4M (Option B). The quantum net is PQP-independent, and the flat
+forward model carries the 2027-12 cell PQP levels (S$129,800.16 /
+S$129,743.03) through to 2028-12, so the rest of section 4.6's
+machinery applies unchanged. Derivation:
+`src/renewal_cohort_2028_sensitivity.py` →
+`data/processed/renewal_cohort_banded_2028anchor.csv`.
 
 ### 4.7 Removing Category E relieves Category C, and closes the urgent-bid channel
 
@@ -484,12 +531,14 @@ analytical choice of the study, not an LTA parameter.*
   base case, S$67–139M/yr across documented sensitivities) that lowers
   the merged price by about 1.6%; applying the feebate to renewals
   flips the sign to a net government cost of S$353–517M for the
-  transition year under the PROPOSED cut points; the paper's indicative
+  transition year (S$275–378M if the regime starts 1 Jan 2028 instead,
+  section 4.6) under the PROPOSED cut points; the paper's indicative
   banding tables are internally inconsistent under public OMVs; and the
   gaming/classification exposures above are real, with the stated
   magnitudes.
 - **Can't claim:** any of these as realised outcomes. Every scenario
-  number is an estimate under a stated 2027-01-01 regime start, the
+  number is an estimate under a stated 2027-01-01 regime start (with a
+  2028-start renewal sensitivity in section 4.6), the
   registration mix pinned at 2025-01..2025-05 (section 2), scenario-grade
   demand elasticities (no structural
   causal claim), and the stated assumptions (100% E re-entry, full-cohort
@@ -547,6 +596,7 @@ python3 src/fee_revenue.py          # feebate revenue by option + incidence + cu
 python3 src/demand_shift.py         # demand shifts by band / decile / segment
 python3 src/ec_scenarios.py         # Category E / C scenarios under both E options
 python3 src/renewal_cohort.py       # 2017-vintage renewal cohort banding
+python3 src/renewal_cohort_2028_sensitivity.py  # 2028-start renewal sensitivity (2018-vintage cohort)
 python3 src/renewal_impact.py       # renewal-holder impacts, priced at cell-level PQP
 python3 src/consequences.py         # boundary gaming, classification distortion, used-car directional
 python3 src/master_matrix.py        # 8-cell master scenario matrix

@@ -263,6 +263,14 @@ tables/banding_mismatches.csv).
 - verification/crossfoot_log.csv (3 rows), verification/lta_omv_2017_page.html, verification/MVP02-1_New_Reg_by_COE.pdf, verification/COEQuotaAllocationRV_Apr2010-2025.pdf
 - methodology_notes.md s.13-15 (appended), provenance.md s.9 (this section), batch_handoff_f.json
 
+### 9.7 LTA OneMotoring "Average OMV of New Cars Registered" 2018 edition (2028-start sensitivity, added 2026-11-01)
+- URL: https://onemotoring.lta.gov.sg/content/onemotoring/home/buying/upfront-vehicle-costs/open-market-value--omv-.html?year=2018 (same year-parameter pattern as s9.1; the 2018 edition is within LTA's ~10-year retention).
+- Fetched 2026-11-01T02:40Z via curl (no UA needed) — AFTER the OneMotoring scheduled maintenance of 1 Nov 2026 00:00-08:00 SGT (pre-maintenance fetch attempts returned the maintenance shell page; the Wayback Machine holds no pre-2021 snapshot of the page, so the live fetch was the only source). 1,641,217 bytes; sha256 eae9c5409864d871d0ab1c292d89ee943138545c90c821ffedc0b357f73e3822; archived to verification/lta_omv_2018_page.html.
+- Parsed (same hidden-input scheme, suffix _2018): **3,978 model-month rows, 875 distinct models, 44 makes, months 1-12** -> data/processed/lta_omv_2018_avg.csv (sha256 11300a28233be75558f6a08ac3594d0b34efe9b1cea8469cd062e1f696a90f29). One empty model-name input on the page is dropped (logged, not silently). Vintage-year model-level OMV source for the 2018 renewal cohort (Step 13b, SENSITIVITY).
+- Edition sanity check: 426 models appear in both the 2017 and 2018 editions; median OMV 31,613 (2017) -> 32,198 (2018), 53% higher in 2018 — consistent with a genuine year-on-year edition.
+- Official 2018 class split (s9.2 file, 2018 row): A = 39,877; B = 40,216; 2018 car registrations (A+B) = 80,093. The 2018 slice of data/raw/registrations.csv yields 80,281 valid car registrations (52 makes); the 188-vehicle difference is carried as E_residual (same treatment as 2017).
+- Output: src/renewal_cohort_2028_sensitivity.py -> data/processed/renewal_cohort_banded_2028anchor.csv (52 rows; regime_start 2028-01-01 in every label). Headline quantum nets, PROPOSED_2025pct basis: Option A -377,561,400; Option B -274,526,775 (over 80,281 vehicles; -4,703/-3,420 per car). VINTAGE_2018pct basis: +135.2M / +143.4M. Method cross-check: the same computation applied to the 2017 cohort reproduces the shipped -517,215,600 / -353,265,450 exactly.
+
 ## 10. Batch H — Final provenance audit (Steps 16-18)
 
 ### 10.1 Registration freeze-date statement
