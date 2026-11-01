@@ -37,6 +37,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import matplotlib.dates as mdates  # noqa: E402
+from matplotlib.patches import Rectangle  # noqa: E402
 import datetime as dt  # noqa: E402
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -221,7 +222,15 @@ def fig2():
     ax1.plot([t for t, _ in wB], [v for _, v in wB], "--", color="#ff7f0e", lw=1.6, label="merged with-fee, Option B (SCENARIO)")
     ax1.axvline(dt.datetime(2027, 1, 1), color="k", lw=0.8, ls=":")
     ax1.text(dt.datetime(2027, 2, 15), ax1.get_ylim()[0] + 800, "regime start 2027-01-01\n(forward: 24 rounds, flat by static-pool design)", fontsize=7)
-    ax1.set_title("(a) Option-level merged-car price paths\n(2010 back-solved .. 2027 forward)")
+    # zoom-region indicator: the right panel shows this exact x/y region
+    # enlarged (same limits as panel (b))
+    ax1.add_patch(Rectangle((dt.datetime(2026, 9, 1), 127000),
+                            dt.timedelta(days=471), 134500 - 127000,
+                            fill=True, facecolor="0.2", alpha=0.08,
+                            edgecolor="k", lw=1.3, zorder=5))
+    ax1.text(dt.datetime(2026, 8, 15), 135000, "right panel zooms this region",
+             ha="right", va="bottom", fontsize=6.5)
+    ax1.set_title("(a) Option-level merged-car price paths\n(2010–2026: computed from each round's actual bids;\n2027: scenario, held flat)")
     ax1.set_ylabel("Merged-car price (S$)")
     ax1.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
     ax1.grid(alpha=0.3)
@@ -251,7 +260,7 @@ def fig2():
     axb.text(dt.datetime(2027, 6, 1), 130846, "feebate: -S$2,092 (-1.6%)",
              fontsize=6.5, ha="center")
     mkfig("merged_price_paths.png",
-          "Figure 2: Merged A+B price paths, 2010 back-solved to 2027 forward (scenario, regime start 2027-01); left: no-fee vs with-fee (Options A/B); right: recent zoom 2026-09..2027-12.",
+          "Figure 2: Merged A+B price paths — computed from observed rounds (2010–2026) and projected to 2027 (scenario, regime start 2027-01); left: no-fee vs with-fee; right: zoom 2026-09..2027-12.",
           fig, title="Merged A+B car price paths — no-fee vs with-fee")
 
 

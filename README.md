@@ -237,8 +237,8 @@ The study works this out from the actual bids: take each round's bids
 and the combined quota (2,137.5 per round — the last six rounds'
 average, i.e. the same total number of cars as today), and compute the
 price a single merged category would have cleared at. It does so for
-every round from 2010 to 2026 (the dashed "back-solved" line in Figure
-2, left); in the last observed round (19–21 Oct 2026) the merged price
+every round from 2010 to 2026 (the dashed grey line in Figure 2,
+left); in the last observed round (19–21 Oct 2026) the merged price
 would have been **S$131,965** — within S$40 of the Category A price
 and S$65 of the Category B price, because the two prices are now that
 close. The scenario holds it flat at **S$131,892** through 2027 (a
@@ -258,12 +258,14 @@ S$129,743 by the end of 2027. For the average car the total outlay
 the drop would be money moving from bidders to the government — the
 revenue counted in section 4.4.
 
-**Figure 2.** Merged A+B price paths, 2010 back-solved to 2027 forward
-(scenario, regime start 2027-01); left: full history, no-fee vs
-with-fee under both options; right: recent zoom (2026-09 to 2027-12)
-showing the feebate step and the Option A/B difference.
+**Figure 2.** Merged A+B price paths — computed from observed rounds
+(2010–2026) and projected to 2027 (scenario, regime start 2027-01);
+left: full history, no-fee vs with-fee under both options; right:
+recent zoom (2026-09 to 2027-12) showing the feebate step and the
+Option A/B difference. The box in the left panel marks the region the
+right panel zooms.
 
-![Merged A+B car price paths, 2010 back-solved to 2027 forward; left: no-fee vs with-fee (Options A/B); right: recent zoom 2026-09..2027-12](charts/merged_price_paths.png)
+![Merged A+B car price paths — computed from observed rounds (2010–2026) and projected to 2027; left: no-fee vs with-fee (Options A/B); right: zoom 2026-09..2027-12](charts/merged_price_paths.png)
 
 *Faint solid lines are the observed A and B prices. Dashed grey: merged
 price with no feebate. Dashed blue/orange: merged price with the
