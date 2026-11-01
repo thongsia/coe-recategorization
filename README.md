@@ -264,15 +264,20 @@ all — it only changes what renewal owners pay (section 4.6); the dotted
 lines are each variant's renewal price (PQP).
 
 **Figure 2.** Merged A+B price paths, 2010 back-solved to 2027 forward
-(scenario, regime start 2027-01); left: no-fee vs with-fee under both
-options; right: the four per-cell paths and their renewal PQP lines.
+(scenario, regime start 2027-01); left: full history, no-fee vs
+with-fee under both options; middle: recent zoom (2026-09 to 2027-12)
+showing the feebate step and the Option A/B difference; right: the
+four per-cell paths and their renewal PQP lines.
 
-![Merged A+B car price paths, 2010 back-solved to 2027 forward; left: no-fee vs with-fee (Options A/B); right: per-cell paths + renewal PQP](charts/merged_price_paths.png)
+![Merged A+B car price paths, 2010 back-solved to 2027 forward; left: no-fee vs with-fee (Options A/B); middle: recent zoom 2026-09..2027-12; right: per-cell paths + renewal PQP](charts/merged_price_paths.png)
 
 *Faint solid lines are the observed A and B prices. Dashed grey: merged
 price with no feebate. Dashed blue/orange: merged price with the
-feebate under Option A / Option B. Right panel: the four distinct
-per-cell price paths (renewal-feebate toggle pairs are
+feebate under Option A / Option B — the two with-fee paths are within
+S$60 of each other in every round, so at the left panel's scale the
+Option B line (drawn last) lies on top of the Option A line; the middle
+panel separates them. Right panel: the four distinct per-cell price
+paths (renewal-feebate toggle pairs are
 byte-identical, sha256-verified) with their cell-level renewal PQP
 lines, 2027-01 to 2027-12. The small pulse at the 2027-01 round in the
 E-removed cells is the one-round Category E shift effect (+S$1,428.14).*

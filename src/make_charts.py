@@ -121,6 +121,15 @@ def mkfig(name, caption, fig, title=None):
     for ext, txt in title_exts:
         if ext.x0 < -2 or ext.x1 > W + 2:
             problems.append(f"panel title exceeds canvas width: {txt!r}")
+    # any other text/annotation extending past the canvas: bbox_inches='tight'
+    # would silently stretch the saved image to fit it
+    for ax in fig.axes:
+        for child in ax.get_children():
+            if not isinstance(child, plt.Text) or not child.get_text():
+                continue
+            e = child.get_window_extent(renderer)
+            if e.width and (e.x0 < -2 or e.x1 > W + 2 or e.y0 < -2 or e.y1 > H + 2):
+                problems.append(f"text exceeds canvas: {child.get_text()[:30]!r}")
     if problems:
         print(f"WARNING {name}: layout problems: {problems}")
     fig.savefig(path, dpi=150, bbox_inches="tight")
@@ -187,7 +196,7 @@ def fig2():
     ixp, rowsp = read("data/processed/coe_panel_perbidding.csv")
     A = [(d(r[ixp["month"]], r[ixp["bid_no"]]), f(r[ixp["premium"]])) for r in rowsp if r[ixp["category"]] == "A"]
     B = [(d(r[ixp["month"]], r[ixp["bid_no"]]), f(r[ixp["premium"]])) for r in rowsp if r[ixp["category"]] == "B"]
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.5), gridspec_kw={"width_ratios": [1.2, 1]})
+    fig, (ax1, axb, ax2) = plt.subplots(1, 3, figsize=(16, 5.5), gridspec_kw={"width_ratios": [1.3, 1, 1]})
     ax1.plot([t for t, _ in A], [v for _, v in A], "-", color="#1f77b4", lw=0.5, alpha=0.45, label="A observed (OBSERVED)")
     ax1.plot([t for t, _ in B], [v for _, v in B], "-", color="#d62728", lw=0.5, alpha=0.45, label="B observed (OBSERVED)")
     ax1.plot([t for t, _ in nofee], [v for _, v in nofee], "--", color="#555555", lw=1.4, label="merged no-fee (SCENARIO, dashed)")
@@ -200,6 +209,30 @@ def fig2():
     ax1.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
     ax1.grid(alpha=0.3)
     ax1.legend(fontsize=7, loc="upper left")
+
+    # middle: recent zoom — at full-panel scale the with-fee Option A (blue)
+    # and Option B (orange) paths are within S$60 of each other (sub-pixel),
+    # so the blue line is hidden under the orange one; the zoom separates them
+    # and shows the ~S$2,100 (-1.6%) feebate step.
+    zlo, zhi = dt.datetime(2026, 9, 1), dt.datetime(2028, 1, 15)
+    def zoom(pts):
+        return [(t, v) for t, v in pts if zlo <= t <= zhi]
+    for pts, col, lab in [(nofee, "#555555", "merged no-fee (SCENARIO)"),
+                          (wA, "#1f77b4", "merged with-fee, Option A (SCENARIO)"),
+                          (wB, "#ff7f0e", "merged with-fee, Option B (SCENARIO)")]:
+        z = zoom(pts)
+        axb.plot([t for t, _ in z], [v for _, v in z], "--", color=col, lw=1.5, label=lab)
+    axb.axvline(dt.datetime(2027, 1, 1), color="k", lw=0.8, ls=":")
+    axb.set_xlim(zlo, zhi)
+    axb.set_ylim(127000, 134500)
+    axb.set_title("(b) Recent zoom (2026-09 .. 2027-12)\nfeebate step and Option A vs B")
+    axb.set_ylabel("Merged-car price (S$)")
+    axb.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
+    axb.tick_params(labelsize=7)
+    axb.grid(alpha=0.3)
+    axb.legend(fontsize=6, loc="upper right")
+    axb.text(dt.datetime(2027, 6, 1), 130846, "feebate: -S$2,092 (-1.6%)",
+             fontsize=6.5, ha="center")
 
     # right: 4 distinct per-cell paths + cell PQP lines
     cells = ["OptionA+E_removed", "OptionA+E_cars_only", "OptionB+E_removed", "OptionB+E_cars_only"]
@@ -216,10 +249,9 @@ def fig2():
         if "E_removed" in c:
             pulse_pts.extend(v for t, v in pts if t == dt.datetime(2027, 1, 1))
     if pulse_pts:
-        ax2.annotate("E-shift pulse: +1,428 S$ for one round "
-                     "(2027-01 b1, both E-removed cells)",
+        ax2.annotate("E-shift pulse +1,428 S$ (2027-01 b1 only)",
                      xy=(dt.datetime(2027, 1, 1), max(pulse_pts)),
-                     xytext=(dt.datetime(2027, 3, 1), 131850), fontsize=7, ha="center",
+                     xytext=(dt.datetime(2027, 4, 1), 133500), fontsize=7, ha="center",
                      arrowprops=dict(arrowstyle="->", lw=0.7))
     ixq, rowsq = read("data/processed/pqp_by_cell.csv")
     pqpc = {}
@@ -229,16 +261,17 @@ def fig2():
         pqpc[c] = pts
         ax2.plot([t for t, _ in pts], [v for _, v in pts], ":", color=cols[c], lw=2.2,
                  label=f"{c} cell PQP (SCENARIO)")
-    ax2.set_title("(b) Per-cell paths and cell-level renewal PQP\n"
-                  "2026-06..2027-12 (4 distinct paths serve the 8 cells;\n"
-                  "toggle pairs byte-identical, sha256-verified)")
+    ax2.set_title("(c) Per-cell paths and cell-level\n"
+                  "renewal PQP (2026-06..2027-12)\n"
+                  "4 paths serve the 8 cells;\n"
+                  "toggle pairs byte-identical")
     ax2.set_ylabel("Price / PQP (S$)")
     ax2.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
     ax2.tick_params(labelsize=7)
     ax2.grid(alpha=0.3)
     ax2.legend(fontsize=6, ncol=2, loc="lower right")
     mkfig("merged_price_paths.png",
-          "Figure 2: Merged A+B price paths, 2010 back-solved to 2027 forward (scenario, regime start 2027-01); left: no-fee vs with-fee (Options A/B); right: per-cell paths + renewal PQP.",
+          "Figure 2: Merged A+B price paths, 2010 back-solved to 2027 forward (scenario, regime start 2027-01); left: no-fee vs with-fee (Options A/B); middle: recent zoom 2026-09..2027-12; right: per-cell paths + renewal PQP.",
           fig, title="Merged A+B car price paths — no-fee vs with-fee")
 
 
