@@ -205,19 +205,22 @@ def fig2():
     cells = ["OptionA+E_removed", "OptionA+E_cars_only", "OptionB+E_removed", "OptionB+E_cars_only"]
     cols = {"OptionA+E_removed": "#1f77b4", "OptionA+E_cars_only": "#2ca02c",
             "OptionB+E_removed": "#ff7f0e", "OptionB+E_cars_only": "#9467bd"}
+    pulse_pts = []
     for c in cells:
         ixp2, rowsp2 = read(f"data/processed/price_paths/{c}+renewal_feebate_no.csv")
         pts = [(d(r[ixp2["month"]], r[ixp2["bidding_no"]]), f(r[ixp2["price_sgd"]])) for r in rowsp2
                if r[ixp2["month"]] >= "2026-06"]
         ax2.plot([t for t, _ in pts], [v for _, v in pts], "--", color=cols[c], lw=1.5,
                  label=f"{c} price (SCENARIO)")
-        # pulse annotation for removal cells
+        # pulse annotation for removal cells: 2027-01 b1 is plotted at 2027-01-01
         if "E_removed" in c:
-            pulse = [(t, v) for t, v in pts if t == dt.datetime(2027, 1, 15)]
-            if pulse:
-                ax2.annotate("E-shift pulse +1,428.14 S$ (2027-01 b1 only)", xy=(dt.datetime(2027, 1, 15), pulse[0][1]),
-                             xytext=(dt.datetime(2026, 9, 1), 141500), fontsize=7,
-                             arrowprops=dict(arrowstyle="->", lw=0.7))
+            pulse_pts.extend(v for t, v in pts if t == dt.datetime(2027, 1, 1))
+    if pulse_pts:
+        ax2.annotate("E-shift pulse: +1,428 S$ for one round "
+                     "(2027-01 b1, both E-removed cells)",
+                     xy=(dt.datetime(2027, 1, 1), max(pulse_pts)),
+                     xytext=(dt.datetime(2027, 3, 1), 131850), fontsize=7, ha="center",
+                     arrowprops=dict(arrowstyle="->", lw=0.7))
     ixq, rowsq = read("data/processed/pqp_by_cell.csv")
     pqpc = {}
     for c in cells:
@@ -233,7 +236,7 @@ def fig2():
     ax2.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
     ax2.tick_params(labelsize=7)
     ax2.grid(alpha=0.3)
-    ax2.legend(fontsize=6, ncol=2, loc="upper left")
+    ax2.legend(fontsize=6, ncol=2, loc="lower right")
     mkfig("merged_price_paths.png",
           "Figure 2: Merged A+B price paths, 2010 back-solved to 2027 forward (scenario, regime start 2027-01); left: no-fee vs with-fee (Options A/B); right: per-cell paths + renewal PQP.",
           fig, title="Merged A+B car price paths — no-fee vs with-fee")
