@@ -74,12 +74,20 @@ summary). Every number in this README is quoted from the tables in
   inconsistent under public OMVs (LTA's published car values).** In the
   paper's indicative banding tables, 2 rows of Option A's (of 32) and 4
   of Option B's (of 34) flag band lines that no dollar value can
-  satisfy: the models the paper itself lists cannot all sit on the
-  right side of the line. For example, the paper's Option A table lists
-  the Toyota Noah (published OMV S$28,083) below its 35th-percentile
-  line and the Toyota Corolla Altis (S$22,200) above it — the cheaper
-  car above the dearer one. This is reported as a finding, not
-  corrected (Table 4; section 4.3).
+  satisfy: on those rows the most expensive model the paper lists
+  below the line (in the cheaper band) is cheaper than the least
+  expensive model it lists above (in the pricier band). For example,
+  the paper's Option A table lists the Toyota Noah (published OMV
+  S$28,083) below its 35th-percentile line and the Toyota Corolla Altis
+  (S$22,200) above it — the cheaper car above the dearer one. This is
+  reported as a finding, not corrected (Table 4; section 4.3).
+- **Removing Category E would relieve commercial vehicles, but close
+  the urgent-bid fast lane (section 3).** The commercial-vehicle
+  category's (C) quota would rise 11% (7,468 → 8,298/yr), while buyers
+  who need a car urgently would lose the only channel to get a COE
+  without waiting for the next bidding round; their demand would
+  re-enter the merged pool at the next round, a one-round price pulse
+  of about S$1,428 in 2027-01 (Figure 6; section 4.7).
 - **Under the proposal, the side effects would be real but limited.**
   About 14% of new registrations sit within ±5% of Option A's
   50th-percentile boundary, where S$15,000 is at stake — enough
@@ -88,13 +96,6 @@ summary). Every number in this README is quoted from the tables in
   (12.90% of the catalog mis-banded relative to the family mean under
   Option A, 25.35% under Option B); and the feebate would push demand
   toward cheaper cars (Figure 5; section 4.8).
-- **Removing Category E would relieve commercial vehicles, but close
-  the urgent-bid fast lane (section 3).** The commercial-vehicle
-  category's (C) quota would rise 11% (7,468 → 8,298/yr), while buyers
-  who need a car urgently would lose the only channel to get a COE
-  without waiting for the next bidding round; their demand would
-  re-enter the merged pool at the next round, a one-round price pulse
-  of about S$1,428 in 2027-01 (Figure 6; section 4.7).
 
 Bottom line: **as proposed, the merge would be a low-risk administrative
 consolidation at today's prices, and the feebate on new registrations
