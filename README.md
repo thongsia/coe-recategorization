@@ -289,9 +289,10 @@ the model's public OMV falls in a different band from the paper's
 listing, but the line in question could still be drawn at a value
 consistent with the paper's list. The other rows — 2 of Option A's
 band lines and 4 of Option B's — are impossible: the most expensive
-model the paper lists below the line is cheaper than the least
-expensive model it lists above it, so no dollar value for the line is
-consistent with the paper's table (Table 4). This is reported as a
+model the paper lists below the line (in the cheaper band) is cheaper
+than the least expensive model it lists above it (in the pricier
+band), so no dollar value for the line is consistent with the paper's
+table (Table 4). This is reported as a
 finding of the study, not corrected in the paper's tables (section 4.1
 of the report; `tables/banding_mismatches.csv`).
 
