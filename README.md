@@ -272,7 +272,7 @@ S$60 of each other in every round, so at the left panel's scale the
 Option B line (drawn last) lies on top of the Option A line; the right
 panel separates them.*
 
-### 4.3 The banding: cheaper cars are rebated, pricier cars pay — and the paper's own tables don't quite add up
+### 4.3 The banding: 49% of registrations pay the fee, 35% get the rebate — and the paper's own tables don't quite add up
 
 Banding the 217 models of the Aug 2026 catalog against the 2025
 registration mix gives the shares in Tables 2 and 3: under Option A,
