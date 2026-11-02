@@ -409,22 +409,21 @@ sizes as a rough scenario input, not a measured effect of the feebate.*
 
 ### 4.6 If the feebate applies to renewals, it flips to a net cost to the government
 
-This is the consultation's open PQP question, and it is where the sign
-flips. The first renewals under a 2027-01 regime are cars whose initial
-COE was registered in **2017** (2027 minus the 10-year initial COE
-term) — a cohort of **91,922 vehicles** (Option A pricing; 91,921 under
-Option B). The cohort skews cheap: under Option A's cut points, 97% of
-the pre-Category-A half (average OMV S$22,002, below the 35th-percentile
-cut point of S$28,877) and 57% of the pre-Category-B half land in the
-rebate bands — 77% of the cohort overall.
+This is the consultation's open PQP question. The first renewals under
+a 2027-01 regime are cars whose initial COE was registered in **2017**
+(2027 minus the 10-year initial COE term) — a cohort of **91,922
+vehicles** (Option A pricing; 91,921 under Option B). The cohort skews
+cheap: under Option A's cut points, 97% of the pre-Category-A half
+(average OMV S$22,002, below the 35th-percentile cut point of S$28,877)
+and 57% of the pre-Category-B half land in the rebate bands — 77% of
+the cohort overall.
 The bundled registration file covers Categories A and B only: the 9,640
 cars registered under Category E in 2017 (official 2017 total 101,415)
 also come up for renewal in 2027 and are not priced here, so the
 figures in this section apply to the A+B cohort.
 
-This is where the feebate flips from income to cost. The first renewal
-cohort skews cheap (77% of it lands in the rebate bands under Option A's
-cut points), so the rebates outweigh the fees: under the PROPOSED 2025
+With most of the cohort in the rebate bands, the rebates outweigh the
+fees, and the feebate flips from income to cost: under the PROPOSED 2025
 cut points, adding the band quantum to the renewal PQP **reduces** the
 owners' total transition-year renewal bill by
 **S$517,215,600 (Option A) / S$353,265,450 (Option B)**. The government
