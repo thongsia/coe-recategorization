@@ -246,11 +246,11 @@ mix would pay a net S$2,092 (Option A) / S$2,149 (Option B) more in
 fees than it gets back in rebates. Bidders would work that into their
 bids, so the merged price would settle about **1.6% lower**:
 S$129,873 (A) / S$129,816 (B) at the last observed round, S$129,800 /
-S$129,743 by the end of 2027. For the average car the total outlay
-(price + fee − rebate) would be the same as without the feebate: at the
-end-2027 prices, a car under Option A would cost S$131,892 without the
-feebate, and S$129,800 price plus S$2,092 more in fees than rebates
-with it — S$131,892 either way.
+S$129,743 throughout the 2027 projection. For the average car the
+total outlay (price + fee − rebate) would be the same as without the
+feebate: at the 2027 projection price, a car under Option A would cost
+S$131,892 without the feebate, and S$129,800 price plus S$2,092 more in
+fees than rebates with it — S$131,892 either way.
 
 **Figure 2.** Merged A+B price paths — computed from observed rounds
 (2010–2026) and projected to 2027 (scenario, regime start 2027-01);
