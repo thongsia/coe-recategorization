@@ -81,15 +81,20 @@ summary). Every number in this README is quoted from the tables in
   car above the dearer one. This is reported as a finding, not
   corrected (Table 4; section 4.3).
 - **Under the proposal, the side effects would be real but limited.**
-  About 14% of new registrations sit within ±5% of Option A's middle
-  band boundary, where the fee changes by S$15,000 — enough incentive for
-  buyers to trim a car's spec to just under the line (Figure 7); the
-  feebate would also push demand toward cheaper cars (Figure 5); and
-  removing Category E — the general-purpose COE (usable for any A, B or
-  C vehicle) whose transferable three-month COEs are the current fast
-  lane for buyers who need a car urgently — would raise the
-  commercial-vehicle category's (C) quota by 11% while closing that
-  fast lane (Figure 6).
+  About 14% of new registrations sit within ±5% of Option A's
+  50th-percentile boundary, where S$15,000 is at stake — enough
+  incentive for buyers to trim a car's spec to just under the line
+  (Figure 7); the same car name can be split across different bands
+  (12.90% of the catalog mis-banded relative to the family mean under
+  Option A, 25.35% under Option B); and the feebate would push demand
+  toward cheaper cars (Figure 5; section 4.8).
+- **Removing Category E would relieve commercial vehicles, but close
+  the urgent-bid fast lane (section 3).** The commercial-vehicle
+  category's (C) quota would rise 11% (7,468 → 8,298/yr), while buyers
+  who need a car urgently would lose the only channel to get a COE
+  without waiting for the next bidding round; their demand would
+  re-enter the merged pool at the next round, a one-round price pulse
+  of about S$1,428 in 2027-01 (Figure 6; section 4.7).
 
 Bottom line: **as proposed, the merge would be a low-risk administrative
 consolidation at today's prices, and the feebate on new registrations
