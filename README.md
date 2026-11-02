@@ -511,12 +511,20 @@ forward prices.
 
 ![Category E and C — quota and price paths, 2027 forward](charts/ec_quota_price_paths.png)
 
-*Left (a): forward quotas per round under both E options — dashed = E
-removed, solid = E cars-only; C (green) gains 11.11% under removal, E
-(red) goes to zero under removal. Right (b): forward prices — merged car
-(blue/orange, Option A/B), C (green, flat at the conservative bound),
-E (red, premium decaying to zero under cars-only). The dotted vertical
-line marks the 2027-01-01 regime start.*
+*Left (a): forward quotas per round. Category C (green) and E (red) are
+shown under both E options (dashed = E removed, dotted = E cars-only):
+under removal, C gains 11.11% (311.17 → 345.74/round) and E goes to
+zero, while under cars-only both keep their current quotas. The merged
+car quota (blue, 2,137.5/round) is the same under both options — a
+single line. Right (b): forward prices — merged car (blue) is flat at
+the 2027-12 level (Option A S$129,800.16, Option B S$129,743.03 — S$57
+apart, indistinguishable at this scale) and is the same under both E
+options except for a one-round +S$1,428 pulse in 2027-01 under removal
+(annotated), so it is one line. The E price (red) exists only under
+cars-only; its premium decays to zero over six rounds, converging on the
+merged price. C (green) is held flat at the same conservative bound
+under both options — a single line. The dotted vertical line marks the
+2027-01-01 regime start.*
 
 ### 4.8 Unintended consequences: boundary gaming and classification distortion
 

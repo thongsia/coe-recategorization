@@ -405,32 +405,47 @@ def fig7():
     ixR, rem = load("tables/ec_scenario_E_removed.csv")
     ixC, cco = load("tables/ec_scenario_E_cars_only.csv")
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.5))
-    # quotas
-    for ax, (ix, data, tag, ls) in ((ax1, (ixR, rem, "E removed", (0, (4, 2)))), (ax1, (ixC, cco, "E cars-only", (0, (1, 1))))):
-        for cat, col, lab in (("merged_car", "#1f77b4", "merged car"), ("C", "#2ca02c", "Category C"), ("E", "#d62728", "Category E")):
+    # quotas: the merged car quota is identical under both E options
+    # (2,137.5/round in both scenario tables), so plot it once; C and E
+    # differ by option (dashed = E removed, dotted = E cars-only)
+    mcq = [(d(r[ixR["month"]], r[ixR["bidding_no"]]), f(r[ixR["quota"]])) for r in rem.get("merged_car", []) if f(r[ixR["quota"]]) is not None]
+    if mcq:
+        ax1.plot([t for t, _ in mcq], [v for _, v in mcq], "-", color="#1f77b4", lw=1.6,
+                 label="merged car — same under both E options")
+    for ix, data, tag, ls in ((ixR, rem, "E removed", (0, (4, 2))), (ixC, cco, "E cars-only", (0, (1, 1)))):
+        for cat, col, lab in (("C", "#2ca02c", "Category C"), ("E", "#d62728", "Category E")):
             pts = [(d(r[ix["month"]], r[ix["bidding_no"]]), f(r[ix["quota"]])) for r in data.get(cat, []) if f(r[ix["quota"]]) is not None]
             if pts:
-                ax.plot([t for t, _ in pts], [v for _, v in pts], linestyle=ls, color=col, lw=1.6, label=f"{lab} — {tag}")
+                ax1.plot([t for t, _ in pts], [v for _, v in pts], linestyle=ls, color=col, lw=1.6, label=f"{lab} — {tag}")
     ax1.axvline(dt.datetime(2027, 1, 1), color="k", lw=0.8, ls=":")
     ax1.set_title("(a) Forward quotas per round (SCENARIO)\nC +11.11% under removal (345.74 vs 311.17/round);\nE → 0 under removal (266.67/round cars-only)")
     ax1.set_ylabel("Quota per round")
     ax1.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
     ax1.legend(fontsize=7)
     ax1.grid(alpha=0.3)
-    # prices
-    for ax, (ix, data, tag, colstyle) in ((ax2, (ixR, rem, "E removed", "--")), (ax2, (ixC, cco, "E cars-only", "-"))):
-        mc = [(d(r[ix["month"]], r[ix["bidding_no"]]),
-               f(r[ix["withfee_price_optionA_base"]]) + (f(r[ix["e_shift_price_effect_sgd"]]) or 0)) for r in data["merged_car"]]
-        mcB = [(d(r[ix["month"]], r[ix["bidding_no"]]),
-                f(r[ix["withfee_price_optionB_base"]]) + (f(r[ix["e_shift_price_effect_sgd"]]) or 0)) for r in data["merged_car"]]
-        ax.plot([t for t, _ in mc], [v for _, v in mc], linestyle=colstyle, color="#1f77b4", lw=1.6, label=f"merged car, Option A — {tag}")
-        ax.plot([t for t, _ in mcB], [v for _, v in mcB], linestyle=colstyle, color="#ff7f0e", lw=1.6, label=f"merged car, Option B — {tag}")
-        Cpts = [(d(r[ix["month"]], r[ix["bidding_no"]]), f(r[ix["price"]])) for r in data["C"] if f(r[ix["price"]]) is not None]
-        if Cpts:
-            ax.plot([t for t, _ in Cpts], [v for _, v in Cpts], linestyle=colstyle, color="#2ca02c", lw=1.4, label=f"Category C (flat) — {tag}")
-        Epts = [(d(r[ix["month"]], r[ix["bidding_no"]]), f(r[ix["e_price_optionA"]])) for r in data["E"] if f(r[ix["e_price_optionA"]])]
-        if Epts:
-            ax.plot([t for t, _ in Epts], [v for _, v in Epts], linestyle=colstyle, color="#d62728", lw=1.4, label=f"E, Option A (premium decays to 0 over 6 rounds) — {tag}")
+    # prices: merged-car prices are identical under both E options except
+    # the one-round 2027-01 pulse (A +1,428.14 / B +1,428.13) — invisible at
+    # this axis scale — so plot one line and annotate the pulse. A and B
+    # differ by S$57 (129,800.16 vs 129,743.03) — indistinguishable here.
+    # C's price is flat at the same conservative bound under both options
+    # (identical paths), so one line. The E price exists only under cars-only.
+    mc = [(d(r[ixC["month"]], r[ixC["bidding_no"]]),
+           (f(r[ixC["withfee_price_optionA_base"]]) or 0) + (f(r[ixC["e_shift_price_effect_sgd"]]) or 0)) for r in cco["merged_car"]]
+    ax2.plot([t for t, _ in mc], [v for _, v in mc], "-", color="#1f77b4", lw=1.6,
+             label="merged car — flat at the 2027-12 level (A/B differ by S$57)")
+    Epts = [(d(r[ixC["month"]], r[ixC["bidding_no"]]), f(r[ixC["e_price_optionA"]])) for r in cco["E"] if f(r[ixC["e_price_optionA"]])]
+    if Epts:
+        ax2.plot([t for t, _ in Epts], [v for _, v in Epts], "-", color="#d62728", lw=1.4,
+                 label="E, Option A (premium decays to 0 over 6 rounds) — E cars-only")
+    Cp = [(d(r[ixC["month"]], r[ixC["bidding_no"]]), f(r[ixC["price"]])) for r in cco.get("C", []) if f(r[ixC["price"]]) is not None]
+    if Cp:
+        ax2.plot([t for t, _ in Cp], [v for _, v in Cp], "-", color="#2ca02c", lw=1.4,
+                 label="Category C — flat at the conservative bound, both options")
+    ax2.annotate("E-removed only: +S$1,428 in the\n2027-01 b1 round, then identical",
+                 xy=(dt.datetime(2027, 1, 1), 131228),
+                 xytext=(0.38, 0.16), textcoords="axes fraction",
+                 fontsize=7, color="#333",
+                 arrowprops=dict(arrowstyle="->", lw=0.7, color="#666"))
     ax2.axvline(dt.datetime(2027, 1, 1), color="k", lw=0.8, ls=":")
     ax2.set_title("(b) Forward prices (SCENARIO)\nC flat at 91,813.5 (NOT DETECTABLE response;\nconservative bound); E premium 3,777.33 → 0 (cars-only)")
     ax2.set_ylabel("Price (S$)")
