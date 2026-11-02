@@ -275,11 +275,15 @@ def fig3():
     omvB = [f(r[ixB["omv_catalog_aug2026"]]) for r in rowsB if f(r[ixB["omv_catalog_aug2026"]])]
     wB = [f(r[ixB["weight"]]) for r in rowsB if f(r[ixB["omv_catalog_aug2026"]])]
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(11, 8), sharex=True)
-    edges = list(range(10000, 110000, 2000))
+    # bins cover the full catalog OMV range (12,856..128,696) so every one
+    # of the 217 models is plotted; xlim trimmed to the same range to
+    # minimise the empty margins
+    edges = list(range(12000, 132000, 2000))
     ax1.hist(omvA, bins=edges, weights=wA, color="#9ecae1", edgecolor="white", lw=0.3)
+    ax1.set_xlim(12000, 130000)
     ax1.axvspan(0, 28877, color="#2ca02c", alpha=0.15)
     ax1.axvspan(28877, 36062, color="#ffbb33", alpha=0.25)
-    ax1.axvspan(36062, 100000, color="#d62728", alpha=0.15)
+    ax1.axvspan(36062, 130000, color="#d62728", alpha=0.15)
     for x, lab in ((28877, "35th: 28,877"), (36062, "50th: 36,062")):
         ax1.axvline(x, color="k", lw=1.0, ls="--")
         ax1.annotate(lab, xy=(x, ax1.get_ylim()[1] * 0.97), fontsize=8, ha="center")
@@ -291,7 +295,7 @@ def fig3():
     ax1.grid(alpha=0.3, axis="y")
     ax2.hist(omvB, bins=edges, weights=wB, color="#c5b0d5", edgecolor="white", lw=0.3)
     for (lo, hi, col) in ((0, 20310, "#2ca02c"), (20310, 28877, "#66c2a5"), (28877, 36062, "#ffbb33"),
-                          (36062, 49662, "#fc8d59"), (49662, 100000, "#d62728")):
+                          (36062, 49662, "#fc8d59"), (49662, 130000, "#d62728")):
         ax2.axvspan(lo, hi, color=col, alpha=0.18)
     for x, lab in ((20310, "10th: 20,310"), (28877, "35th: 28,877"), (36062, "50th: 36,062"), (49662, "75th: 49,662")):
         ax2.axvline(x, color="k", lw=1.0, ls="--")
