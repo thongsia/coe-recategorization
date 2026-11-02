@@ -1,4 +1,4 @@
-# Merging car COE categories A and B: who pays, and who is rebated?
+# COE Re-categorization: a data-driven study
 
 _Disclaimer: This analysis was prompted by a human, then initially designed and carried out by an AI agent (Hermes + Qwen3.8-27B + [AIOS skillset](https://github.com/thongsia/aios)), and finally shaped and edited collaboratively between the two._
 
@@ -686,6 +686,8 @@ docs/REPORT.md                   ← full report (machine-checked citations)
 docs/STATS_SUMMARY.md            ← one-page statistics summary
 docs/methodology_notes.md        ← method notes (banding, renewal cohort, PQP)
 docs/provenance.md               ← sources, fetch timestamps, row counts, checksums
+docs/consultation_response.md/.pdf ← written response to the public consultation
+                                    (sections map one-for-one to the official form's fields)
 docs/consult_paper.pdf           ← the LTA consultation paper (public document)
 docs/annex_b.pdf, annex_c.pdf    ← image-only annexes (B: merger mechanics; C: banding method)
 docs/car_cost_aug2026.pdf        ← LTA "Cost for Cars Registered" (Aug 2026, 217 models)
