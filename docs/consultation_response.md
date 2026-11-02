@@ -26,9 +26,7 @@ pasted into the matching field; section 4 is the closing note.
 
 ---
 
-## 1. Should Categories A and B be merged into a single passenger car
-category, with a fee-and-rebate ("feebate") system based on the value of the
-car, and if so, how it should be designed?
+## 1. Should Categories A and B be merged into a single passenger car category, with a fee-and-rebate ("feebate") system based on the value of the car, and if so, how it should be designed?
 
 **The merge itself is low-risk; the design details are where the consultation
 should focus.** The two categories already clear at nearly the same price —
@@ -38,7 +36,7 @@ Computed for the same round, a merged category would price at S$131,965,
 i.e. right where both already are. The feebate would lower the merged price
 by about 1.6% (about S$2,100 at the 2027 projection price), offset by fees
 minus rebates, so the average car's total outlay (price + fee − rebate) is
-unchanged. Within that, four design points deserve LTA's attention:
+unchanged. Within that, six points deserve LTA's attention:
 
 **1.1 The cut points are the policy, not an implementation detail.** The
 feebate's revenue depends on band placement far more than on the quantum:
@@ -66,7 +64,7 @@ latest published OMV catalog, so the published schedule is one that can
 exist.
 
 **1.3 Consider a buffer or ramp at the band boundaries.** About 13.79% of
-the registration mix (≈6,312 cars/yr) sits within ±5% of Option A's
+the registration mix (about 6,312 cars/yr) sits within ±5% of Option A's
 50th-percentile boundary, with S$15,000 of quantum at stake; a further 11.84%
 sits near the 35th. Crossing a boundary requires a declared-value move of
 only 5% of the cut point (about S$1,444 at Option A's 35th percentile) — a
@@ -117,7 +115,8 @@ The two options are less apart than they first appear.
 detectable in the data, so flat is a conservative revenue bound) C revenue
 rises from S$685.66M to S$761.87M/yr. The 6,400 cars/yr that used E
 re-enter the merged car pool — the price effect is a single one-round pulse
-of about S$1,428 in the first round (≈+S$1,428.14 under Option A), i.e.
+of about S$1,428 in the first round (S$1,428.14 under Option A,
+S$1,428.13 under B), i.e.
 small and transitory. The real cost is the urgent-buyer channel: Category E
 COEs are transferable three-month Temporary COEs, currently the only way for
 a buyer who needs a car urgently to get a COE without waiting for the next
@@ -133,8 +132,13 @@ the impact on urgent buyers in the consultation response.
 that made it a fast lane — the premium — decays away: once an E COE is
 functionally just a car COE, the study's model has its premium (S$3,777 above
 the merged price at the 2026 anchor) decay to zero within about six rounds.
-"Preserved" should therefore not be read as "unchanged": the urgent-buyer
-mechanism survives, but so does its C-shield, and the price signal does not.
+"Preserved" should therefore not be read as "unchanged": what survives
+under cars-only is the access (transferable three-month COEs, so urgent
+buyers can still register without waiting for the next bidding round) and
+the shield on Category C's supply (E COEs can no longer be used against
+it); what disappears is the price signal — the premium over the car price
+— which is what made E the most expensive, and the urgent buyers'
+fastest, category in the first place.
 
 **Either way**, we suggest LTA model the Category C price response rather
 than holding it flat — the +11.11% quota relief under removal is worth
@@ -144,7 +148,8 @@ bound on C revenue, not an estimate.
 ## 3. Any other suggestions?
 
 **3.1 Expect boundary bunching, and build the annual review for it.** With
-≈14% of the mix within ±5% of a cut point and a ~10:1 payoff on crossing,
+about 14% of the mix within ±5% of a cut point and a roughly 10:1 payoff
+on crossing,
 registrations will pile up just below the boundaries once the scheme is live.
 That bunching shifts the very percentiles the cut points are defined from.
 The annual review should re-derive cut points knowing the mix has been
