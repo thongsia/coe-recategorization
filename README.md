@@ -363,7 +363,7 @@ sensitivity (S1/S2).
 
 ![Feebate revenue by option (annualised S$/yr)](charts/fee_revenue.png)
 
-*Bars: base revenue (excluding the E-shift), the E-shift delta
+*Bars: base revenue (excluding the E-shift), the hatched E-shift delta
 (6,400 re-entering cars/yr), and the total including the E-shift. The
 dotted lines mark the two documented cut-point sensitivities (S1: LTA
 2025-edition average-OMV cut points; S2: uniform model weights), each

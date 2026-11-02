@@ -330,7 +330,9 @@ def fig4():
     for (ax, opt, col), lab in zip(((ax1, "OptionA", "#1f77b4"), (ax2, "OptionB", "#ff7f0e")), "ab"):
         cats = ["base (excl. E-shift)", "E-shift delta (6,400/yr)", "total (incl. E-shift)"]
         base = vals[(opt, "base")]; delta = vals[(opt, "delta")]; total = vals[(opt, "total")]
-        bars = ax.bar(cats, [base, delta, total], color=["#bcd2e6", col, col], edgecolor="k", lw=0.5)
+        tint = {"#1f77b4": "#bcd2e6", "#ff7f0e": "#fdd0a2"}[col]
+        bars = ax.bar(cats, [base, delta, total], color=[tint, tint, col], edgecolor="k", lw=0.5)
+        bars[1].set_hatch("///")  # delta = the part added on top of the base
         for b, v in zip(bars, [base, delta, total]):
             ax.text(b.get_x() + b.get_width() / 2, v * 1.01, f"{v/1e6:,.2f}M", ha="center", fontsize=9)
         s1 = sens[opt].get("S1_lta2025_omv"); s2 = sens[opt].get("S2_uniform_weights")
