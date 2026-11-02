@@ -358,20 +358,29 @@ def fig5():
     for (ax, opt, col), lab in zip(((ax1, "OptionA", "#1f77b4"), (ax2, "OptionB", "#ff7f0e")), "ab"):
         sub = [r for r in rowsd if r[ixd["feebate_option"]] == opt]
         bands = [r for r in sub if r[ixd["dimension"]] == "band"]
-        labels = [r[ixd["value"]].replace("band", "band ").replace("_", " ") for r in bands]
+
+        def _bandlab(v):
+            # 'band2_35-50th' -> '35–50th' (README Tables 2/3 percentile wording)
+            return v.split("_", 1)[1].replace("-", "–")
+        labels = [_bandlab(r[ixd["value"]]) for r in bands]
         dvals = [f(r[ixd["delta_bids_per_year"]]) for r in bands]
         ax.bar(labels, dvals, color=col, alpha=0.75, edgecolor="k", lw=0.5)
         for i, v in enumerate(dvals):
             ax.text(i, v + (15 if v >= 0 else -95), f"{v:,.0f}", ha="center", fontsize=8)
-        dec = [(i, f(r[ixd["delta_bids_per_year"]])) for i, r in enumerate(
-            [x for x in sub if x[ixd["dimension"]] == "omv_decile"])]
+        decrows = [x for x in sub if x[ixd["dimension"]] == "omv_decile"]
+        # Map the 10 deciles (cheapest -> priciest) across the full width of
+        # the band domain, so the line spans the bars instead of stretching
+        # the axis out to 10 units and crowding the bars into a quarter panel
+        dec = [(i / 9 * (len(bands) - 1), f(r[ixd["delta_bids_per_year"]]))
+               for i, r in enumerate(decrows)]
         ax2p = ax.twinx()
         ax2p.plot([d[0] for d in dec], [d[1] for d in dec], "-", color="k", lw=1.2, marker="o", ms=3, label="OMV decile shift")
         ax2p.set_ylabel("OMV-decile delta (bids/yr)", fontsize=8)
         ax2p.tick_params(labelsize=7)
+        ax.set_xlim(-0.5, len(bands) - 0.5)
         tot = f([r for r in sub if r[ixd["dimension"]] == "TOTAL"][0][ixd["delta_bids_per_year"]])
         ev = f([r for r in sub if r[ixd["dimension"]] == "fuel" and r[ixd["value"]] == "EV"][0][ixd["delta_bids_per_year"]])
-        ax.set_title(f"({lab}) {opt}: total {tot:,.0f} bids/yr\nEV {ev:,.0f} ({ev/tot*100:.1f}% of shift)")
+        ax.set_title(f"({lab}) Option {opt[-1]}: total {tot:,.0f} bids/yr\nEV {ev:,.0f} ({ev/tot*100:.1f}% of the net shift)")
         ax.set_ylabel("Delta bids/yr by band (SCENARIO)")
         ax.grid(alpha=0.3, axis="y")
     mkfig("demand_shift_by_band.png",

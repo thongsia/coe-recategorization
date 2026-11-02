@@ -394,10 +394,13 @@ Option B right.
 
 ![Feebate-induced demand shift by car-value band (bids/yr)](charts/demand_shift_by_band.png)
 
-*Bars: the change in bids per year by feebate band. The overlaid line is
-the same shift expressed along OMV deciles. Elasticities are
-first-difference estimates from 16 years of per-bidding data, graded
-A=MEDIUM, B=LOW — scenario inputs, not causal claims.*
+*Bars: the change in bids per year by feebate band — the percentile cut
+points of the 2025 mix (Tables 2–3; e.g. "0–35th" = OMV between the 0th
+and 35th percentiles of the mix). The overlaid line is the same shift
+expressed along OMV deciles (one decile = 10% of the mix), spanned
+across the full width from the cheapest decile to the priciest.
+Elasticities are first-difference estimates from 16 years of per-bidding
+data, graded A=MEDIUM, B=LOW — scenario inputs, not causal claims.*
 
 ### 4.6 If the feebate applies to renewals, it flips to a net cost to the government
 
