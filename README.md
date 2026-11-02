@@ -283,14 +283,17 @@ the OMV distribution with the bands overlaid for both options.
 
 Cross-validating against the paper's own "typical models" banding
 tables: the study's reconstruction agrees with the paper on 24 of 32
-rows (Option A) and 18 of 34 (Option B). In the remaining rows — 2 of
-Option A's band lines and 4 of Option B's — the paper's own model list
-makes the line impossible: the most expensive model it lists below the
-line is cheaper than the least expensive model it lists above it, so no
-dollar value for the line is consistent with the paper's table (Table
-4). This is reported as a finding of the study, not corrected in the
-paper's tables (section 4.1 of the report;
-`tables/banding_mismatches.csv`).
+rows (Option A) and 18 of 34 (Option B). Of the remaining 8 rows for
+Option A and 16 for Option B, 6 (A) and 12 (B) are plain mismatches —
+the model's public OMV falls in a different band from the paper's
+listing, but the line in question could still be drawn at a value
+consistent with the paper's list. The other rows — 2 of Option A's
+band lines and 4 of Option B's — are impossible: the most expensive
+model the paper lists below the line is cheaper than the least
+expensive model it lists above it, so no dollar value for the line is
+consistent with the paper's table (Table 4). This is reported as a
+finding of the study, not corrected in the paper's tables (section 4.1
+of the report; `tables/banding_mismatches.csv`).
 
 **Table 4. The six band lines in the paper's indicative tables that no
 dollar value can satisfy (public OMVs: LTA Car Cost Aug 2026 catalog;
