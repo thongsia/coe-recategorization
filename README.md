@@ -336,18 +336,18 @@ estimates, S$/yr; mix window 2025-01..2025-05, frozen at 2025-05).**
 | Base (merged cars, excl. E-shift) | 95,760,000 | 98,377,500 |
 | E-shift delta (6,400 cars/yr) | +43,729,050 | +38,624,175 |
 | Total incl. E-shift | **139,489,050** | **137,001,675** |
-| Sensitivity S1 (LTA-2025-edition cut points), total | 103,359,055 | 108,988,080 |
-| Sensitivity S2 (uniform model weights), total | 67,094,156 | 82,164,941 |
+| Sensitivity S1 (LTA-2025-edition cut points), base | 59,630,005 | 70,363,905 |
+| — same, total incl. E-shift | 103,359,055 | 108,988,080 |
+| Sensitivity S2 (uniform model weights), base | 23,365,106 | 43,540,766 |
+| — same, total incl. E-shift | 67,094,156 | 82,164,941 |
 
 *S1 and S2 vary only the band boundaries — the "cut points" of section
 3 — not the car mix: S1 locates the boundaries using LTA's official
 2025-edition car prices (OMV) instead of the study's catalog values,
 and S2 assumes every model in the mix is equally common (ignoring how
-many of each model were actually registered). The "total" on these rows
-means the same as on the Total row above — i.e. including the E-shift
-flow: the same 6,400-car delta, banded at the base cut points, is
-added to every variant, so the difference between the three revenue
-rows is purely the cut points.*
+many of each model were actually registered). Each variant's total is
+its base plus the same 6,400-car delta (banded at the base cut
+points), so the difference between variants is purely the cut points.*
 
 The feebate is about **1.8–1.9% of total COE revenue** — modest next to
 the multi-billion-dollar COE take — and its effect on bidding demand is
@@ -363,8 +363,8 @@ cut points LTA has not yet fixed, and the E-shift flow assumed at 100%
 with a 50–100% sensitivity — the cut points dominate: base
 revenue alone (excluding the E-shift) swings from S$95.76M/yr at the
 base cut points to S$59.63M (S1) and S$23.37M (S2) for Option A —
-S$70.36M and S$43.54M for Option B — a fourfold range, versus at most
-S$21.9M from the E-shift assumption (Option A; Figure 4).
+S$70.36M and S$43.54M for Option B (Table 5) — a fourfold range,
+versus at most S$21.9M from the E-shift assumption (Option A; Figure 4).
 
 **Figure 4.** Annual net feebate revenue by option (scenario,
 Jan–May 2025 mix): base, E-shift delta, total, and cut-point
