@@ -227,32 +227,24 @@ vertical dotted lines mark the rounds where A cleared above B in 2026
 (Feb, Apr, Jun, Oct — all second biddings). The inset shows the 2026
 zoom with each inversion's spread.*
 
-### 4.2 Merging would produce one price, essentially where both already are
+### 4.2 The only thing that would move the merged price is the feebate — and it would move it slightly down
 
-Section 4.1 showed the two categories now clear at nearly the same
-price. The natural follow-up: once they are merged, what would the
-single price come out to — and what would move it?
+Once merged, what would the single price be, and what would move it?
+The study works it out from each round's actual bids and the combined
+quota (2,137.5 per round — the last six rounds' average, i.e. the same
+total number of cars as today): in the last observed round (19–21 Oct
+2026) the merged price would have been **S$131,965** — essentially the
+price already being paid, because the two prices are now that close
+(section 4.1) — and the scenario holds it flat at **S$131,892**
+through 2027 (a stated ASSUMPTION: the same number of bidders, at the
+same willingness to pay). So the merger itself would not move the
+price (Figure 2, left: the dashed grey line).
 
-**The merged price would be essentially the price already being paid.**
-The study works this out from the actual bids: take each round's bids
-and the combined quota (2,137.5 per round — the last six rounds'
-average, i.e. the same total number of cars as today), and compute the
-price a single merged category would have cleared at. It does so for
-every round from 2010 to 2026 (the dashed grey line in Figure 2,
-left); in the last observed round (19–21 Oct 2026) the merged price
-would have been **S$131,965** — within S$40 of the Category A price
-and S$65 of the Category B price, because the two prices are now that
-close. The scenario holds it flat at **S$131,892** through 2027 (a
-stated ASSUMPTION: the same number of bidders, at the same willingness
-to pay). In short, the merger itself would be price-neutral — it would
-unify two prices that are already nearly identical, and bring no price
-shock.
-
-**The only thing that would move the price is the feebate — and it
-would move it slightly down.** Under the proposed banding, the average
-car in the mix would pay a net S$2,092 (Option A) / S$2,149 (Option B)
-more in fees than it gets back in rebates. Bidders would work that into
-their bids, so the merged price would settle about **1.6% lower**:
+**The feebate would be the exception — and it would move the price
+slightly down.** Under the proposed banding, the average car in the
+mix would pay a net S$2,092 (Option A) / S$2,149 (Option B) more in
+fees than it gets back in rebates. Bidders would work that into their
+bids, so the merged price would settle about **1.6% lower**:
 S$129,873 (A) / S$129,816 (B) at the last observed round, S$129,800 /
 S$129,743 by the end of 2027. For the average car the total outlay
 (price + fee − rebate) would be about the same as without the feebate;
