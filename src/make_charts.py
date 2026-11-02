@@ -469,16 +469,21 @@ def fig8():
     edges = list(range(10000, 110000, 2000))
     for (ax, opt, col), lab in zip(((ax1, "OptionA", "#2ca02c"), (ax2, "OptionB", "#ff7f0e")), "ab"):
         ax.hist(omv, bins=edges, weights=w, color="#cccccc", edgecolor="white", lw=0.3)
-        for r in rowsz:
-            if r[ixd["option"]] != opt:
-                continue
+        # zone labels: staggered into two rows (even zone -> upper, odd ->
+        # lower) so the boxes cannot collide — adjacent zone centres are
+        # only ~7,000-8,500 S$ apart on the 100,000 S$ axis (verified on
+        # the rendered bboxes: min gap 25 px)
+        zlist = sorted((r for r in rowsz if r[ixd["option"]] == opt),
+                       key=lambda r: f(r[ixd["zone_lo_sgd"]]) or 0.0)
+        for i, r in enumerate(zlist):
             lo, hi = f(r[ixd["zone_lo_sgd"]]), f(r[ixd["zone_hi_sgd"]])
             share = f(r[ixd["zone_share_pct_covered_mix"]]); nmod = int(f(r[ixd["n_models_in_zone"]]))
             ann = f(r[ixd["est_registrations_annual_in_zone"]]); qp = f(r[ixd["quantum_at_stake_sgd"]])
             ax.axvspan(lo, hi, color=col, alpha=0.45)
             mid = (lo + hi) / 2
-            ax.annotate(f"{r[ixd['percentile']]}th zone\nshare {share:.2f}%\n{nmod} models, ~{ann:,.0f} reg/yr\nquantum at stake {qp:,.0f} S$",
-                        xy=(mid, ax.get_ylim()[1] * 0.55), fontsize=6.8, ha="center",
+            yf = 0.85 if i % 2 == 0 else 0.45
+            ax.annotate(f"{r[ixd['percentile']]}th: {share:.2f}%\n{nmod} models, ~{ann:,.0f}/yr\nS${qp:,.0f} at stake",
+                        xy=(mid, ax.get_ylim()[1] * yf), fontsize=6.5, ha="center", va="center",
                         bbox=dict(boxstyle="round", fc="white", alpha=0.9, ec="gray"))
         ax.set_title(f"({lab}) {opt} — ±5% OMV boundary zones around each cut point\n(zone width = documented analytical choice, NOT an LTA parameter)")
         ax.set_ylabel("Registration mix weight (Jan-May 2025)")
