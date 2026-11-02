@@ -334,8 +334,8 @@ def fig4():
         for b, v in zip(bars, [base, delta, total]):
             ax.text(b.get_x() + b.get_width() / 2, v * 1.01, f"{v/1e6:,.2f}M", ha="center", fontsize=9)
         s1 = sens[opt].get("S1_lta2025_omv"); s2 = sens[opt].get("S2_uniform_weights")
-        ax.text(0.02, 0.62, f"cut-point sensitivity (total incl. E-shift):\nS1 LTA-2025 avg-OMV cut points: {s1/1e6:,.2f}M\nS2 uniform model weights: {s2/1e6:,.2f}M",
-                transform=ax.transAxes, fontsize=8.5, bbox=dict(boxstyle="round", fc="white", alpha=0.9))
+        ax.text(0.45, 0.98, f"cut-point sensitivity (total incl. E-shift):\nS1 LTA-2025 avg-OMV cut points: {s1/1e6:,.2f}M\nS2 uniform model weights: {s2/1e6:,.2f}M",
+                transform=ax.transAxes, fontsize=8.5, va="top", ha="center", bbox=dict(boxstyle="round", fc="white", alpha=0.9))
         ax.set_title(f"({lab}) {opt} feebate revenue (SCENARIO, annualised S$/yr)")
         ax.set_ylabel("S$/yr")
         ax.grid(alpha=0.3, axis="y")
