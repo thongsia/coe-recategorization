@@ -483,13 +483,11 @@ and full-cohort assumption as Table 6).**
 The 2028 start shrinks the first-year cost by about 27% (Option A) /
 22% (Option B), but does not change its sign: the cohort is smaller and
 slightly less skewed to the rebate bands (57.2% in the rebate band under
-Option A, vs 60.5% for 2017). The cut-point-base effect works the same
-way: re-banding the 2018 cohort at its *own* 2018-vintage percentiles
-turns the net into a government revenue of +S$135.2M (Option A) /
-+S$143.4M (Option B). The quantum net is PQP-independent, and the flat
-forward model carries the 2027-12 cell PQP levels (S$129,800.16 /
-S$129,743.03) through to 2028-12, so the rest of section 4.6's
-machinery applies unchanged. Derivation:
+Option A, vs 60.5% for 2017). The same caveat about which year's prices
+set the band boundaries applies to the 2028 numbers: banding the 2018
+cohort by its own 2018 prices (instead of the PROPOSED 2025 cut points)
+turns the first-year net from a cost into a government revenue of
+S$135.2M (Option A) / S$143.4M (Option B). Derivation:
 `src/renewal_cohort_2028_sensitivity.py` →
 `data/processed/renewal_cohort_banded_2028anchor.csv`.
 
