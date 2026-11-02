@@ -356,10 +356,11 @@ projected to cut total bids in the merged category by about 673/yr
 (Option A) / 691/yr (Option B) — about 1% of the roughly 67,000 bids/yr
 the two categories received in their last six rounds. (The number is
 "net" because cheaper bands gain bids while pricier bands lose more;
-section 4.5 decomposes it.) Of the two uncertainty drivers documented
-in this section — the band cut points LTA has not yet fixed, and the
-E-shift flow assumed at 100% with a 50–100% sensitivity — the cut
-points dominate: base
+section 4.5 decomposes it.)
+
+Of the two uncertainty drivers documented in this section — the band
+cut points LTA has not yet fixed, and the E-shift flow assumed at 100%
+with a 50–100% sensitivity — the cut points dominate: base
 revenue alone (excluding the E-shift) swings from S$95.76M/yr at the
 base cut points to S$59.63M (S1) and S$23.37M (S2) for Option A —
 S$70.36M and S$43.54M for Option B — a fourfold range, versus at most
