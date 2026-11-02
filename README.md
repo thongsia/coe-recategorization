@@ -380,17 +380,19 @@ total incl. E-shift.*
 
 ### 4.5 Demand shifts toward cheaper cars
 
-Applying the feebate's price effect through the measured (scenario-grade)
-demand elasticities: total bidding demand falls by about 673 (A) / 691
-(B) bids per year — small in itself — but it redistributes: EV demand
-falls (−687/−595 bids/yr), luxury cars (OMV above the S$49,662 top
-cut point) fall by about 1,200 bids/yr, and mass-market cars (OMV below
-it) gain about 510–530 bids/yr (Figure 5). The feebate tilts the mix
-toward cheaper cars.
+Applying the feebate's price effect with the study's estimate of how
+strongly bidding demand responds to price (fitted from 16 years of
+bidding results; a rough scenario input, not a precise causal measure —
+see the note under Figure 5): total bidding demand falls by about 673
+(A) / 691 (B) bids per year — small in itself — but it redistributes:
+EV demand falls (−687/−595 bids/yr), luxury cars (OMV above the S$49,662
+top cut point) fall by about 1,200 bids/yr, and mass-market cars (OMV
+below it) gain about 510–530 bids/yr (Figure 5). The feebate tilts the
+mix toward cheaper cars.
 
 **Figure 5.** Feebate-induced demand shift by car-value band, bids/yr
-(scenario; elasticities from 2010–2026 bidding data): Option A left,
-Option B right.
+(scenario; price-sensitivity estimate from 2010–2026 bidding data):
+Option A left, Option B right.
 
 ![Feebate-induced demand shift by car-value band (bids/yr)](charts/demand_shift_by_band.png)
 
@@ -398,9 +400,12 @@ Option B right.
 points of the 2025 mix (Tables 2–3; e.g. "0–35th" = OMV between the 0th
 and 35th percentiles of the mix). The overlaid line is the same shift
 expressed along OMV deciles (one decile = 10% of the mix), spanned
-across the full width from the cheapest decile to the priciest.
-Elasticities are first-difference estimates from 16 years of per-bidding
-data, graded A=MEDIUM, B=LOW — scenario inputs, not causal claims.*
+across the full width from the cheapest decile to the priciest. The
+price-sensitivity estimate is fitted by comparing, round to round over
+2010–2026, how the number of bids changed as the clearing price changed
+(after allowing for the change in quota); the study rates the evidence
+MEDIUM for Option A's category and LOW for Option B's — so treat the
+sizes as a rough scenario input, not a measured effect of the feebate.*
 
 ### 4.6 If the feebate applies to renewals, it flips to a net cost to the government
 
@@ -590,9 +595,9 @@ analytical choice of the study, not an LTA parameter.*
 - **Can't claim:** any of these as realised outcomes. Every scenario
   number is an estimate under a stated 2027-01-01 regime start (with a
   2028-start renewal sensitivity in section 4.6), the
-  registration mix pinned at 2025-01..2025-05 (section 2), scenario-grade
-  demand elasticities (no structural
-  causal claim), and the stated assumptions (100% E re-entry, full-cohort
+  registration mix pinned at 2025-01..2025-05 (section 2), a
+  scenario-grade estimate of how bidding responds to price (no
+  structural causal claim), and the stated assumptions (100% E re-entry, full-cohort
   transition-year renewal, flat C price, per-cell PQP pricing). The
   magnitude of the feebate revenue — and of the renewal cost — is
   cut-point-dependent, and LTA's final cut points are not set.

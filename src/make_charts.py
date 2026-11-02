@@ -384,7 +384,7 @@ def fig5():
         ax.set_ylabel("Delta bids/yr by band (SCENARIO)")
         ax.grid(alpha=0.3, axis="y")
     mkfig("demand_shift_by_band.png",
-          "Figure 5: Feebate-induced demand shift by car-value band, bids/yr (scenario; elasticities from 2010–2026 bidding data): Option A left, Option B right.",
+          "Figure 5: Feebate-induced demand shift by car-value band, bids/yr (scenario; price-sensitivity estimate from 2010–2026 bidding data): Option A left, Option B right.",
           fig, title="Feebate-induced demand shift by car-value band (bids/yr)")
 
 
