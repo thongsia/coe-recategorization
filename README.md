@@ -45,7 +45,11 @@ summary). Every number in this README is quoted from the tables in
   had been one category, its price in that same round would have been
   S$131,965; averaged over the last six rounds it is S$131,892, and the
   study assumes it stays at that level through 2027 — right where both
-  categories already are (Figure 2).
+  categories already are. The only thing that would move the merged
+  price is the proposed feebate — and only slightly: about 1.6% (about
+  S$2,100) lower, offset by the fees minus rebates, so the average
+  car's total outlay (price + fee − rebate) would be unchanged
+  (Figure 2; section 4.2).
 - **The proposed feebate would be a modest source of government revenue
   — but its size depends heavily on where the value bands are cut.** On
   new car registrations alone, the feebate would raise about S$95.76M/yr
