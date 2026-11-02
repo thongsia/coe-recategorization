@@ -283,8 +283,8 @@ def fig3():
     for x, lab in ((28877, "35th: 28,877"), (36062, "50th: 36,062")):
         ax1.axvline(x, color="k", lw=1.0, ls="--")
         ax1.annotate(lab, xy=(x, ax1.get_ylim()[1] * 0.97), fontsize=8, ha="center")
-    ax1.text(0.02, 0.9, "band 1 (0-35th): −15,000 | share 35.16%\nband 2 (35-50th): 0 | share 15.74%\nband 3 (>50th): +15,000 | share 49.10%",
-             transform=ax1.transAxes, fontsize=8, va="top",
+    ax1.text(0.98, 0.9, "band 1 (0-35th): −15,000 | share 35.16%\nband 2 (35-50th): 0 | share 15.74%\nband 3 (>50th): +15,000 | share 49.10%",
+             transform=ax1.transAxes, fontsize=8, va="top", ha="right",
              bbox=dict(boxstyle="round", fc="white", alpha=0.85))
     ax1.set_title("(a) Option A — 3 bands at 35th/50th OMV percentiles\n(PROPOSED percentiles, COMPUTED cut points)")
     ax1.set_ylabel("Registration mix weight (Jan-May 2025)")
@@ -296,8 +296,8 @@ def fig3():
     for x, lab in ((20310, "10th: 20,310"), (28877, "35th: 28,877"), (36062, "50th: 36,062"), (49662, "75th: 49,662")):
         ax2.axvline(x, color="k", lw=1.0, ls="--")
         ax2.annotate(lab, xy=(x, ax2.get_ylim()[1] * 0.95), fontsize=7.5, ha="center")
-    ax2.text(0.02, 0.9, "band shares: 10.17 / 24.98 / 15.74 / 24.22 / 24.88%\nquantums: −15,000 / −7,500 / 0 / +7,500 / +15,000",
-             transform=ax2.transAxes, fontsize=8, va="top",
+    ax2.text(0.98, 0.9, "band shares: 10.17 / 24.98 / 15.74 / 24.22 / 24.88%\nquantums: −15,000 / −7,500 / 0 / +7,500 / +15,000",
+             transform=ax2.transAxes, fontsize=8, va="top", ha="right",
              bbox=dict(boxstyle="round", fc="white", alpha=0.85))
     ax2.set_title("(b) Option B — 5 bands at 10th/35th/50th/75th OMV percentiles\n(PROPOSED percentiles, COMPUTED cut points)")
     ax2.set_ylabel("Registration mix weight (Jan-May 2025)")
