@@ -365,7 +365,7 @@ sensitivity (S1/S2).
 
 *Bars: base revenue (excluding the E-shift), the E-shift delta
 (6,400 re-entering cars/yr), and the total including the E-shift. The
-boxed values are the two documented cut-point sensitivities (S1: LTA
+dotted lines mark the two documented cut-point sensitivities (S1: LTA
 2025-edition average-OMV cut points; S2: uniform model weights), each
 total incl. E-shift.*
 
