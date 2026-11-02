@@ -85,9 +85,11 @@ summary). Every number in this README is quoted from the tables in
   band boundary, where the fee changes by S$15,000 — enough incentive for
   buyers to trim a car's spec to just under the line (Figure 7); the
   feebate would also push demand toward cheaper cars (Figure 5); and
-  removing Category E would raise the commercial-vehicle category's (C)
-  quota by 11% while closing off the fast-track option for buyers who
-  need a COE urgently (Figure 6).
+  removing Category E — the general-purpose COE (usable for any A, B or
+  C vehicle) whose transferable three-month COEs are the current fast
+  lane for buyers who need a car urgently — would raise the
+  commercial-vehicle category's (C) quota by 11% while closing that
+  fast lane (Figure 6).
 
 Bottom line: **as proposed, the merge would be a low-risk administrative
 consolidation at today's prices, and the feebate on new registrations
@@ -191,11 +193,20 @@ dollar cut points are computed by the study from the 2025 mix).**
 
 Beyond the two banding options, the consultation asks:
 
-- **Category E:** remove it entirely (urgent buyers wait for the next
-  bidding round) or retain it for car registration only (preserves the
-  urgent-buyer channel and shields Category C supply). Since May 2017, E
-  has received 10% of A/B/C de-registrations, and in recent years E COEs
-  are used predominantly for Category B cars.
+- **Category E — the "urgent-bid fast lane":** a general-purpose COE
+  that can register *any* A, B or C vehicle, drawn from a quota taken
+  out of A/B/C (10% of A/B/C de-registrations since May 2017). It is
+  the fast lane for buyers who need a car urgently: an E COE is a
+  Temporary COE valid for three months that is transferable when won
+  by an individual, so an urgent buyer can get a COE without waiting
+  for the next bidding round. The price of the fast lane: an E COE can
+  be used in the priciest category, so E clears at the top of the
+  round's COE prices — it cleared above both car categories in 7 of the
+  last 8 rounds, and in recent years E COEs have been used mostly for
+  Category B cars. The consultation asks: remove E entirely (urgent
+  buyers would then have to wait for the next bidding round) or retain
+  it for car registration only (preserves the urgent-buyer channel and
+  shields Category C supply).
 - **Renewals (the open PQP question):** should the feebate also apply
   when COEs are renewed?
 - **Review cadence:** the banding is to be reviewed **annually**.
@@ -503,7 +514,12 @@ data, so flat is the conservative revenue bound; C annual revenue rises
 S$685.66M to S$761.87M). Under "E cars-only", E keeps its quota
 (266.67/round) but its premium over the merged car price decays from
 S$3,777.33 to zero over six rounds (Figure 6). Time-constrained buyers
-lose the urgent-bid fast lane either way.
+lose the fast lane (section 3) under removal — the paper's own words
+are that they would "need to wait for the next COE bidding round" — and
+that deferred demand is the one-round pulse above. Under cars-only the
+channel survives (that is the point of the option), but the price of
+the fast lane — the E premium — decays to zero as E COEs become
+functionally equivalent to ordinary car COEs.
 
 **Figure 6.** Category E and C quota and price paths, 2027 forward
 (scenario; E-to-car re-entry base 100%): left quotas per round, right
