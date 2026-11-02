@@ -1184,11 +1184,10 @@ tables only (no recomputation). Conventions: OBSERVED series solid,
 SCENARIO series dashed; every title/legend carries the scenario label,
 PROPOSED-vs-COMPUTED distinction and data window where applicable;
 the 2026 inversion set is annotated on FIG 1; the E-shift pulse is
-visible in the E-removal cells on FIG 2; FIG 6 titles carry the regime
-start date and the derived vintage (2017 = 2027 - 10). Figures:
+visible in the E-removal cells on FIG 2. Figures:
 ab_convergence_perbidding.png, merged_price_paths.png,
 omv_histogram_bands.png, fee_revenue.png, demand_shift_by_band.png,
-renewal_cost_cells.png, ec_quota_price_paths.png, gaming_zones.png.
+ec_quota_price_paths.png, gaming_zones.png.
 
 ### 18i. Reports (Step 18)
 

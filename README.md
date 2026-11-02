@@ -69,7 +69,7 @@ summary). Every number in this README is quoted from the tables in
   2027 (Option A) or S$353.3M (Option B)**: effectively a rebate to
   mass-market renewal owners, who would get back about S$12,600 (A) or
   S$9,261 (B) per car, while current Category B owners would pay about
-  S$1,400–1,600 more per car (Figure 6, Table 6).
+  S$1,400–1,600 more per car (Table 6).
 - **The consultation paper's own banding tables are internally
   inconsistent under public OMVs (LTA's published car values).** In the
   paper's indicative banding tables, 2 rows of Option A's (of 32) and 4
@@ -83,11 +83,11 @@ summary). Every number in this README is quoted from the tables in
 - **Under the proposal, the side effects would be real but limited.**
   About 14% of new registrations sit within ±5% of Option A's middle
   band boundary, where the fee changes by S$15,000 — enough incentive for
-  buyers to trim a car's spec to just under the line (Figure 8); the
+  buyers to trim a car's spec to just under the line (Figure 7); the
   feebate would also push demand toward cheaper cars (Figure 5); and
   removing Category E would raise the commercial-vehicle category's (C)
   quota by 11% while closing off the fast-track option for buyers who
-  need a COE urgently (Figure 7).
+  need a COE urgently (Figure 6).
 
 Bottom line: **as proposed, the merge would be a low-risk administrative
 consolidation at today's prices, and the feebate on new registrations
@@ -431,8 +431,7 @@ absorbs that reduction — on new registrations the feebate is net
 revenue (section 4.4), but applied to renewals it is a net cost (Table
 6). (Pricing basis: each scenario cell's renewal bill is priced at its
 own merged PQP — S$129,800.16 for all Option A cells, S$129,743.03 for
-all Option B cells, at the 2027-12 end; the paths those PQPs come from
-are in Figure 6(b).)
+all Option B cells, at the 2027-12 end.)
 
 **Table 6. Per-vehicle renewal impact under the feebate (COMPUTED;
 2017-vintage cohort banded at the PROPOSED 2025 cut points).**
@@ -456,29 +455,6 @@ re-banding the same 2017 cohort against the coarser 2025 edition (93%
 coverage) turns the Option A net from −S$517.2M (cost) into
 +S$124.9M (revenue) — a year-of-values and list-granularity effect that
 public data cannot separate.
-
-**Figure 6.** (a) 2027 transition-year renewal cost per scenario cell
-(scenario, full-cohort upper bound): feebate on renewals vs not, with
-net-rebate deltas; (b) the per-cell merged price paths and the
-cell-level renewal PQP those costs are priced at.
-
-![2027 transition-year renewal cost per scenario cell (S$B), and the per-cell merged price paths + cell-level renewal PQP they are priced at](charts/renewal_cost_cells.png)
-
-*Grey bars: renewal cost with the feebate OFF (PQP only); blue bars:
-with the feebate ON (PQP + band quantum). Each cell's label carries its
-2017-vintage cohort size and its 2027-12 cell-level PQP. Within each
-option the two Category-E bars are identical: the E options differ only
-in the one-round 2027-01 pulse (panel (b)), while the 2027-12 PQP and
-the A+B renewal cohort — what these bars price — are the same. The
-annotated deltas are the net rebates to the government (negative = cost
-to government, benefit to owners). Pricing basis: each cell's own merged
-PQP, never the clearing price. Right panel: the four distinct per-cell
-price paths those PQPs come from (the renewal-feebate toggle pairs are
-price-identical — four paths serve the eight scenario cells); the two
-Category-E options (section 4.7) and the two band structures shift the
-paths slightly differently. Dotted lines: each cell's renewal PQP. The
-small pulse at the 2027-01 round in the E-removed cells is the
-one-round Category E shift effect (+S$1,428.14).*
 
 **If the regime starts on 1 Jan 2028 instead.** LTA findings are due
 1H2027, so 2028 is the more probable effective date (section 3); the
@@ -528,10 +504,10 @@ held flat at S$91,813.5 (C's price response is not detectable in the
 data, so flat is the conservative revenue bound; C annual revenue rises
 S$685.66M to S$761.87M). Under "E cars-only", E keeps its quota
 (266.67/round) but its premium over the merged car price decays from
-S$3,777.33 to zero over six rounds (Figure 7). Time-constrained buyers
+S$3,777.33 to zero over six rounds (Figure 6). Time-constrained buyers
 lose the urgent-bid fast lane either way.
 
-**Figure 7.** Category E and C quota and price paths, 2027 forward
+**Figure 6.** Category E and C quota and price paths, 2027 forward
 (scenario; E-to-car re-entry base 100%): left quotas per round, right
 forward prices.
 
@@ -553,7 +529,7 @@ line marks the 2027-01-01 regime start.*
   **13.79% of the registration mix (about 6,312 cars/yr)** sits within
   the zone, with S$15,000 at stake; Option A's 35th-percentile zone
   covers a further 11.84% (about 5,418 cars/yr). Option B's four zones
-  cover 5.56% / 11.84% / 13.79% / 6.84% (Figure 8). Crossing a boundary
+  cover 5.56% / 11.84% / 13.79% / 6.84% (Figure 7). Crossing a boundary
   requires an OMV move of 5% of the cut point (S$1,443.85 at Option A's
   35th) — small, but not trivial, relative to a S$15,000 payoff.
 - **Variant-family classification distortion.** 139 model families (the
@@ -573,7 +549,7 @@ line marks the 2027-01-01 regime start.*
   E-removal pushes time-constrained buyers directionally toward used
   cars.
 
-**Figure 8.** Models within ±5% OMV of each feebate cut point
+**Figure 7.** Models within ±5% OMV of each feebate cut point
 (spec-gaming exposure; Jan–May 2025 mix, annualised 45,775 (A) /
 45,776 (B) registrations).
 
@@ -628,7 +604,7 @@ source — URLs, fetch timestamps, row counts, sha256 checksums — is in
 
 **Reproducibility.** Every number in the report traces to a saved table
 cell: raw data in `data/raw/`, processed panels in `data/processed/`,
-one CSV per table in `tables/`, eight charts in `charts/` (Figures 1–8),
+one CSV per table in `tables/`, seven charts in `charts/` (Figures 1–7),
 and the reports in `docs/`. The verification module
 (`src/verify.py`) re-checks everything from disk on every run: row
 counts against the API-stated totals, time anchors and spot prices, the
@@ -663,7 +639,7 @@ python3 src/renewal_cohort_2028_sensitivity.py  # 2028-start renewal sensitivity
 python3 src/renewal_impact.py       # renewal-holder impacts, priced at cell-level PQP
 python3 src/consequences.py         # boundary gaming, classification distortion, used-car directional
 python3 src/master_matrix.py        # 8-cell master scenario matrix
-python3 src/make_charts.py          # regenerate the eight charts
+python3 src/make_charts.py          # regenerate the seven charts
 python3 src/verify.py               # full verification suite (exit 0 iff no failures)
 ```
 
@@ -688,7 +664,7 @@ docs/car_cost_aug2026.pdf        ← LTA "Cost for Cars Registered" (Aug 2026, 2
 data/raw/                        ← COE bidding results + vehicle registrations, as fetched
 data/processed/                  ← per-bidding panel, PQP series, per-cell price paths, renewal cohort
 tables/                          ← one CSV per reported table (+ tables/renewal/ per scenario cell)
-charts/                          ← the eight figures shown above (Figures 1–8)
+charts/                          ← the seven figures shown above (Figures 1–7)
 src/                             ← ordered Python modules (env check → anchors → panel → exhibits → charts → verify)
 verification/                    ← audit trail: constraint report, invariants, cross-foot log,
                                     traceability audit, label audits + archived source files

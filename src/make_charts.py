@@ -23,9 +23,8 @@ Figures:
   3 charts/omv_histogram_bands.png
   4 charts/fee_revenue.png
   5 charts/demand_shift_by_band.png
-  6 charts/renewal_cost_cells.png
-  7 charts/ec_quota_price_paths.png
-  8 charts/gaming_zones.png
+  6 charts/ec_quota_price_paths.png
+  7 charts/gaming_zones.png
 """
 from __future__ import annotations
 
@@ -388,71 +387,6 @@ def fig5():
           fig, title="Feebate-induced demand shift by car-value band (bids/yr)")
 
 
-# ======================================================================
-# 6. Renewal cost cells (cell-level PQP pricing, regime start + vintage)
-# ======================================================================
-def fig6():
-    ixm, rowsm = read("tables/renewal_impact_master.csv")
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 5.5), gridspec_kw={"width_ratios": [1.15, 1]})
-    import numpy as np
-    cells = ["OptionA+E_removed", "OptionA+E_cars_only", "OptionB+E_removed", "OptionB+E_cars_only"]
-    no = [f([r for r in rowsm if r[ixm["cell"]] == c + "+renewal_feebate_no"][0][ixm["annual_cost_total_sgd"]]) / 1e9 for c in cells]
-    yes = [f([r for r in rowsm if r[ixm["cell"]] == c + "+renewal_feebate_yes"][0][ixm["annual_cost_total_sgd"]]) / 1e9 for c in cells]
-    cohort = [f([r for r in rowsm if r[ixm["cell"]] == c + "+renewal_feebate_no"][0][ixm["cohort_volume"]]) for c in cells]
-    pqp = [f([r for r in rowsm if r[ixm["cell"]] == c + "+renewal_feebate_no"][0][ixm["pqp_2027_12_sgd"]]) for c in cells]
-    x = np.arange(len(cells)); wdt = 0.36
-    b1 = ax1.bar(x - wdt/2, no, wdt, color="#d9d9d9", edgecolor="k", lw=0.6, label="renewal feebate OFF (PQP only)")
-    b2 = ax1.bar(x + wdt/2, yes, wdt, color="#1f77b4", edgecolor="k", lw=0.6, label="renewal feebate ON (PQP + band quantum)")
-    for i, (nv, yv) in enumerate(zip(no, yes)):
-        ax1.text(i - wdt/2, nv + 0.06, f"{nv:.3f}B", ha="center", fontsize=8)
-        ax1.text(i + wdt/2, yv + 0.06, f"{yv:.3f}B", ha="center", fontsize=8)
-        ax1.annotate(f"Δ {yv-nv:+.2f}B/yr (NET REBATE)", xy=(i + wdt/2, yv), xytext=(i + 0.02, yv - 0.55),
-                     fontsize=7.5, ha="center", color="#0b3d91")
-    ax1.set_xticks(x)
-    ax1.set_xticklabels([f"{c}\ncohort {n:,.0f}\n2027-12 PQP {p:,.2f}" for c, n, p in zip(cells, cohort, pqp)], fontsize=8)
-    ax1.set_title("(a) 2027 transition-year renewal cost\nper scenario cell (S$B)")
-    ax1.set_ylabel("2027 transition-year renewal cost (S$B, full cohort renews — upper bound)")
-    ax1.set_ylim(0, 13.2)
-    ax1.grid(alpha=0.3, axis="y")
-    ax1.legend(fontsize=8)
-
-    # (b) the per-cell merged price paths + cell-level renewal PQP that the
-    # costs in (a) are priced at (moved here from Figure 2, 2026-11: it is
-    # scenario-matrix detail, not part of the merged-price story)
-    cols = {"OptionA+E_removed": "#1f77b4", "OptionA+E_cars_only": "#2ca02c",
-            "OptionB+E_removed": "#ff7f0e", "OptionB+E_cars_only": "#9467bd"}
-    pulse_pts = []
-    for c in cells:
-        ixp2, rowsp2 = read(f"data/processed/price_paths/{c}+renewal_feebate_no.csv")
-        pts = [(mbdate(r[ixp2["month"]], r[ixp2["bidding_no"]]), f(r[ixp2["price_sgd"]])) for r in rowsp2
-               if r[ixp2["month"]] >= "2026-06"]
-        ax2.plot([t for t, _ in pts], [v for _, v in pts], "--", color=cols[c], lw=1.5,
-                 label=f"{c} price (SCENARIO)")
-        # pulse annotation for removal cells: 2027-01 b1 is plotted at 2027-01-01
-        if "E_removed" in c:
-            pulse_pts.extend(v for t, v in pts if t == dt.datetime(2027, 1, 1))
-    if pulse_pts:
-        ax2.annotate("E-shift pulse +1,428 S$ (2027-01 b1 only)",
-                     xy=(dt.datetime(2027, 1, 1), max(pulse_pts)),
-                     xytext=(dt.datetime(2027, 4, 1), 133500), fontsize=7, ha="center",
-                     arrowprops=dict(arrowstyle="->", lw=0.7))
-    ixq, rowsq = read("data/processed/pqp_by_cell.csv")
-    for c in cells:
-        pts = [(mbdate(r[ixq["month"]], "1"), f(r[ixq["pqp_sgd"]])) for r in rowsq
-               if r[ixq["distinct_path_id"]] == c and r[ixq["month"]] >= "2027-01"]
-        ax2.plot([t for t, _ in pts], [v for _, v in pts], ":", color=cols[c], lw=2.2,
-                 label=f"{c} cell PQP (SCENARIO)")
-    ax2.set_title("(b) Per-cell merged price paths\nand cell-level renewal PQP\n(2026-06..2027-12)")
-    ax2.set_ylim(120500, 135000)
-    ax2.set_ylabel("Price / PQP (S$)")
-    ax2.xaxis.set_major_formatter(mdates.DateFormatter("%y-%m"))
-    ax2.tick_params(labelsize=7)
-    ax2.grid(alpha=0.3)
-    ax2.legend(fontsize=6, ncol=2, loc="lower right")
-    mkfig("renewal_cost_cells.png",
-          "Figure 6: 2027 transition-year renewal cost per scenario cell (scenario, full-cohort upper bound): feebate on renewals vs not, with net-rebate deltas; right: the per-cell merged price paths and renewal PQP those costs are priced at.",
-          fig, title="2027 transition-year renewal cost per scenario cell (S$B)")
-
 
 # ======================================================================
 # 7. E/C quota and price paths under both E options
@@ -504,7 +438,7 @@ def fig7():
     ax2.legend(fontsize=6.5)
     ax2.grid(alpha=0.3)
     mkfig("ec_quota_price_paths.png",
-          "Figure 7: Category E and C quota and price paths, 2027 forward (scenario; E-to-car re-entry base 100%): left quotas per round, right forward prices.",
+          "Figure 6: Category E and C quota and price paths, 2027 forward (scenario; E-to-car re-entry base 100%): left quotas per round, right forward prices.",
           fig, title="Category E and C — quota and price paths, 2027 forward")
 
 
@@ -536,7 +470,7 @@ def fig8():
         ax.grid(alpha=0.3, axis="y")
     ax2.set_xlabel("Model OMV (S$, Car Cost Aug 2026 catalog)")
     mkfig("gaming_zones.png",
-          "Figure 8: Models within ±5% OMV of each feebate cut point (spec-gaming exposure; Jan–May 2025 mix, annualised 45,775 (A) / 45,776 (B) registrations).",
+          "Figure 7: Models within ±5% OMV of each feebate cut point (spec-gaming exposure; Jan–May 2025 mix, annualised 45,775 (A) / 45,776 (B) registrations).",
           fig, title="Spec-gaming exposure — ±5% OMV zones around each cut point")
 
 
@@ -546,7 +480,6 @@ if __name__ == "__main__":
     fig3()
     fig4()
     fig5()
-    fig6()
     fig7()
     fig8()
-    print("done: 8 charts")
+    print("done: 7 charts")
