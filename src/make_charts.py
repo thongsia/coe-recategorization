@@ -404,8 +404,8 @@ def fig6():
     b1 = ax1.bar(x - wdt/2, no, wdt, color="#d9d9d9", edgecolor="k", lw=0.6, label="renewal feebate OFF (PQP only)")
     b2 = ax1.bar(x + wdt/2, yes, wdt, color="#1f77b4", edgecolor="k", lw=0.6, label="renewal feebate ON (PQP + band quantum)")
     for i, (nv, yv) in enumerate(zip(no, yes)):
-        ax1.text(i - wdt/2, nv + 0.06, f"{nv:.2f}B", ha="center", fontsize=8)
-        ax1.text(i + wdt/2, yv + 0.06, f"{yv:.2f}B", ha="center", fontsize=8)
+        ax1.text(i - wdt/2, nv + 0.06, f"{nv:.3f}B", ha="center", fontsize=8)
+        ax1.text(i + wdt/2, yv + 0.06, f"{yv:.3f}B", ha="center", fontsize=8)
         ax1.annotate(f"Δ {yv-nv:+.2f}B/yr (NET REBATE)", xy=(i + wdt/2, yv), xytext=(i + 0.02, yv - 0.55),
                      fontsize=7.5, ha="center", color="#0b3d91")
     ax1.set_xticks(x)

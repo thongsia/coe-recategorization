@@ -462,9 +462,12 @@ cell-level renewal PQP those costs are priced at.
 
 *Grey bars: renewal cost with the feebate OFF (PQP only); blue bars:
 with the feebate ON (PQP + band quantum). Each cell's label carries its
-2017-vintage cohort size and its 2027-12 cell-level PQP. The annotated
-deltas are the net rebates to the government (negative = cost to
-government, benefit to owners). Pricing basis: each cell's own merged
+2017-vintage cohort size and its 2027-12 cell-level PQP. Within each
+option the two Category-E bars are identical: the E options differ only
+in the one-round 2027-01 pulse (panel (b)), while the 2027-12 PQP and
+the A+B renewal cohort — what these bars price — are the same. The
+annotated deltas are the net rebates to the government (negative = cost
+to government, benefit to owners). Pricing basis: each cell's own merged
 PQP, never the clearing price. Right panel: the four distinct per-cell
 price paths those PQPs come from (the renewal-feebate toggle pairs are
 price-identical — four paths serve the eight scenario cells); the two
