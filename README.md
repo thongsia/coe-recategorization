@@ -422,13 +422,18 @@ cars registered under Category E in 2017 (official 2017 total 101,415)
 also come up for renewal in 2027 and are not priced here, so the
 figures in this section apply to the A+B cohort.
 
-Under the PROPOSED 2025 cut points, pricing the renewal cost at each
-scenario cell's own merged PQP (S$129,800.16 for all Option A cells,
-S$129,743.03 for all Option B cells, at the 2027-12 end — the paths
-those PQPs come from are in Figure 6(b)): applying the
-feebate to renewals **reduces** the transition-year renewal cost by
-**S$517,215,600 (Option A) / S$353,265,450 (Option B)** — a net rebate
-to the government's own budget position, delivered to owners (Table 6):
+This is where the feebate flips from income to cost. The first renewal
+cohort skews cheap (77% of it lands in the rebate bands under Option A's
+cut points), so the rebates outweigh the fees: under the PROPOSED 2025
+cut points, adding the band quantum to the renewal PQP **reduces** the
+owners' total transition-year renewal bill by
+**S$517,215,600 (Option A) / S$353,265,450 (Option B)**. The government
+absorbs that reduction — on new registrations the feebate is net
+revenue (section 4.4), but applied to renewals it is a net cost (Table
+6). (Pricing basis: each scenario cell's renewal bill is priced at its
+own merged PQP — S$129,800.16 for all Option A cells, S$129,743.03 for
+all Option B cells, at the 2027-12 end; the paths those PQPs come from
+are in Figure 6(b).)
 
 **Table 6. Per-vehicle renewal impact under the feebate (COMPUTED;
 2017-vintage cohort banded at the PROPOSED 2025 cut points).**
